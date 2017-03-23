@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+
+  <form-beans>
+	
+	<form-bean name="StandardFeedbackForm" type="com.ht706.componentLibrary.componentFeedBack.actionForm.StandardFeedbackForm"></form-bean>
+	
+	<form-bean name="FeedbackForm" type="com.ht706.componentLibrary.componentFeedBack.actionForm.FeedbackForm"></form-bean>
+	
+	<form-bean name="ItemFunctionForm" type="com.ht706.componentLibrary.componentFeedBack.actionForm.ItemFunctionForm"></form-bean>
+	
+	<form-bean name="ProblemReportForm" type="com.ht706.componentLibrary.componentFeedBack.actionForm.ProblemReportForm"></form-bean>
+	
+	<form-bean name="ProblemTraceForm" type="com.ht706.componentLibrary.componentFeedBack.actionForm.ProblemTraceForm"></form-bean>
+  
+  </form-beans>
+
+  <action-mappings>
+   	
+   	<!-- StandardFeedback Action -->
+   	<action path="/componentFeedBack/standardFeedback" type="com.ht706.componentLibrary.componentFeedBack.action.StandardFeedbackAction" parameter="method" name="StandardFeedbackForm" scope="request">
+		
+		<!-- Create StandardFeedback Action -->
+	 	<forward name="preCreateStandardFeedback" path="/componentFeedBack/standardFeedBackCreate.jsp"/>
+   
+   		<forward name="createStandardFeedback" path="/componentFeedBack/standardFeedback.do?method=preManageStandardFeedbackItems"/>
+   		
+   		<!-- Modify StandardFeedback Action -->
+        <forward name="preModifyStandardFeedback" path="/componentFeedBack/standardFeedBackEdit.jsp"/>
+
+	    <forward name="modifyStandardFeedback" path="/componentFeedBack/standardFeedback.do?method=preManageStandardFeedbackItems"/>
+   		
+   		<!-- Operation on items -->
+   		<forward name="preManageStandardFeedbackItems" path="/componentFeedBack/standardFeedBackItemsCreate.jsp"/>
+   
+   	 	<forward name="preAddStandardFeedbackItem" path="/componentFeedBack/newItem.jsp"/>
+   
+   		<forward name="addStandardFeedbackItem" path="/componentFeedBack/standardFeedback.do?method=preManageStandardFeedbackItems"/>
+   		
+   		<forward name="preModifyStandardFeedbackItem" path="/componentFeedBack/editItem.jsp"/>
+   		
+   		<forward name="modifyStandardFeedbackItem" path="/componentFeedBack/standardFeedback.do?method=preManageStandardFeedbackItems"/>
+   		
+   		<forward name="deleteStandardFeedbackItem" path="/componentFeedBack/standardFeedback.do?method=preManageStandardFeedbackItems"/>
+   		
+		<!-- Other Action -->    
+	    <forward name="validate" path="/componentFeedBack/standardFeedback.do?method=listAllStandardFeedback"/>
+	 	  
+	 	<forward name="listStandardFeedback" path="/componentFeedBack/standardFeedBack.jsp"/> 
+	 	  
+	 	<forward name="listStandardFeedbackSuccess" path="/componentFeedBack/standardFeedbackRetrival.jsp"/> 
+	      
+	    <forward name="deleteStandardFeedbackSuccess" path="/componentFeedBack/standardFeedback.do?method=listAllStandardFeedback"/>
+	   				<!-- added by wanghao -->
+      <forward name="check_ok" path="/componentFeedBack/check_ok.jsp"/> 
+      <forward name="check_error" path="/componentFeedBack/check_error.jsp"/> 
+   	</action> 
+
+	<!-- Feedback Action -->
+   	<action  path="/componentFeedBack/feedback" type="com.ht706.componentLibrary.componentFeedBack.action.FeedbackAction" parameter="method" name="FeedbackForm" scope="request"> 
+   		
+   		<!-- Other Action -->
+   		<forward name="listAllFeedback" path="/componentFeedBack/feedbackByPeople.jsp"/>
+   		
+   		<forward name="listFeedback" path="/componentFeedBack/feedback.jsp"/>
+   		
+   		<forward name="deleteFeedbackSuccess" path="/componentFeedBack/feedback.do?method=listAllFeedback"/>
+   		
+   		<forward name="feedbackStatics" path="/componentFeedBack/feedbackByStatics.jsp"/>
+   		
+   		<forward name="File_UpLoad_Error" path="/upload_error.htm"/>
+   		
+   		<!-- Create Feedback Action -->
+   		<forward name="preCreate" path="/componentFeedBack/FeedBackFill_base.jsp"/>
+   		
+   		<forward name="createSuccess" path="/componentFeedBack/feedback.do?method=preManageFeedbackItems"/>
+   		
+   		<!-- Modify Feedback Action -->
+   		<forward name="preModifyFeedback" path="/componentFeedBack/feedbackEdit.jsp"></forward>
+   		
+   		<forward name="modifyFeedback" path="/componentFeedBack/feedback.do?method=preManageFeedbackItems"></forward>
+   		
+   		<!-- Operation on items -->
+   		<forward name="preManageFeedbackItems" path="/componentFeedBack/FeedBackFill_items.jsp" />
+   		
+   		<forward name="preAddFeedbackItem" path="/componentFeedBack/FeedbackNewItem.jsp"/>
+   		
+   		<forward name="addFeedbackItem" path="/componentFeedBack/feedback.do?method=preManageFeedbackItems"/>
+   		
+   		<forward name="preModifyFeedbackItem" path="/componentFeedBack/FeedbackEditItem.jsp"/>
+   		
+   		<forward name="modifyFeedbackItem" path="/componentFeedBack/feedback.do?method=preManageFeedbackItems"/>
+   		
+   		<forward name="deleteFeedbackItem" path="/componentFeedBack/feedback.do?method=preManageFeedbackItems"/>
+   				<!-- added by wanghao -->
+      <forward name="check_ok" path="/componentFeedBack/check_ok.jsp"/> 
+      <forward name="check_error" path="/componentFeedBack/check_error.jsp"/>
+   	</action> 
+   	
+   	<!-- ItemFunction Action -->
+   	<action  path="/componentFeedBack/itemFunction" type="com.ht706.componentLibrary.componentFeedBack.action.ItemFunctionAction" parameter="method" name="ItemFunctionForm" scope="request"> 
+   		
+   		<forward name="listItemFunctionSuccess" path="/componentFeedBack/itemFunctionRetrival.jsp"/>
+   		
+   		<forward name="createSuccess" path="/componentFeedBack/itemFunction.do?method=listAllItemFunction"/>
+   		
+   		<forward name="preModifySuccess" path="/componentFeedBack/editItemFunction.jsp"/>
+   		
+   		<forward name="modifySuccess" path="/componentFeedBack/itemFunction.do?method=listAllItemFunction"/>
+   		
+   		<forward name="deleteSuccess" path="/componentFeedBack/itemFunction.do?method=listAllItemFunction"/>
+   	
+   	</action> 
+   	
+   	<!-- ProblemReport Action -->
+   	<action  path="/componentFeedBack/problemReport" type="com.ht706.componentLibrary.componentFeedBack.action.ProblemReportAction" parameter="method" name="ProblemReportForm" scope="request"> 
+   		
+   		<forward name="listAllProblemReport" path="/componentFeedBack/problemByPeople.jsp"/>
+   		
+   		<forward name="listProblemReport" path="/componentFeedBack/problemReport_detail.jsp"/>
+   		
+   		<forward name="precreate" path="/componentFeedBack/problemReport_new.jsp"/>
+   		
+   		<forward name="createSuccess" path="/componentFeedBack/problemReport.do?method=listAllProblemReport"/>
+   		
+   		<forward name="listAllProblemReportForTrace" path="/componentFeedBack/problemTrace.jsp"/>
+		
+		<forward name="File_UpLoad_Error" path="/upload_error.htm"/>
+		<!-- added by wanghao -->
+      <forward name="check_ok" path="/componentFeedBack/check_ok.jsp"/> 
+      <forward name="check_error" path="/componentFeedBack/check_error.jsp"/> 
+   	</action> 
+   	
+   	<!-- ProblemTrace Action -->
+   	<action  path="/componentFeedBack/problemTrace" type="com.ht706.componentLibrary.componentFeedBack.action.ProblemTraceAction" parameter="method" name="ProblemTraceForm" scope="request"> 
+   		
+   		<forward name="listAllProblemTraceByRid" path="/componentFeedBack/problemTraceRecordView.jsp"/>
+   		
+   		<forward name="preAddProblemTrace" path="/componentFeedBack/problemTraceRecordAdd.jsp"/>
+   		
+   		<forward name="addProblemTrace" path="/componentFeedBack/problemReport.do?method=listAllProblemReportForTrace"/>
+   	
+   	</action> 
+   	
+  </action-mappings>
+
+</struts-config>

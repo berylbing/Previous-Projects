@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 该文件用来指定工作流相关模块读取的配置文件名 -->
+
+<jbpmFileName>
+	<fileName resource ="workflow_ComponentCheckout.jpdl.xml"/> 
+	<fileName resource = "workflow_CreateSpecification.jpdl.xml"/>
+	<fileName resource = "workflow_ProblemReport.jpdl.xml"/> 
+	<fileName resource = "workflow_ReleaseComponent.jpdl.xml"/> 
+	<fileName resource = "workflow_StandardFeedback.jpdl.xml"/> 
+	<fileName resource = "workflow_UpdateSpecification.jpdl.xml"/> 
+</jbpmFileName>

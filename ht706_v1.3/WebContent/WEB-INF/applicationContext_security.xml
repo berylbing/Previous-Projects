@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:security="http://www.springframework.org/schema/security"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans spring-beans-3.0.xsd
+              http://www.springframework.org/schema/security spring-security-3.0.xsd" >
+
+		
+<!--<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:security="http://www.springframework.org/schema/security"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://localhost:8183/aspring_xsd/spring-beans-3.0.xsd
+					http://www.springframework.org/schema/security http://localhost:8183/aspring_xsd/spring-security-3.0.xsd">
+
+		
+		--><!--  security     -->
+	<bean id="authenticationManager" class="org.springframework.security.providers.ProviderManager">
+		<property name="providers">
+			<list>
+				<ref bean="daoAuthenticationProvider"/>
+			</list>
+		</property>
+	</bean>
+		
+		
+	<bean id="daoAuthenticationProvider" class="org.springframework.security.providers.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="authenticationDao"/>
+		<property name="passwordEncoder">
+			<bean class="org.springframework.security.providers.encoding.Md5PasswordEncoder"></bean>
+		</property>
+<!--		<property name="saltSouce">-->
+<!--			<bean class="org.springframework.security.providers.dao.salt.RefelectionSaltSource">-->
+<!--				<property name="userPropertyToUse" value="userName"></property>-->
+<!--			</bean>-->
+<!--		</property>-->
+	</bean>
+
+	<bean id="authenticationDao" class="org.springframework.security.userdetails.jdbc.JdbcDaoImpl">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="usersByUsernameQuery">
+			<value>
+				SELECT UserName as username,Password as password,enable as enable,Name as RealName
+				FROM organization
+				WHERE UserName=?
+			</value>
+		</property>
+		<property name="authoritiesByUsernameQuery">
+			<value>
+				SELECT UserName as username,responsibility as authority
+				FROM userandactor ua
+				WHERE ua.UserName=?
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="accessDecisionManager" class="org.springframework.security.vote.UnanimousBased">
+		<property name="decisionVoters">
+			<list>
+				<ref bean="roleVoter"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	<bean id="roleVoter" class="org.springframework.security.vote.RoleVoter">
+	</bean>
+	
+	<bean id="filterChainProxy" class="org.springframework.security.util.FilterChainProxy">
+	  <security:filter-chain-map path-type="ant">
+	     <security:filter-chain pattern="/**" filters="
+	           	httpSessionIntegrationFilter,
+	           	logoutFilter,
+				authenticationProcessingFilter1,
+				exceptionTranslationFilter,
+				filterSecurityInterceptorByDB" />
+	  </security:filter-chain-map>
+	</bean>	
+	<bean id="logoutFilter" class="org.springframework.security.ui.logout.LogoutFilter">
+		<constructor-arg value="/" />
+		<constructor-arg>
+			<list>
+			 <bean class="org.springframework.security.ui.logout.SecurityContextLogoutHandler" />
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="httpSessionIntegrationFilter" class="org.springframework.security.context.HttpSessionContextIntegrationFilter"/>
+
+	<bean id="authenticationProcessingFilter1" class="org.springframework.security.ui.webapp.AuthenticationProcessingFilter">
+		<property name="filterProcessesUrl" value="/loginAction" />
+		<property name="authenticationFailureUrl" value="/authenticationFailure.html"/>
+		<property name="defaultTargetUrl" value="/default.do"/>
+		<property name="authenticationManager" ref="authenticationManager"/>
+	</bean>
+	<bean id="authenticationProcessingFilter2" class="org.springframework.security.ui.webapp.AuthenticationProcessingFilter">
+		<property name="filterProcessesUrl" value="/loginAction" />
+		<property name="authenticationFailureUrl" value="/authenticationFailure.html"/>
+		<property name="defaultTargetUrl" value="/index3.htm"/>
+		<property name="authenticationManager" ref="authenticationManager"/>
+	</bean>
+	
+	<bean id="authenticationEntryPoint" class="org.springframework.security.ui.webapp.AuthenticationProcessingFilterEntryPoint">
+		<property name="loginFormUrl" value="/index.jsp"/>
+		<property name="forceHttps" value="false"/>
+	</bean>
+	
+	<bean id="exceptionTranslationFilter" class="org.springframework.security.ui.ExceptionTranslationFilter">
+		<property name="authenticationEntryPoint" ref="authenticationEntryPoint"/>
+		<property name="accessDeniedHandler" ref="accessDeniedHandler" />
+	</bean>
+	
+	<bean id="accessDeniedHandler" class="org.springframework.security.ui.AccessDeniedHandlerImpl">
+		<property name="errorPage" value="/error.html"/>
+	</bean>
+	
+	<bean id="filterSecurityInterceptorByDB" class="com.ht706.componentLibrary.util.security.FilterSecurityInterceptorByDB">
+		<property name="authenticationManager" ref="authenticationManager"/>
+		<property name="accessDecisionManager" ref="accessDecisionManager"/>
+		<property name="service" ref="UserService"></property>
+		<property name="objectDefinitionSource">
+			<security:filter-invocation-definition-source>
+				<security:intercept-url pattern="/index2.html" access="ROLE_MANAGER"/>
+				<security:intercept-url pattern="/index3.htm" access="ROLE_USER"/>
+				<security:intercept-url pattern="/xitongguanli/safeControlAction.do?method=searchAllByActor*" access="ROLE_DU"/>
+				<security:intercept-url pattern="/xitongguanli/backupRecovery.htm*" access="ROLE_DU"/>
+			</security:filter-invocation-definition-source>
+		</property>
+	</bean>	
+<!--	<bean id="myDefaultFilterInvocationDefinitionSource" class="com.ht706.componentLibrary.util.security.MyDefaultFilterInvocationDefinitionSource">-->
+<!--	</bean>-->
+	<bean id="UserService" class="com.ht706.componentLibrary.util.security.bo.impl.UserService">
+		<property name="actorandurlDAO" ref="actorandurlDAO"></property>
+	</bean>
+	<bean id="actorandurlDAO" class="com.ht706.componentLibrary.util.security.dao.impl.ActorandurlDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>		
+	</bean>
+	<bean name="/default" class="com.ht706.componentLibrary.login.action.DefaultAction" >
+		<property name="organizationDAO" ref="organizationDAO"></property>
+		<property name="sec" ref="filterSecurityInterceptorByDB"></property>
+	</bean>
+	<bean name="/personalInfo" class="com.ht706.componentLibrary.login.action.personalInfo" >
+		<property name="organizationService" ref="organizationServiceProxy"></property>
+	</bean>
+	
+
+<!--	<bean id="filterSecurityInterceptor" class="org.springframework.security.intercept.web.FilterSecurityInterceptor">-->
+<!--		<property name="authenticationManager" ref="authenticationManager"/>-->
+<!--		<property name="accessDecisionManager" ref="accessDecisionManager"/>-->
+<!--		<property name="objectDefinitionSource">-->
+<!--			<security:filter-invocation-definition-source>-->
+<!--			      <security:intercept-url pattern="/index2.html" access="ROLE_MANAGER"/>-->
+<!--			      <security:intercept-url pattern="/index3.htm" access="ROLE_USER"/>-->
+<!--			      <security:intercept-url pattern="/xitongguanli/safeControlAction.do?method=searchAllByActor*" access="ROLE_DU"/>-->
+<!--			      <security:intercept-url pattern="/xitongguanli/backupRecovery.htm*" access="ROLE_DU"/>-->
+<!--		    </security:filter-invocation-definition-source>-->
+<!--		</property>-->
+<!--	</bean>	-->
+
+</beans>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <data-sources>
+  </data-sources>
+  <form-beans>
+    <form-bean name="ComponentListForm" type="com.ht706.componentLibrary.componentRelease.actionForm.ComponentListForm"></form-bean>
+    <form-bean name="ComponentForm" type="com.ht706.componentLibrary.componentRelease.actionForm.ComponentForm"></form-bean>
+    <form-bean name="ComponentElementForm" type="com.ht706.componentLibrary.componentRelease.actionForm.componentElementForm"></form-bean>
+  </form-beans>
+  <global-exceptions>
+  </global-exceptions>
+  <global-forwards>
+    <forward name="File_UpLoad_Ok" path="/upload_ok.htm"></forward>
+  <forward name="File_UpLoad_Ok2" path="/upload_ok_refresh.htm"></forward>
+   <forward name="File_UpLoad_Error" path="/upload_error.htm"></forward>
+  </global-forwards>
+  <action-mappings>
+
+    <action path="/componentRelease/ComponentList" type="com.ht706.componentLibrary.componentRelease.action.ComponentManagementAction" parameter="method"
+    		name="ComponentListForm" attribute="ComponentListForm" > 
+      <forward name="suc" path="/componentRelease/myComponent.jsp"/> 
+      <forward name="fault" path="/index3.htm"/>
+      <forward name="viewComponent" path="/componentRelease/release4.jsp"></forward>
+      <forward name="editComponent" path="/componentRelease/release5.jsp"></forward>
+      <forward name="back" path="/componentRelease/ComponentList.do?method=showComponentAction"></forward>
+      <forward name="release3" path="/componentRelease/release3.jsp"></forward>
+    </action> 
+    <action path="/componentRelease/CreatComponent" type="com.ht706.componentLibrary.componentRelease.action.ComponentManagementAction" parameter="method" 
+    		name="ComponentForm" attribute="ComponentForm" > 
+    	<forward name="to_creat_feedback" path="/componentFeedBack/feedback.do?method=preCreate"></forward>
+    	<forward name="to_edit_feedback" path="/componentFeedBack/feedback.do?method=preModify"></forward>
+    	<forward name="back" path="/componentRelease/ComponentList.do?method=showComponentAction"></forward>
+    	<forward name="gotorelease3" path="/componentRelease/release3.jsp"></forward>
+    </action>
+    <action path="/componentRelease/CreatComponentElement" type="com.ht706.componentLibrary.componentRelease.action.ComponentElementManagementAction" parameter="method"
+    		name="ComponentElementForm" attribute="ComponentElementForm" scope="request" > 
+    		<forward name="release3" path="/componentRelease/release3.jsp"/>
+    		<forward name="release5" path="/componentRelease/release5.jsp"/>
+    		<forward name="editElement" path="/componentRelease/editX.jsp"/>
+    		<forward name="editElement_new" path="/componentRelease/editX_new.jsp"/>
+    </action>
+    <action path="/componentRelease/PreFacetTree" type="com.ht706.componentLibrary.componentRelease.action.ComponentManagementAction" parameter="method"
+    		name="ComponentListForm" attribute="ComponentListForm" > 
+      <forward name="release3" path="/componentRelease/release3.jsp"></forward>
+    </action>
+    <action path="/componentRelease/FacetTreeAction" type="com.ht706.componentLibrary.componentRelease.action.FacetAction" parameter="method"
+    		name="FacetListForm" attribute="FacetListForm" scope="request"> 
+    		<forward name="show" path="/componentRelease/selectFacet.jsp"></forward>
+    		<forward name="list" path="/componentRelease/componentList.jsp"></forward>
+    </action>
+  </action-mappings>
+</struts-config>  

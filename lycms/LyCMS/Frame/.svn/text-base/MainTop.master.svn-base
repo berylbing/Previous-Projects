@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MainTop.master.cs" Inherits="Frame_MainTop" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../CSS/default.css" type="text/css" rel=Stylesheet/>
+    <link href="../CSS/main.css" type="text/css" rel=Stylesheet />
+    <style type="text/css">
+        .style1
+        {
+            height: 96px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="main_container">
+      <form id="Form2" method="post" runat="server">
+			<FONT face="宋体">
+				<TABLE height="1" cellSpacing="0" cellpadding="0" width="100%" bgColor="#4c679b" border="1">
+					<TBODY>
+						<TR>
+							<TD></TD>
+						</TR>
+					</TBODY>
+				</TABLE>
+				<TABLE id="Table1" cellSpacing="0" cellpadding="0" width="100%" bgColor="#f0f0f0" border="0">
+					<TR>
+						<TD width="367" class="style1"><IMG height="120" src="../Image/BackGround/logo.png" width="650" border="0"></TD>
+						<td width="150" class="style1">
+							<TABLE id="Table5" width="130" cellSpacing="0" cellpadding="0" width="100%" bgColor="#E7E7E7" border="0">
+								<tr>
+									<td height="60"></td>
+								</tr>
+								<tr>
+									<td vAlign="bottom" height="50" width="300" ><IMG onClick="switchBar(this)" alt="显示菜单栏" src="../Image/Button/button2.png"></td>
+								</tr>
+							</TABLE>						</td>
+					  <td width="70" class="style1"><table id="Table8" cellspacing="0" cellpadding="0" width="100%" bgcolor="#E7E7E7" border="0">
+                        <tr>
+                          <td height="60"></td>
+                        </tr>
+                        <tr>
+                          <td valign="bottom" height="50"><a href="MainWork.aspx" target="main"><img alt="显示登陆桌面" src="../Image/Button/button1.png"></a></td>
+                        </tr>
+                      </table></td>
+						<td width="70" class="style1">
+							<TABLE id="Table9" cellSpacing="0" cellpadding="0" width="100%" bgColor="#E7E7E7" border="0">
+								<tr>
+									<td height="60"></td>
+								</tr>
+								<tr>
+									<td vAlign="bottom" height="50"><a href="../Login.aspx" target="_top"><IMG alt="重新登陆" src="../Image/Button/button3.png"></A></td>
+								</tr>
+							</TABLE>						</td>
+						
+					</TR>
+				</TABLE>
+				<TABLE height="1" cellSpacing="0" cellpadding="0" width="100%" bgColor="#4c679b" border="1">
+					<TBODY>
+						<TR>
+							<TD></TD>
+						</TR>
+					</TBODY>
+				</TABLE>
+			</FONT>
+		
+      
+      
+      
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <data-sources>
+  </data-sources>
+  <form-beans>
+   	<form-bean name="ForumIndexForm" type="com.ht706.componentLibrary.forum.actionForm.ForumIndexForm"></form-bean>
+   	<form-bean name="ForumBulletinForm" type="com.ht706.componentLibrary.forum.actionForm.ForumBulletinForm"></form-bean>
+   	<form-bean name="ForumForumForm" type="com.ht706.componentLibrary.forum.actionForm.ForumForumForm"></form-bean>
+   	<form-bean name="ForumTopicForm" type="com.ht706.componentLibrary.forum.actionForm.ForumTopicForm"></form-bean>
+   	<form-bean name="ForumPublishThreadForm" type="com.ht706.componentLibrary.forum.actionForm.ForumPublishThreadForm"></form-bean>
+   	<form-bean name="ForumPublishTopicForm" type="com.ht706.componentLibrary.forum.actionForm.ForumPublishTopicForm"></form-bean>
+  </form-beans>
+  <global-exceptions>
+  </global-exceptions>
+  <global-forwards>
+  </global-forwards>
+  <action-mappings>
+		<action path="/forum/index" type="com.ht706.componentLibrary.forum.action.IndexAction" parameter="method"
+    	name="ForumIndexForm" scope="request">
+		<forward name="view" path="/forum/forumIndex.jsp"></forward>
+		<forward name="admin" path="/forum/management.jsp"></forward>	
+		<forward name="manage" path="/forum/manageForum.jsp"></forward>		
+		</action>
+		<action path="/forum/bulletin" type="com.ht706.componentLibrary.forum.action.BulletinAction" parameter="method"
+    	name="ForumBulletinForm" scope="request">
+		<forward name="view" path="/forum/bulletin.jsp"></forward>
+		<forward name="manage" path="/forum/manageBulletin.jsp"></forward>			
+		</action>
+		<action path="/forum/forum" type="com.ht706.componentLibrary.forum.action.ForumAction" parameter="method"
+    	name="ForumForumForm" scope="request">
+		<forward name="view" path="/forum/forumDisplay.jsp"></forward>	
+		<forward name="manage" path="/forum/forumManage.jsp"></forward>
+		<forward name="modify" path="/forum/modifyForum.jsp"></forward>
+		<forward name="index" path="/forum/index.do?method=adminIndex"></forward>
+		<forward name="index2" path="/forum/index.do?method=manageForumList"></forward>
+		
+		</action>
+		<action path="/forum/topic" type="com.ht706.componentLibrary.forum.action.TopicAction" 
+    	name="ForumTopicForm" scope="request">
+		<forward name="suc" path="/forum/threadDisplay.jsp"></forward>	
+		</action>
+		<action path="/forum/publishThread" type="com.ht706.componentLibrary.forum.action.PublishThreadAction" 
+    	name="ForumPublishThreadForm" scope="request">
+		<forward name="suc" path="/forum/threadDisplay.jsp"></forward>	
+		</action>
+		<action path="/forum/publishTopic" type="com.ht706.componentLibrary.forum.action.PublishTopicAction" 
+    	name="ForumPublishTopicForm" scope="request">
+		<forward name="suc" path="/forum/forumDisplay.jsp"></forward>
+		</action>	
+		<action path="/forum/editTopic" type="com.ht706.componentLibrary.forum.action.EditTopicAction" 
+    	name="ForumPublishTopicForm" scope="request">
+		<forward name="suc" path="/forum/postTopicDisplay.jsp"></forward>		
+		</action>
+		<action path="/forum/editThread" type="com.ht706.componentLibrary.forum.action.EditThreadAction" 
+    	name="ForumPublishThreadForm" scope="request">
+		<forward name="suc" path="/forum/postThreadDisplay.jsp"></forward>		
+		</action>
+  </action-mappings>
+</struts-config>  

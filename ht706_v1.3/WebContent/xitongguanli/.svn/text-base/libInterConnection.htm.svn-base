@@ -1,0 +1,99 @@
+<html>
+	<head>
+		<title>构件库互联信息</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+		<link href="../css/common.css" rel="stylesheet" type="text/css">
+		<script src="../js/check.js" type="text/javascript"></script>
+	</head>
+	<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class=mainbody>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class=title>
+			<tr>
+				<td>
+					库互联信息
+				</td>
+			</tr>
+		</table>
+		<div class=list>
+			<table border="0">
+				<tr>
+					<th align="center" width="25%">
+						节点IP
+					</th>
+					<th align="center" width="25%">
+						节点名称
+					</th>
+					<th align="center" width="25%">
+						连接到IP
+					</th>
+					<th align="center" width="25%">
+						连接到名称
+					</th>
+				</tr>
+				<tr>
+					<td align="left">
+						10.17.12.151
+					</td>
+					<td align="left">
+						706所构件库
+					</td>
+					<td align="left">
+						10.17.12.152
+					</td>
+					<td align="left">
+						二部构件库
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						10.17.12.152
+					</td>
+					<td align="left">
+						二部构件库
+					</td>
+					<td align="left">
+						10.17.12.153
+					</td>
+					<td align="left">
+						12所构件库
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						10.17.12.152
+					</td>
+					<td align="left">
+						二部构件库
+					</td>
+					<td align="left">
+						10.17.12.154
+					</td>
+					<td align="left">
+						206所构件库
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						10.17.12.153
+					</td>
+					<td align="left">
+						12所构件库
+					</td>
+					<td align="left">
+						10.17.12.159
+					</td>
+					<td align="left">
+						三部构件库
+					</td>
+				</tr>
+			</table>
+		</div>
+		<hr color=#97D2FF>
+		<input type="hidden" name="hid">
+		<div id="bc" align="center">
+			<br>
+			<br>
+			此处画出连接图
+		</div>
+		<br>
+	</body>
+</html>

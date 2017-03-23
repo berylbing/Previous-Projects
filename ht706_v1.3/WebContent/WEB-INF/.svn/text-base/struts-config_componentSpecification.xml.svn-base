@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <data-sources>
+  </data-sources>
+  <form-beans>
+    <form-bean name="specificationForm" type="com.ht706.componentLibrary.componentSpecification.actionForm.SpecificationForm"></form-bean>
+    <form-bean name="facetListForm" type="com.ht706.componentLibrary.componentSpecification.actionForm.FacetListForm"></form-bean>
+    <form-bean name="specificationmodifyForm" type="com.ht706.componentLibrary.componentSpecification.actionForm.SpecificationmodifyForm"></form-bean>
+    <form-bean name="synonymForm" type="com.ht706.componentLibrary.componentSpecification.actionForm.SynonymForm"></form-bean>
+    <form-bean name="relationtypeForm" type="com.ht706.componentLibrary.componentSpecification.actionForm.RelationtypeForm"></form-bean>
+  </form-beans>
+  <global-exceptions>
+  </global-exceptions>
+  <global-forwards>
+  </global-forwards>
+  <action-mappings>
+    <action path="/specification/SpecificationAction" type="com.ht706.componentLibrary.componentSpecification.action.SpecificationAction" parameter="method"
+    		name="specificationForm" attribute="specificationForm"  scope="request"> 
+      <forward name="specificationList" path="/specification/specifiactionRetrival.jsp"/> 
+      <forward name="specinfo" path="/specification/SpecInfo.jsp"/> 
+      <forward name="prespemenu1" path="/specification/specificationMenu1.jsp"/> 
+      <forward name="prespemenu2" path="/specification/specificationMenu2.jsp"/> 
+      <forward name="createSpecification" path="/specification/createSpecification.jsp"/> 
+      <forward name="modifySpecification" path="/specification/modifySpecification.jsp"/> 
+      <forward name="check_ok" path="/specification/check_ok.jsp"/> 
+      <forward name="check_error" path="/specification/check_error.jsp"/> 
+      
+    </action>
+     <action path="/specification/FacetAction" type="com.ht706.componentLibrary.componentSpecification.action.FacetAction" parameter="method"
+    		name="facetListForm" attribute="facetListForm"  scope="request"> 
+    		<forward name="showFacetTree" path="/specification/facetTreeBrowse_2.jsp"></forward>
+    		<forward name="editFacetTree" path="/specification/facetTreeBrowse_3.jsp"></forward>
+    		<forward name="viewFacetTree" path="/specification/facetTreeBrowse_5.jsp"></forward>
+    		<forward name="synonymFacetTree" path="/specification/facetTreeBrowse_4.jsp"></forward>
+    		<forward name="facetInfo" path="/specification/facetInfo.jsp"></forward>
+    		<forward name="facetInfo_view" path="/specification/facetInfo_view.jsp"></forward>
+    		<forward name="createFacet" path="/specification/facetInfo_1.jsp"></forward>
+    		<forward name="modifyFacetInfo" path="/specification/modifyFacetInfo.jsp"></forward>
+    		<forward name="showFacetParent" path="/specification/facetTreeBrowse_1.jsp"></forward>
+    		<forward name="null" path="/specification/null.jsp"></forward>
+    </action>
+    <action path="/specification/SpecificationmodifyAction" type="com.ht706.componentLibrary.componentSpecification.action.SpecificationmodifyAction" parameter="method"
+    		name="specificationmodifyForm" attribute="specificationmodifyForm"  scope="request"> 
+      <forward name="listApproval" path="/specification/selectReason.jsp"/> 
+      <forward name="listspecmodify" path="/specification/specificationModifyInfo_1.jsp"/>   
+      <forward name="listspecmodify2" path="/specification/specificationModifyInfo_2.jsp"/>  
+      <forward name="modifyspecmodify" path="/specification/modifySpecificationmodify.jsp"/> 
+      <forward name="specmodifyInfo" path="/specification/specificationmodifyInfo.jsp"/> 
+      <forward name="check_ok" path="/specification/check_ok.jsp"/> 
+      <forward name="check_error" path="/specification/check_error.jsp"/> 
+    </action>
+    <action path="/specification/SynonymAction" type="com.ht706.componentLibrary.componentSpecification.action.SynonymAction" parameter="method"
+    		name="synonymForm" attribute="synonymForm"  scope="request"> 
+      <forward name="showsynonym" path="/specification/synonymInfo.jsp"/> 
+      <forward name="createsynonym" path="/specification/synonymNew.jsp"/> 
+      <forward name="modifysynonym" path="/specification/modifySynonym.jsp"/> 
+      <forward name="listsynonym" path="/specification/synonymBrowse.jsp"/> 
+      <forward name="null_view" path="/specification/null_view.jsp"></forward>
+      
+      
+    </action>
+    <action path="/specification/RelationtypeAction" type="com.ht706.componentLibrary.componentSpecification.action.RelationtypeAction" parameter="method"
+    		name="relationtypeForm" attribute="relationtypeForm" scope="request"> 
+      <forward name="showrelation" path="/specification/relationEdit.jsp"/> 
+      <forward name="createrelation" path="/specification/createRelationtype.jsp"/> 
+      <forward name="modifyrelation" path="/specification/modifyRelationtype.jsp"/> 
+      <forward name="searchrelation" path="/specification/relationBrowse.jsp"/> 
+      <forward name="check_ok" path="/specification/check_ok.jsp"/> 
+      <forward name="check_error" path="/specification/check_error.jsp"/> 
+       
+    </action>
+    
+  </action-mappings>
+</struts-config>

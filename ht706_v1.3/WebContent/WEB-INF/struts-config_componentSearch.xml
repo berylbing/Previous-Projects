@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <data-sources>
+  </data-sources>
+  <form-beans>
+	<form-bean name="FacetListForm" type="com.ht706.componentLibrary.componentSearch.actionForm.FacetListForm"></form-bean>
+	<form-bean name="SearchFilterForm" type="com.ht706.componentLibrary.componentSearch.actionForm.SearchFilterForm"></form-bean>
+	<form-bean name="CheckoutList" type="com.ht706.componentLibrary.componentSearch.actionForm.SearchFilterForm"></form-bean>
+	<form-bean name="CheckoutForm" type="com.ht706.componentLibrary.componentSearch.actionForm.CheckoutForm"></form-bean>
+  </form-beans>
+  <global-exceptions>
+  </global-exceptions>
+  <global-forwards>
+  </global-forwards>
+  <action-mappings>
+
+    <action path="/componentSearch/FacetAction" type="com.ht706.componentLibrary.componentSearch.action.FacetAction" parameter="method"
+    		name="FacetListForm" attribute="FacetListForm" scope="request"> 
+    		<forward name="show" path="/componentSearch/selectFacet.jsp"></forward>
+    		<forward name="list" path="/componentSearch/componentList.jsp"></forward>
+    </action>
+    <action path="/componentSearch/PageChange" type="com.ht706.componentLibrary.componentSearch.action.PageChangeAction" 
+    		name="ComponentListForm" attribute="ComponentListForm" > 
+    		<forward name="list" path="/componentSearch/componentList.jsp"></forward>
+    </action>
+    <action path="/componentSearch/SearchFilter" type="com.ht706.componentLibrary.componentSearch.action.SearchFilterAction" 
+    		name="SearchFilterForm" attribute="SearchFilterForm" > 
+    		<forward name="list" path="/componentSearch/componentList.jsp"></forward>
+    </action> 
+	<action path="/componentSearch/SearchByRelationAction" type="com.ht706.componentLibrary.componentSearch.action.SearchByRelationAction" 
+    		name="ComponentListForm" attribute="ComponentListForm" > 
+    		<forward name="list" path="/componentSearch/componentList.jsp"></forward>
+    </action>
+    <action path="/componentSearch/Checkout" type="com.ht706.componentLibrary.componentSearch.action.CheckoutAction" parameter="method"
+    		name="CheckoutForm" attribute="CheckoutForm" > 
+    		<forward name="checkoutlist" path="/componentSearch/checkoutList.jsp"></forward>
+    		<forward name="checkout" path="/componentSearch/checkoutReport.jsp"></forward>
+    </action>
+    <action path="/componentSearch/Download" type="com.ht706.componentLibrary.componentSearch.action.DonwloadAction"  > 
+    </action>
+    <action path="/componentSearch/CreatMyfavoriteAction" type="com.ht706.componentLibrary.componentSearch.action.DonwloadAction"  parameter="method"
+   				 name="MyFavouriteTreeForm" attribute="MyFavouriteTreeForm"> 
+   	 <forward name="tree" path="/componentSearch/myFavorite.jsp"></forward>
+    </action>
+  </action-mappings>
+</struts-config>  

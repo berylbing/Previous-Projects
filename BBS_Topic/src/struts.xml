@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+ <package name="mytest"  extends = "struts-default">
+ 	<action name = "testaction" class = "org.action.testaction" method="queuell">
+ 		<result name = "qqqq">/topicdetected/posts.jsp</result>
+<!-- <result name = "qqqq">/topicdetected/posts.jsp</result>-->
+ 	</action>
+ 	<action name = "loginaction" class = "org.action.loginaction" method="login">
+ 		<result name = "error">/topicdetected/posts.jsp</result>
+ 		<result name = "success">/topicdetected/shujuhuoqu.jsp</result>
+ 	</action>
+ 	<action name = "DataPretreatmentaction_*" class = "org.action.DataPretreatmentaction" method="{1}">
+ 		<result name = "error">/topicdetected/posts.jsp</result>
+ 		<result name = "crawler_success">/topicdetected/fenci.jsp</result>
+  		<result name = "seg_success">/topicdetected/julei.jsp</result>
+ 	</action>
+ 	<action name = "Clusteraction_*" class = "org.action.Clusteraction" method="{1}">
+ 		<result name = "error">/topicdetected/posts.jsp</result>
+ 		<result name = "cluster_success">/topicdetected/julei.jsp</result>
+ 	</action>
+ 	<action name = "HotTopicsaction_*" class = "org.action.HotTopicsaction" method="{1}">
+ 		<result name = "error">/topicdetected/posts.jsp</result>
+ 		<result name = "success">/topicdetected/hottopics_1.jsp</result>
+		<result name = "success2">/topicdetected/hottopics_2.jsp</result>
+ 	</action>
+ </package>
+ 
+ <package name="json" extends="json-default">  
+    <action name="extjs" class="org.action.JasonAction" >  
+        <result type="json"/>  
+    </action>  
+ </package>  
+</struts>    

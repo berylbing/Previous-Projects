@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN2.0//EN" "http://www.springframeword.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+	<!-- ServiceProxy层配置 -->
+	<bean id="standardFeedbackServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		  <property name="transactionManager">
+		  	<ref bean="transactionManager" /> 
+		  </property>
+		  <property name="target">
+		  	<ref bean="standardFeedbackService" /> 
+		  </property>
+		  <property name="transactionAttributes">
+			  <props>
+				  <prop key="delete*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="create*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="modify*">PROPAGATION_REQUIRED</prop>
+				  <prop key="get*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="validate*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="search*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="check*">PROPAGATION_REQUIRED</prop>
+				  <prop key="add*">PROPAGATION_REQUIRED</prop>  
+			  </props>
+		  </property>
+	</bean>	
+	<bean id="feedbackServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		  <property name="transactionManager">
+		  	<ref bean="transactionManager" /> 
+		  </property>
+		  <property name="target">
+		  	<ref bean="feedbackService" /> 
+		  </property>
+		  <property name="transactionAttributes">
+			  <props>
+				  <prop key="del*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="create*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="modify*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="search*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="check*">PROPAGATION_REQUIRED</prop>
+				  <prop key="get*">PROPAGATION_REQUIRED</prop> 
+			  </props>
+		  </property>
+	</bean>	
+	<bean id="itemFunctionServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		  <property name="transactionManager">
+		  	<ref bean="transactionManager" /> 
+		  </property>
+		  <property name="target">
+		  	<ref bean="itemFunctionService" /> 
+		  </property>
+		  <property name="transactionAttributes">
+			  <props>
+				  <prop key="delete*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="create*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="modify*">PROPAGATION_REQUIRED</prop>
+				  <prop key="get*">PROPAGATION_REQUIRED</prop> 
+			  </props>
+		  </property>
+	</bean>	
+	<bean id="problemReportServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		  <property name="transactionManager">
+		  	<ref bean="transactionManager" /> 
+		  </property>
+		  <property name="target">
+		  	<ref bean="problemReportService" /> 
+		  </property>
+		  <property name="transactionAttributes">
+			  <props>
+				  <prop key="delete*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="create*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="modify*">PROPAGATION_REQUIRED</prop>
+				  <prop key="get*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="validate*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="search*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="check*">PROPAGATION_REQUIRED</prop> 
+			  </props>
+		  </property>
+	</bean>	
+	<bean id="problemTraceServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		  <property name="transactionManager">
+		  	<ref bean="transactionManager" /> 
+		  </property>
+		  <property name="target">
+		  	<ref bean="problemTraceService" /> 
+		  </property>
+		  <property name="transactionAttributes">
+			  <props>
+				  <prop key="delete*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="create*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="modify*">PROPAGATION_REQUIRED</prop>
+				  <prop key="get*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="validate*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="search*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="check*">PROPAGATION_REQUIRED</prop> 
+			  </props>
+		  </property>
+	</bean>	
+	
+	<!-- Service层配置 -->
+	<bean id="standardFeedbackService" class="com.ht706.componentLibrary.componentFeedBack.bo.impl.StandardFeedbackServiceImpl">
+			<property name= "standardFeedbackDAO" ref="standardFeedbackDAO">
+			</property>
+			<property name= "standardFeedbackItemDAO" ref="standardFeedbackItemDAO">
+			</property>
+	</bean>
+	
+	<bean id="feedbackService" class="com.ht706.componentLibrary.componentFeedBack.bo.impl.FeedbackServiceImpl">
+			<property name= "feedbackDAO" ref="feedbackDAO">
+			</property>
+			<property name= "feedbackItemDAO" ref="feedbackItemDAO">
+			</property>
+	</bean>
+	
+	<bean id="itemFunctionService" class="com.ht706.componentLibrary.componentFeedBack.bo.impl.ItemFunctionServiceImpl">
+			<property name= "itemFunctionDAO" ref="itemFunctionDAO">
+			</property>
+	</bean>	
+	
+	<bean id="problemReportService" class="com.ht706.componentLibrary.componentFeedBack.bo.impl.ProblemReportServiceImpl">
+			<property name= "problemReportDAO" ref="problemReportDAO">
+			</property>
+			
+	</bean>
+	
+	<bean id="problemTraceService" class="com.ht706.componentLibrary.componentFeedBack.bo.impl.ProblemTraceServiceImpl">
+			<property name= "problemTraceDAO" ref="problemTraceDAO">
+			</property>
+			
+	</bean>	
+	
+	<!-- DAO配置 -->
+	<bean id="standardFeedbackDAO"								
+		class="com.ht706.componentLibrary.componentFeedBack.dao.impl.StandardFeedbackDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="standardFeedbackItemDAO"								
+		class="com.ht706.componentLibrary.componentFeedBack.dao.impl.StandardFeedbackItemDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	
+	<bean id="feedbackDAO"								
+		class="com.ht706.componentLibrary.componentFeedBack.dao.impl.FeedbackDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="feedbackItemDAO"								
+		class="com.ht706.componentLibrary.componentFeedBack.dao.impl.FeedbackItemDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="itemFunctionDAO"								
+		class="com.ht706.componentLibrary.componentFeedBack.dao.impl.ItemFunctionDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="problemReportDAO"								
+		class="com.ht706.componentLibrary.componentFeedBack.dao.impl.ProblemReportDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="problemTraceDAO"								
+		class="com.ht706.componentLibrary.componentFeedBack.dao.impl.ProblemTraceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+
+	<!-- Struts层配置 -->
+	<bean name="/componentFeedBack/standardFeedback" class="com.ht706.componentLibrary.componentFeedBack.action.StandardFeedbackAction">
+		<property name="standardFeedbackService" ref="standardFeedbackServiceProxy"></property>
+		<property name="itemFunctionService" ref="itemFunctionServiceProxy"></property>
+		
+	</bean>
+
+	<bean name="/componentFeedBack/standardFeedback_Create" class="com.ht706.componentLibrary.componentFeedBack.action.StandardFeedbackAction">
+		<property name="standardFeedbackService" ref="standardFeedbackServiceProxy"></property>
+		<property name="itemFunctionService" ref="itemFunctionServiceProxy"></property>
+	</bean>
+	
+	<bean name="/componentFeedBack/feedback" class="com.ht706.componentLibrary.componentFeedBack.action.FeedbackAction">
+		<property name="itemFunctionService" ref="itemFunctionServiceProxy"></property>
+		<property name="feedbackService" ref="feedbackServiceProxy"></property>
+		<property name="standardFeedbackService" ref="standardFeedbackServiceProxy"></property>
+		<property name="componentService" ref="ComponentServiceProxy"></property>
+		<property name="myfavoriteService" ref="MyFavoriteServiceProxy"></property>
+		<property name="processEngine" ref="processEngine"/>
+	</bean>
+	
+	<bean name="/componentFeedBack/itemFunction" class="com.ht706.componentLibrary.componentFeedBack.action.ItemFunctionAction">
+		<property name="itemFunctionService" ref="itemFunctionServiceProxy"></property>
+	</bean>
+	
+	<bean name="/componentFeedBack/problemReport" class="com.ht706.componentLibrary.componentFeedBack.action.ProblemReportAction">
+		<property name="problemReportService" ref="problemReportServiceProxy"></property>
+		<property name="componentService" ref="ComponentServiceProxy"></property>
+		<property name="myfavoriteService" ref="MyFavoriteServiceProxy"></property>
+		<property name="processEngine" ref="processEngine"/> 
+	</bean>
+
+	<bean name="/componentFeedBack/problemTrace" class="com.ht706.componentLibrary.componentFeedBack.action.ProblemTraceAction">
+		<property name="problemTraceService" ref="problemTraceServiceProxy"></property>
+		<property name="problemReportService" ref="problemReportServiceProxy"></property>
+	</bean>
+</beans>

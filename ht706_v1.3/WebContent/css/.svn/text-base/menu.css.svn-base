@@ -1,0 +1,17 @@
+/* CSS Document */
+.menu{
+	background-image: url(../images/menu_bg.gif);
+	height: 24px;
+}
+.menu a{
+	color: #000000;
+}
+.menu a:hover{}
+.menu td{
+	padding-right: 6px;
+	padding-left: 6px;
+	
+}
+.table_bg{background-image: url(../images/bg.jpg);
+	background-repeat: no-repeat;
+	background-position: right bottom;}

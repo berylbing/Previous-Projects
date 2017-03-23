@@ -1,0 +1,355 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Frame/MainTop.master" AutoEventWireup="true" CodeFile="MainLeftManager.master.cs" Inherits="Frame_MainLeftManager" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+
+  <SCRIPT language="JavaScript" type="text/JavaScript">function ifexit()
+		{
+			if(window.confirm('确定退出吗？'))
+			{
+			//window.open("","退出系统","height=0,width=0,top=0,left=0");   //  关闭当前窗口   
+			parent.parent.close();                                                // 关闭当前窗口 
+			}
+		}
+		
+		var displayBar=true;
+		function switchBar(obj) 
+		{
+			if (displayBar) 
+			{
+				parent.frame.cols='0,*';
+				displayBar=false;
+				obj.src='../Image/Button/zm2.jpg';
+				obj.title='打开左边管理导航菜单';
+			} 
+			else 
+			{
+				parent.frame.cols='200,*';
+				displayBar=true;
+				obj.src='../Image/Button/zm6.jpg';
+				obj.title='关闭左边管理导航菜单';
+			}
+		}
+		</SCRIPT>
+		<LINK href="../CSS/default.css" type="text/css" rel="stylesheet">
+		
+		
+		<script src="../Css/NoError.js"></script>
+		<script language="JavaScript">
+var openedid;
+var openedid_ft;
+var flag=0,sflag=0;
+
+//-------- 菜单点击事件 -------
+function clickHandler()
+{
+        var targetid,srcelement,targetelement;
+        var strbuf;
+        srcelement=window.event.srcElement;
+
+        //-------- 如果点击了展开或收缩按钮---------
+        if(srcelement.className=="outline")
+        {
+                //if(srcelement.title!="" && srcelement.src.indexOf("plus")>-1)
+                  // menu_shrink();
+
+                targetid=srcelement.id+"d";
+                targetelement=document.all(targetid);
+
+                if (targetelement.style.display=="none")
+                {
+                        targetelement.style.display='';
+                        strbuf=srcelement.src;
+                        if(strbuf.indexOf("plus.gif")>-1)
+                                srcelement.src="../Image/Menu/tree_minus.gif";
+                        else
+                                srcelement.src="../Image/Menu/tree_minusl.gif";
+                }
+                else
+                {
+                        targetelement.style.display="none";
+                        strbuf=srcelement.src;
+                        if(strbuf.indexOf("minus.gif")>-1)
+                                srcelement.src="../Image/Menu/tree_plus.gif";
+                        else
+                                srcelement.src="../Image/Menu/tree_plusl.gif";
+                }
+        }
+}
+
+document.onclick = clickHandler;
+
+//-------- 打开网址 -------
+//function openURL(URL)
+//{
+//  //  parent.openURL(URL);
+//}
+
+//-------- 菜单全部展 开/收缩 -------
+var menu_flag=0;
+function menu_expand()
+{
+  if(menu_flag==0)
+     expand_text.innerHTML="收缩全部";
+  else
+     expand_text.innerHTML="展开全部";
+
+  menu_flag=1-menu_flag;
+
+  for (i=0; i<document.all.length; i++)
+  {
+        srcelement=document.all(i);
+        if(srcelement.className=="outline")
+        {
+                targetid=srcelement.id+"d";
+                targetelement=document.all(targetid);
+                if (menu_flag==1)
+                {
+                        targetelement.style.display='';
+                        strbuf=srcelement.src;
+                        if(strbuf.indexOf("plus.gif")>-1)
+                                srcelement.src="../Image/Menu/tree_minus.gif";
+                        else
+                                srcelement.src="../Image/Menu/tree_minusl.gif";
+                }
+                else
+                {
+                        targetelement.style.display="none";
+                        strbuf=srcelement.src;
+                        if(strbuf.indexOf("minus.gif")>-1)
+                                srcelement.src="../Image/Menu/tree_plus.gif";
+                        else
+                                srcelement.src="../Image/Menu/tree_plusl.gif";
+                }
+        }
+  }
+}
+
+//-------- 收缩打开的主菜单项 -------
+function menu_shrink()
+{
+  for (i=0; i<document.all.length; i++)
+  {
+        srcelement=document.all(i);
+        if(srcelement.title!="")
+        {
+              strbuf=srcelement.src;
+
+              if(strbuf.indexOf("minus")>-1)
+              {
+                 targetid=srcelement.id+"d";
+                 targetelement=document.all(targetid);
+                 targetelement.style.display='none';
+
+                 if(strbuf.indexOf("minus.gif")>-1)
+                    srcelement.src="../Image/Menu/tree_plus.gif";
+                 else
+                    srcelement.src="../Image/Menu/tree_plusl.gif";
+               }
+         }
+  }
+}
+
+//-------- 打开windows程序 -------
+function winexe(NAME,PROG)
+{
+   URL="/function/winexe?PROG="+PROG+"&NAME="+NAME;
+   window.open(URL,"winexe","height=100,width=350,status=0,toolbar=no,menubar=no,location=no,scrollbars=yes,top=0,left=0,resizable=no");
+}
+		</script>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+ <div id="left">
+  
+    <table>
+      <tr>
+        <td>
+         <div class="bg_color">
+			<table class="bg_color" cellSpacing="0" cellpadding="0" border="0">
+				<TBODY>
+					<TR>
+						<TD class="RightMenuBorder" vAlign="top" align="center" width="180">
+						</TD>
+					</TR>
+					<tr height="30">
+						<TD class="topfont" style="PADDING-LEFT: 10px" background="../Image/BackGround/left_menu_top.gif"
+							align="center">功能菜单
+						</TD>
+					</TR>
+					<TR>
+					</TR>
+				</TBODY>
+			</TABLE>
+			<table cellSpacing="0" cellpadding="0" width="180" border="0" height="450">
+				<TBODY>
+					<tr>
+						<TD height="20"></TD>
+						<TD height="20" style="WIDTH: 12px"></TD>
+						<TD height="20" style="WIDTH: 12px"></TD>
+						<td height="20" style="WIDTH: 154px"></td>
+					</tr>
+					<tr>
+						<TD vAlign="top"></TD>
+						<TD vAlign="top" style="WIDTH: 12px"></TD>
+						<TD vAlign="top" style="WIDTH: 12px"><FONT face="宋体"></FONT></TD>
+						<td vAlign="top" style="WIDTH: 155px">
+							<table class="small" cellSpacing="0" cellpadding="0" width="100%" align="center" border="0">
+								<TBODY>
+									<TR>
+										<TD></TD>
+										<TD><FONT face="宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><A href="javascript:menu_expand()"><u><span id="expand_text">收缩全部</span></u></A></TD>
+									</TR>
+									<tr>
+										<TD></TD>
+										<td>
+											<table class="small" cellSpacing="0" cellpadding="0" border="0">
+												<tr>
+													<td><IMG class="outline" id="MEMU_01" title="展开/收缩" style="CURSOR: hand" src="../Image/Menu/tree_minus.gif">
+													</td>
+													<td><IMG height="16" alt="人员管理" src="../Image/Menu/mytable.gif" width="16" border="0"></td>
+													<td colSpan="3"><A onClick="MEMU_01.click();" href="#GO">&nbsp;人员管理</A> &nbsp;&nbsp;&nbsp;
+													</td>
+												</tr>
+											</table>
+											<table class="small" id="MEMU_01d" style="DISPLAY: ''" cellSpacing="0" cellpadding="0"
+												border="0">
+												<TBODY>
+													<tr>
+														<td>
+															
+															<table id="tb2" runat="server" class="small" cellSpacing="0" cellpadding="0" border="0">
+																<tr>
+																	<td><IMG src="../Image/Menu/tree_line.gif" border="0"></td>
+																	<td width="16"></td>
+																	<td><IMG height="16" alt="人员管理" src="../Image/Menu/mytable.gif" width="16" border="0"></td>
+																	<td colSpan="2"><A href="../BaseSet/Supply_UI.aspx" target="main">&nbsp;创建人员</A></td>
+																</tr>
+															</table>
+															<table id="tb3" runat="server" class="small" cellSpacing="0" cellpadding="0" border="0">
+																<tr>
+																	<td><IMG src="../Image/Menu/tree_line.gif" border="0"></td>
+																	<td width="16"></td>
+																	<td><IMG height="16" alt="人员管理" src="../Image/Menu/mytable.gif" width="16" border="0"></td>
+																	<td colSpan="2"><A href="../BaseSet/Client_UI.aspx" target="main">&nbsp;修改人员信息</A></td>
+																</tr>
+															</table>
+															
+														</td>
+													</tr>
+												</TBODY>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<TD></TD>
+										<td>
+											<table class="small" cellSpacing="0" cellpadding="0" border="0">
+												<tr>
+													
+													<td><IMG height="16" alt="订单管理" src="../Image/Menu/mytable.gif" width="16" border="0"></td>
+													<td colSpan="3"><A onClick="MEMU_02.click();" href="#GO">&nbsp;订单管理</A> &nbsp;&nbsp;&nbsp;
+													</td>
+												</tr>
+											</table>
+											<table class="small" id="MEMU_02d" style="DISPLAY: ''" cellSpacing="0" cellpadding="0"
+												border="0">
+												<TBODY>
+													<tr>
+														<td>
+															
+															<table id="tb13" runat="server" class="small" cellSpacing="0" cellpadding="0" border="0">
+																<tr>
+																	<td><IMG src="../Image/Menu/tree_line.gif" border="0"></td>
+																	<td width="16"></td>
+																	<td><IMG height="16" alt="订单管理" src="../Image/Menu/mytable.gif" width="16" border="0"></td>
+																	<td colSpan="2"><A href="../xuxiaolong/cgsq.aspx"target="main">&nbsp;终止订单</A></td>
+																</tr>
+															</table>		
+														</td>
+													</tr>
+												</TBODY>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<TD></TD>
+										<td>
+											<table class="small" cellSpacing="0" cellpadding="0" border="0">
+												<tr>
+													<td><IMG class="outline" id="MEMU_03" title="展开/收缩" style="CURSOR: hand" src="../Image/Menu/tree_minus.gif">
+													</td>
+													<td><IMG height="16" alt="报表统计" src="../Image/Menu/mytable.gif" width="16" border="0"></td>
+													<td colSpan="3"><A onClick="MEMU_03.click();" href="#GO">&nbsp;报表统计</A> &nbsp;&nbsp;&nbsp;
+													</td>
+												</tr>
+											</table>
+											<table class="small" id="MEMU_03d" style="DISPLAY: ''" cellSpacing="0" cellpadding="0"
+												border="0">
+												<TBODY>
+													<tr>
+														<td>
+															
+															<table id="tb20" runat="server" class="small" cellSpacing="0" cellpadding="0" border="0">
+																<tr>
+																	<td><IMG src="../Image/Menu/tree_line.gif" border="0"></td>
+																	<td width="16"></td>
+																	<td><IMG height="16" alt="报表统计" src="../Image/Menu/mytable.gif" width="16" border="0"></td>
+																	<td colSpan="2"><A href="../Manager/CrystalReport_Manager_Main.aspx"
+																			target="main">&nbsp;营销报表</A>
+																	</td>
+																</tr>
+															</table>
+															<table id="tb21" runat="server" class="small" cellSpacing="0" cellpadding="0" border="0">
+																<tr>
+																	<td><IMG src="../Image/Menu/tree_line.gif" border="0"></td>
+																	<td width="16"></td>
+																	<td><IMG height="16" alt="报表统计" src="../Image/Menu/mytable.gif" width="16" border="0"></td>
+																	<td colSpan="2"><A href="../Consignment/ConsignmenAudit_UI.aspx"
+																			target="main">&nbsp;订单报表</A></td>
+																</tr>
+															</table>
+															<table id="tb22" runat="server" class="small" cellSpacing="0" cellpadding="0" border="0">
+																<tr>
+																	<td><IMG src="../Image/Menu/tree_line.gif" border="0"></td>
+																	<td width="16"></td>
+																	<td><IMG height="16" alt="报表统计" src="../Image/Menu/mytable.gif" width="16" border="0"></td>
+																	<td colSpan="2"><A href="../Consignment/Consignment_UI.aspx" target="main">&nbsp;产品报表</A></td>
+																</tr>
+															</table>
+															<table id="tb23" runat="server" class="small" cellSpacing="0" cellpadding="0" border="0">
+																<tr>
+																	<td><IMG src="../Image/Menu/tree_line.gif" border="0"></td>
+																	<td width="16"></td>
+																	<td><IMG height="16" alt="报表统计" src="../Image/Menu/mytable.gif" width="16" border="0"></td>
+																	<td colSpan="2"><A href="../Search/stocksearch.aspx" target="main">&nbsp;业绩报表</A></td>
+																</tr>
+															</table>
+															
+														</td>
+													</tr>
+												</TBODY>
+											</table>
+										</td>
+									</tr>		        
+                               </TBODY>
+                           </table>
+                           
+                           </td>
+                           </tr>
+                           </TBODY>
+                           
+					</table>
+					</div>
+				</td>
+				<td style="width:800px" valign="top">
+					<asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+				</td>
+			</tr>									
+		</table>
+</div>
+						
+  
+</asp:Content>
+

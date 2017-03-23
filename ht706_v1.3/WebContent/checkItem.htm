@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>软件构件库管理系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<link href="css/common.css" rel="stylesheet" type="text/css">
+<script src="js/check.js" type="text/javascript"></script>
+<script>
+	function deltr() {
+		var trs = document.getElementsByName("boxi");
+		var flag = 0;
+		for (var i=0; i<trs.length; i++) {
+			if (trs[i].checked) {
+				flag = 1;
+				break;
+			}
+		}
+		if (flag==0) {
+			alert("请选择您要删除的项目！");
+			return false;
+		}
+		var ve = ta.all.tags("tr");
+		for (var i=0; i<trs.length; i++) {
+			if (trs[i].checked) {
+				ve[i+1].removeNode(true);
+				i--;
+			}
+		}
+	}
+	
+	function w_open(v){
+		hid.value = v;
+		if (v == 1) {
+			if (document.getElementById("sourceId") != null)
+				document.getElementById("sourceId").id = "";
+			event.srcElement.parentElement.parentElement.parentElement.id = "sourceId";
+		}
+		open_window('edit.htm',400,300);
+	}
+</script>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class=mainbody>
+
+</body>
+</html>

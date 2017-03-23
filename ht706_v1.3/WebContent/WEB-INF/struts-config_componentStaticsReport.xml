@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <data-sources>
+  </data-sources>
+ 
+  <global-exceptions>
+  </global-exceptions>
+  <global-forwards>
+  </global-forwards>
+  <action-mappings>    
+     <action  path="/componentStaticsReport/ReportAction" type="com.ht706.componentLibrary.componentStaticsReport.action.ReportAction"  parameter="method" name="specificationForm" attribute="specificationForm" input="/componentStaticsReport/libGeneralInfo.jsp" >
+	    <forward name="organizationReportList" path="/componentStaticsReport/libGeneralInfo.jsp"></forward>    	
+	    <forward name="userReportList" path="/componentStaticsReport/listAllUser.jsp"></forward> 
+	    <forward name="assetReportList" path="/componentStaticsReport/listAllAsset.jsp"></forward>
+	    <forward name="specificationmodifyList" path="/componentStaticsReport/listApproval.jsp"></forward>   	
+	    <forward name="problemreportList" path="/componentStaticsReport/listProblemReport.jsp"></forward>  
+	    <forward name="feedbackList" path="/componentStaticsReport/listFeedback.jsp"></forward>  
+	    <forward name="facetList" path="/componentStaticsReport/listFacet.jsp"></forward>  
+	    <forward name="wordList" path="/componentStaticsReport/listWord.jsp"></forward>
+	    <forward name="relationList" path="/componentStaticsReport/listRelation.jsp"></forward>
+	    <forward name="RSCList" path="/componentStaticsReport/listRSC.jsp"></forward>
+	    <forward name="UserStatics" path="/componentStaticsReport/listUserStatics.jsp"></forward>
+	    <forward name="ByDepartment" path="/componentStaticsReport/listByDepartment.jsp"></forward>
+	    <forward name="ByActor" path="/componentStaticsReport/listByActor.jsp"></forward>
+	    <forward name="ByUser" path="/componentStaticsReport/listByUser.jsp"></forward>
+	    <forward name="checkoutrecordList" path="/componentStaticsReport/listAllCheckoutRecord.jsp"></forward>
+	    <forward name="activitystaticList" path="/componentStaticsReport/listAllactivitystatic.jsp"></forward>
+	    <forward name="checkorderList" path="/componentStaticsReport/listcheckoutOrder.jsp"></forward>  
+	     <forward name="fuYongList" path="/componentStaticsReport/listFuYong.jsp"></forward>
+    </action>   
+  
+  </action-mappings>
+</struts-config>

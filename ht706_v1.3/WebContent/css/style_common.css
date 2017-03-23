@@ -1,0 +1,193 @@
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Common Style ~~~~ */
+
+* { word-wrap: break-word; } /* 分行 */
+
+body { background: #FFF; text-align: center; } /* 定义body 背景 和 居中 */
+
+body, td, input, textarea, select, button { color: #000; font: 12px/1.6em Tahoma,Helvetica,Arial,sans-serif; } /* 定义 body td input textarea select botton 字体 大小 颜色 */
+
+body, ul, dl, dd, p, h1, h2, h3, h4, h5, h6, form, fieldset { margin: 0; padding: 0; } /* 定义 body ul dl dd p h1~h6 空白边和填充像素 */
+
+h1, h2, h3, h4, h5, h6 { font-size: 1em;} /* 定义 h1~h6 字体大小 */
+
+.popupmenu_popup li, .portalbox li, .tabs li, .postmessage fieldset li, .side li, .formbox li, .notice li { list-style: none; } /* 定义 列表样式 */
+
+#menu li, #announcement li{ list-style:none;} /* 定义 列表样式 */
+
+a { color: #000; text-decoration: none; } /* 定义超链接 字体颜色 和 下划线 */
+
+	a:hover { text-decoration: underline; } /* 定义超链接悬停 下划线 */
+	
+a img { border: none; } /* 定义 超链接图片 外框 */
+
+em, cite, strong, th { font-style: normal; font-weight: normal; } /* 定义 字体风格 和 字体粗细 */
+
+table { empty-cells: show; border-collapse: collapse; } /* 定义 表格的边框是否被合并为一个单一的边框 和 是否显示表格中的空单元格 */
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Layout & Block Style ~~~~ */
+
+
+.wrap { width: 98%; text-align: left; margin: 0 auto; } /* 定义 宽度 居左 外边距 */
+
+/* 导航栏样式 */
+#foruminfo { width: 100%; overflow: hidden; margin: 8px 0; color: #666; }
+	#userinfo, #foruminfo #nav { float: left; padding-left:  4px; }
+	#forumstats { float: right; text-align: right;}
+	#foruminfo p { margin: 0; }
+		#foruminfo a{ color: #069; }
+		#foruminfo em { color: #000; }
+		#foruminfo cite { font-weight: bold; }
+			#foruminfo strong a { font-weight: bold; color: #000; }
+		#foruminfo #nav { margin-top: 10; }
+		#userinfo #nav { float: left; }
+			#nav a { font-weight: bold; color: #069; }
+			
+/* 公告栏样式 */
+#announcement {  border-top: 1px dashed #CAD9EA; line-height: 36px; height: 36px; overflow:hidden; }
+	#announcement div { border: 1px solid #FFF; padding: 0 10px; line-height: 35px !important; height: 36px; overflow-y: hidden;} 
+		#announcement div ul li{float:left; margin-right:20px;padding-left:10px; background: url(../images/arrow_right.gif) no-repeat 0 50%; white-space: nowrap; }
+			#announcement div ul li em { font-size: 88%; margin-left: 5px; color: #666; } 
+			
+/* 标题栏样式 */
+.mainbox {border: 1px solid #CAD9EA; padding: 0px; margin-bottom: 10px;} /* 定义 边框 内边距 底外边距 */
+	.mainbox h3{ line-height:20px; padding-left:1em;background: #409bdd url("../images/forum/header_head.gif"); background-repeat: repeat-x; background-position: 0 0; color: #FFF;}
+	.mainbox table { width: 100%; }
+	.mainbox tbody th, .mainbox tbody td { border-top: 1px solid #CAD9EA; padding: 5px; }
+	.mainbox tbody cite, .mainbox tbody em { line-height: 1.3em; }		
+/* 底部版权样式 */
+#footer { width: 100%; border-top: 1px dashed #CAD9EA;  color: #666; padding: 15px 0; }
+	#footlinks { float: right; margin-top: -3px; text-align: right; }
+	#footer img { float: left; margin: 0 10px 0 0; }
+	#copyright { font: 0.83em/1.5em Verdana, Arial, Helvetica, sans-serif; }
+		#copyright strong, #copyright em { font-weight: bold; }
+			#copyright strong a { color: #0954A6; }
+			#copyright em { color: #FF9D25; }
+/* 论坛样式*/	
+.forumlist table { width: 100%;border-collapse: separate;  } /* 定义 表格宽度 定义表格的边框是否被合并为一个单一的边框*/
+
+.forumlist thead th, .forumlist thead td { background: url("../images/forum/portalbox_bg.gif");padding: 2px 5px;line-height: 22px;color: #666;}
+
+.forumlist tbody th, .forumlist tbody td { height: 60px; border-top: 1px solid #CAD9EA;;color: #666; padding: 5px 5px;  background-color: #F5FAFE; }
+
+.forumlist th { text-align: left; padding-left: 70px !important;}
+
+.forumlist table tbody .new{ background-image: url(../images/forum/icon/topic_permit.gif); background-repeat: no-repeat; background-position: 20px 40%; }
+
+.forumlist table tbody .normal{ background-image: url(../images/forum//icon/topic_unpermit.gif); background-repeat: no-repeat; background-position: 20px 40%; }
+
+.forumlist tbody th .name{ font-size: 120%; font-weight: bold;}
+
+.forumlist .master {width:11%;text-align:left;}
+.forumlist .num {width:12%;text-align: center;font-size: 90%;}
+.forumlist .last {width:17%;text-align:left; padding-left:20px;}
+
+.todaynum { color: #069;font-size: 100%; }
+.moderators { color: #666; }
+.moderators a { color: #069; }
+.moderators .time { font-size: 90%; color: #666;}
+		
+	
+.forumlist table,.threadlist table { border-collapse: separate; }
+		
+.forumlist tbody strong,.threadlist tbody strong , .formbox tbody strong   { color: #090; }
+.threadlist tbody th, .threadlist tbody td { color: #666; padding: 1px 5px; background-color: #F5FAFE;  }
+		
+.threadlist th { text-align: left; font: 14px Tahoma,Helvetica,Arial,sans-serif; }
+		
+.threadlist tbody tr { height:30px; }
+		
+.threadlist .ann tr { height:25px; }
+				
+.threadlist th label { float: right; vertical-align: absmiddle;}
+				
+.threadpages { background: url(../images/multipage.gif) no-repeat 0 100%; font-size: 11px; margin-left: 5px; white-space: nowrap; }
+	.threadpages a { padding-left: 8px; }
+		.threadpages a:hover { text-decoration: underline; }
+	
+.threadlist td.folder { text-align: center; width: 30px; }
+	
+.threadlist td.icon { text-align: center; padding: 3px 0; width: 30px; }
+
+.threadlist th.title { width: 55%;font: 12px Tahoma,Helvetica,Arial,sans-serif;}
+
+.threadlist th.status {  text-align: right;width:9%;  }
+		
+.threadlist td.nums { text-align: center; width: 10%; font: 12px Tahoma,Helvetica,Arial,sans-serif;  }
+		
+.threadlist td.author { width: 8%;  text-align: center; font: 12px Tahoma,Helvetica,Arial,sans-serif;  }
+		
+.threadlist td.lastpost { text-align: left; width: 18%; padding-left: 20px;  font: 12px Tahoma,Helvetica,Arial,sans-serif; }
+		
+.threadlist td.lastpost a , .threadlist td.author a { color: #069; font: 12px Tahoma,Helvetica,Arial,sans-serif;}
+		
+.threadlist td.author em, .threadlist td.lastpost em { font: 11px Tahoma,Helvetica,Arial,sans-serif;  }
+
+
+/* 公告页面 */
+.announcements { border-bottom: 2px solid #E8F3FD;}
+	.announcementinfo  { cursor: pointer; color: #999; text-align: right; padding-right: 16px; height: 30px; line-height: 30px; background: #F5FAFE; border-bottom: 1px solid #CAD9EA; }
+		.announcementinfo span { float: left; font-weight: 700; height: 30px; line-height: 30px; margin-left: 16px; color: #000; }
+		.announcementmessage { padding: 10px; border-bottom: 1px solid #CAD9EA; }
+		
+/*论坛规则样式*/
+.portalbox { width: 100%; background: #CAD9EA; margin-bottom: 10px; border-collapse: separate; }
+	.portalbox td { padding: 10px; vertical-align: top; background: #FFF; background-repeat: repeat-x; background-position: 0 0; background-repeat: repeat-x; border: 1px solid #FFF; }
+		.portalbox h3 { margin: 0 0 0px; font-size: 1em; white-space: nowrap; }
+		.portalbox strong { font-weight: bold; margin-top: 4px;}
+		.portalbox em { color: #999; }
+			.portalbox em a { color: #999; }
+			.portalbox cite a { color: #069; }
+		#hottags a { white-space: nowrap; margin-right: 0.5em; }
+		#hottags h3 { clear:both; }
+/*发表菜单*/
+.newspecialmenu { float:left;width: 95px; }
+	.newspecialmenu li { background: #FFF url(../images/forum/icon/folder_s.gif) no-repeat 3px 50%; float: left;}
+	.newspecialmenu li.poll { background: #FFF  url(../images/forum/icon/pollsmall.gif) no-repeat 3px 50%; float: left;}
+	.newspecialmenu li.debate { background: #FFF url(../images/forum/icon/debatesmall.gif) no-repeat 3px 50%; float: left; }
+	.newspecialmenu a { display: block; width: 75px; border-bottom: 1px solid #E8E8E8; padding: 5px 0 5px 25px; }
+		.newspecialmenu a:hover { text-decoration: none; color: #069; border-bottom-color: #CAD9EA; }
+		
+/* 有无新贴说明栏 */
+.legend { border: 1px solid #CAD9EA; background: #FFF; padding: 10px; margin: 10px auto; width: 400px; text-align: center; line-height: 25px; }
+	.legend label { padding: 0 5px; }
+	.legend img { vertical-align: middle; margin-right: 5px; }
+/* 高亮颜色样式 */	
+label.highlight { width: 40px; margin-right: 30px; }
+label.highlight, label.highlight input { float: left; }
+label.highlight em { float: right; width: 16px; height:16px;  }
+
+.forumcontrol table {
+	width: 100%;
+}
+
+.forumcontrol td {
+	padding-bottom: 5px;
+}
+
+.forumcontrol .narrow td {
+	padding: 0 15px 5px;
+}
+
+.managelink a{
+	font-size: 1em;
+	text-align: center;
+	float:left;
+	width: 100px;
+	height:20px;
+	margin :15px;
+	padding: 0;
+	color: #FFF; 
+	background: #409bdd;
+	display: block;
+	border: 1px solid #409bdd;
+}
+.managelink a:hover{text-decoration: none;border: 1px solid #F00;}
+.announcementinfo a:hover{
+	color:#409bdd;
+}
+.mainbox a:hover{
+	color:#409bdd;
+}
+		

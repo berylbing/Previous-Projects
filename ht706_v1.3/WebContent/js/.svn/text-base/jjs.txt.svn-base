@@ -1,0 +1,1262 @@
+<script>
+//事件源对象 
+event.srcElement.tagName; 
+event.srcElement.type 
+//捕获释放 
+event.srcElement.setCapture();  
+event.srcElement.releaseCapture();
+//事件按键 
+event.keyCode ;
+event.shiftKey ;
+event.altKey ;
+event.ctrlKey ;
+//事件返回值 
+event.returnValue ;
+//鼠标位置 
+event.x ;
+event.y ;
+</script>
+<script>
+//窗体活动元素 
+document.activeElement ;
+//绑定事件
+document.captureEvents(Event.KEYDOWN); 
+//访问窗体元素 
+document.all("txt").focus();
+document.all("txt").select(); 
+//窗体命令 
+document.execCommand ;
+//窗体COOKIE 
+document.cookie ;
+//菜单事件 
+document.oncontextmenu ;
+//创建元素 
+document.createElement("SPAN"); 
+//根据鼠标获得元素：
+document.elementFromPoint(event.x,event.y).tagName == document.elementFromPoint(event.x,event.y).appendChild(ms);
+//窗体图片 
+document.images[索引] ;
+//窗体事件绑定 
+document.onmousedown=scrollwindow; 
+//元素 
+document.窗体.elements[索引] ;
+//对象绑定事件 
+document.all.xxx.detachEvent('onclick',a); 
+//插件数目 
+navigator.plugins ;
+//取变量类型
+typeof($js_libpath) == "undefined" ;
+//下拉框 
+下拉框.options[索引] ;
+下拉框.options.length ;
+//查找对象 
+document.getElementsByName("r1"); 
+document.getElementById(id); 
+</script>
+<script>
+//定时 
+timer=setInterval('scrollwindow()',delay); 
+clearInterval(timer); 
+//UNCODE编码 
+escape() ,unescape ;
+//父对象 
+obj.parentElement(dhtml); 
+obj.parentNode(dom);
+//交换表的行
+TableID.moveRow(2,1) ;
+//替换CSS 
+document.all.csss.href = "a.css"; 
+//并排显示 
+display:inline ;
+//隐藏焦点 
+hidefocus=true ;
+//根据宽度换行 
+style="word-break:break-all" ;
+</script>
+<!-- //自动刷新 --> 
+<meta HTTP-EQUIV="refresh" CONTENT="8;URL=http ://c98.yeah.net"> ;
+<!-- //简单邮件 --> 
+<a href="mailto :aaa @bbb.com?subject=ccc&body=xxxyyy"> ;
+<!-- //快速转到位置  -->
+obj.scrollIntoView(true) ;
+<!-- //锚 --> 
+<a name="first"> ;
+<a href="#first">anchors</a> ;
+<script>
+//网页传递参数
+location.search();
+//可编辑 
+obj.contenteditable=true ;
+//执行菜单命令 
+obj.execCommand ;
+//双字节字符 
+/[^\x00-\xff]/ ;
+汉字 
+/[\u4e00-\u9fa5]/ ;
+//让英文字符串超出表格宽度自动换行 
+word-wrap: break-word; word-break: break-all; 
+
+//透明背景 
+</script>
+<iframe src="1.htm" width=300 height=180 allowtransparency></iframe> ;
+
+<script>
+//获得style内容 
+obj.style.cssText ;
+//HTML标签 
+document.documentElement.innerHTML ;
+//第一个style标签 
+document.styleSheets[0] ;
+//style标签里的第一个样式 
+document.styleSheets[0].rules[0] ;
+</script>
+<!-- //防止点击空链接时，页面往往重置到页首端。 -->
+<a href="javascript:function()">word</a> 上一网页源 asp: request.servervariables("HTTP_REFERER") javascript: document.referrer ;
+
+<script>
+//释放内存
+ CollectGarbage();
+//禁止右键 
+document.oncontextmenu = function() { return false;} ;
+</script>
+<!-- //禁止保存  -->
+<noscript><iframe src="*.htm"></iframe></noscript>
+<!-- //禁止选取 -->
+<body oncontextmenu="return false" ondragstart="return false" onselectstart ="return false" onselect="document.selection.empty()" oncopy="document.selection.empty()" onbeforecopy="return false" onmouseup="document.selection.empty()"> 
+<!-- //禁止粘贴 -->
+<input type=text onpaste="return false"> 
+<!-- //地址栏图标  -->
+<link rel="Shortcut Icon" href="favicon.ico">
+<!-- //favicon.ico 名字最好不变16*16的16色,放虚拟目录根目录下 
+//收藏栏图标 --> 
+<link rel="Bookmark" href="favicon.ico"> 
+<!-- //查看源码 -->
+ <input type=button value=查看网页源代码 onclick="window.location = 'view-source:'+ 'http ://www.csdn.net/'">
+<!-- //关闭输入法 -->
+<input style="ime-mode:disabled"> 
+<!-- //自动全选 -->
+<input type=text name=text1 value="123" onfocus="this.select()"> 
+<!-- //ENTER键可以让光标移到下一个输入框 -->
+<input onkeydown="if(event.keyCode==13)event.keyCode=9">
+<!-- //文本框的默认值 -->
+<input type=text value="123" onfocus="alert(this.defaultValue)"> 
+<script>
+//title换行
+obj.title = "123&#13sdfs&#32" ;
+//获得时间所代表的微秒 
+var n1 = new Date("2004-10-10".replace(/-/g, "\/")).getTime() ;
+//窗口是否关闭 
+win.closed ;
+</script>
+<!-- //自动完成功能 -->
+<input  type=text  autocomplete=on>打开该功能  <input  type=text  autocomplete=off>关闭该功能 
+<!-- //窗口最大化 --> 
+<body onload="window.resizeTo(window.screen.width - 4,window.screen.height-50);window.moveTo(-4,-4)"> 
+<!-- //表格行指示 -->
+<tr onmouseover="this.bgColor='#f0f0f0'" onmouseout="this.bgColor='#ffffff'"> 
+<!-- //checkbox扁平 -->
+<input type=checkbox style="position: absolute; clip:rect(5px 15px 15px 5px)"> 
+<script>
+//获取选中内容 
+document.selection.createRange().duplicate().text;
+//无关闭按钮IE
+window.open("aa.htm", "meizz", "fullscreen=7"); 
+//统一编码/解码
+alert(decodeURIComponent(encodeURIComponent("http ://你好.com?as= hehe"))) encodeURIComponent对":"、"/"、";" 和 "?"也编码 ;
+//各种尺寸 
+s  +=  "\r\n网页可见区域宽："+  document.body.clientWidth;   
+s  +=  "\r\n网页可见区域高："+  document.body.clientHeight;   
+s  +=  "\r\n网页可见区域高："+  document.body.offsetWeight  +"  (包括边线的宽)";   
+s  +=  "\r\n网页可见区域高："+  document.body.offsetHeight  +"  (包括边线的宽)";   
+s  +=  "\r\n网页正文全文宽："+  document.body.scrollWidth;   
+s  +=  "\r\n网页正文全文高："+  document.body.scrollHeight;   
+s  +=  "\r\n网页被卷去的高："+  document.body.scrollTop;   
+s  +=  "\r\n网页被卷去的左："+  document.body.scrollLeft;   
+s  +=  "\r\n网页正文部分上："+  window.screenTop;   
+s  +=  "\r\n网页正文部分左："+  window.screenLeft;   
+s  +=  "\r\n屏幕分辨率的高："+  window.screen.height;   
+s  +=  "\r\n屏幕分辨率的宽："+  window.screen.width;   
+s  +=  "\r\n屏幕可用工作区高度："+  window.screen.availHeight;   
+s  +=  "\r\n屏幕可用工作区宽度："+  window.screen.availWidth; 
+</script>
+<!-- //过滤数字 --> 
+<input type=text onkeypress="return event.keyCode>=48&&event.keyCode<=57||(this.value.indexOf('.')<0?event.keyCode==46:false)" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> 
+
+<!-- //特殊用途 --> 
+<input type=button value=导出收藏夹 onclick="window.external.ImportExportFavorites(false,'http ://localhost');"> 
+<input type=button value=整理收藏夹 onclick="window.external.ShowBrowserUI('OrganizeFavorites', null)"> 
+<input type=button value=语言设置   onclick="window.external.ShowBrowserUI('LanguageDialog', null)"> 
+<input type=button value=加入收藏夹 onclick="window.external.AddFavorite('http ://www.google.com/', 'google')"> 
+<input type=button value=加入到频道 onclick="window.external.addChannel('http ://www.google.com/')"> 
+<input type=button value=加入到频道 onclick="window.external.showBrowserUI('PrivacySettings',null)"> 
+<!-- //不缓存 --> 
+<META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<META HTTP-EQUIV="expires" CONTENT="0"> 
+<script>
+//正则匹配 
+匹配中文字符的正则表达式：[\u4e00-\u9fa5]
+匹配双字节字符(包括汉字在内)：[^\x00-\xff] 
+匹配空行的正则表达式：\n[\s| ]*\r 
+匹配HTML标记的正则表达式：/<(.*)>.*<\/\1>|<(.*) \/>/  
+匹配首尾空格的正则表达式：(^\s*)|(\s*$)（像vbscript那样的trim函数） 
+匹配Email地址的正则表达式：\w+([-+.]\w+)* @\w+([-.]\w+)*\.\w+([-.]\w+)* 
+匹配网址URL的正则表达式：http ://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)? 
+//<!-- *********************** -->
+
+//下面的提供了在正则表达式中能够使用的完整对特殊字符的一个完整的列表和描述。
+
+    表：正则表达式中的特殊字符：
+
+    字符\
+    意义：对于字符，通常表示按字面意义，指出接着的字符为特殊字符，\不作解释。
+    例如：/b/匹配字符'b',通过在b 前面加一个反斜杠\，也就是/\b/，则该字符变成特殊字符，表示匹配一个单词的分界线。
+    或者：   
+    对于几个字符，通常说明是特殊的，指出紧接着的字符不是特殊的，而应该按字面解释。
+    例如：*是一个特殊字符，匹配任意个字符(包括0个字符)；例如：/a*/意味匹配0个或多个a。
+    为了匹配字面上的*，在a前面加一个反斜杠；例如：/a\*/匹配'a*'。
+
+    字符^
+    意义：表示匹配的字符必须在最前边。
+    例如：/^A/不匹配"an A,"中的'A'，但匹配"An A."中最前面的'A'。
+
+    字符$
+    意义：与^类似，匹配最末的字符。
+    例如：/t$/不匹配"eater"中的't'，但匹配"eat"中的't'。
+
+    字符*
+    意义：匹配*前面的字符0次或n次。
+    例如:/bo*/匹配"A ghost booooed"中的'boooo'或"A bird warbled"中的'b'，但不匹配"A goat grunted"中的任何字符。
+
+    字符+
+    意义：匹配+号前面的字符1次或n次。等价于{1,}。
+    例如：/a+/匹配"candy"中的'a'和"caaaaaaandy."中的所有'a'。
+
+    字符?
+    意义：匹配?前面的字符0次或1次。
+    例如：/e?le?/匹配"angel"中的'el'和"angle."中的'le'。
+
+    字符.
+    意义：(小数点)匹配除换行符外的所有单个的字符。
+    例如：/.n/匹配"nay, an apple is on the tree"中的'an'和'on'，但不匹配'nay'。
+
+
+    字符(x)
+    意义：匹配'x'并记录匹配的值。
+    例如：/(foo)/匹配和记录"foo bar."中的'foo'。匹配子串能被结果数组中的素[1], ..., [n] 返回，或被RegExp对象的属性$1, ..., $9返回。
+
+    字符x|y
+    意义：匹配'x'或者'y'。
+    例如：/green|red/匹配"green apple"中的'green'和"red apple."中的'red'。
+
+    字符{n}
+    意义：这里的n是一个正整数。匹配前面的n个字符。
+    例如：/a{2}/不匹配"candy,"中的'a'，但匹配"caandy," 中的所有'a'和"caaandy."中前面的两个'a'。
+
+    字符{n,}
+    意义：这里的n是一个正整数。匹配至少n个前面的字符。
+    例如：/a{2,}不匹配"candy"中的'a'，但匹配"caandy"中的所有'a'和"caaaaaaandy."中的所有'a'
+
+    字符{n,m}
+    意义：这里的n和m都是正整数。匹配至少n个最多m个前面的字符。
+    例如：/a{1,3}/不匹配"cndy"中的任何字符，但匹配 "candy,"中的'a'，"caandy," 中的前面两个'a'和"caaaaaaandy"中前面的三个'a'，注意：即使"caaaaaaandy" 中有很多个'a'，但只匹配前面的三个'a'即"aaa"。
+
+    字符[xyz]
+    意义：一字符列表，匹配列出中的任一字符。你可以通过连字符-指出一个字符范围。
+    例如：[abcd]跟[a-c]一样。它们匹配"brisket"中的'b'和"ache"中的'c'。
+
+    字符[^xyz]
+    意义：一字符补集，也就是说，它匹配除了列出的字符外的所有东西。 你可以使用连字符-指出一字符范围。
+    例如：[^abc]和[^a-c]等价，它们最早匹配"brisket"中的'r'和"chop."中的'h'。
+
+    字符[\b]
+    意义：匹配一个空格(不要与\b混淆)
+
+    字符\b
+    意义：匹配一个单词的分界线，比如一个空格(不要与[\b]混淆)
+
+
+	为简便起见，可以使用一些为常见正则表达式创建的快捷符号。如表二所示：  
+	表二：常用符号  
+	\d    [0-9]
+	\D    [^0-9]
+	\w    [A-Z0-9]
+	\W    [^A-Z0-9]
+	\s    [\t\n\r\f]
+	\S    [^\t\n\r\f]
+
+
+
+//<!-- *********************** -->
+//以下是例子： 
+//利用限制网页表单里的文本框输入内容：
+用正则表达式限制只能输入中文：
+onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" 
+onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))" 
+1.用正则表达式限制只能输入全角字符： 
+onkeyup="value=value.replace(/[^\uFF00-\uFFFF]/g,'')" 
+onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\uFF00-\uFFFF]/g,''))" 
+2.用正则表达式限制只能输入数字：
+onkeyup="value=value.replace(/[^\d]/g,'')"
+onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" 
+3.用正则表达式限制只能输入数字和英文：
+onkeyup="value=value.replace(/[\W]/g,'') "
+onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" 
+</script>
+<!-- //消除图像工具栏 --> 
+<IMG SRC="mypicture.jpg" HEIGHT="100px" WIDTH="100px" GALLERYIMG="false">  
+or 
+<head> 
+<meta http-equiv="imagetoolbar" content="no"> 
+</head> 
+<script>
+//无提示关闭 
+function Close() {  
+	var ua=navigator.userAgent;  
+	var ie=navigator.appName=="Microsoft Internet Explorer"?true:false;
+	if(ie)  {       
+		var IEversion=parseFloat(ua.substring(ua.indexOf("MSIE ")+5,ua.indexOf(";",ua.indexOf("MSIE "))));
+		if(IEversion< 5.5)   {    
+			var str  = '<object id=noTipClose classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11">';
+			str += '<param name="Command" value="Close"></object>';       
+			document.body.insertAdjacentHTML("beforeEnd", str);        
+			document.all.noTipClose.Click();   
+		} else {        
+			window.opener =null;        
+			window.close();       
+		}    
+	} else {  
+		window.close();
+	} 
+}
+
+//取得控件得绝对位置(1) 
+function getoffset(e) {  
+	var t=e.offsetTop;  
+	var l=e.offsetLeft;  
+	while(e=e.offsetParent) {  
+		t+=e.offsetTop;  
+		l+=e.offsetLeft;  
+	}  
+	var rec = new Array(1); 
+	rec[0]  = t; 
+	rec[1] = l; 
+	return rec 
+}  
+
+//获得控件的绝对位置(2) 
+oRect = obj.getBoundingClientRect();
+oRect.left;
+oRect.right;
+</script>
+<!-- //最小化,最大化,关闭  -->
+<object id=min classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11"><param name="Command" value="Minimize"></object>  
+<object id=max classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11"><param name="Command" value="Maximize"></object>  
+<object id=close classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"><param name="Command" value="Close"></object>  
+<input type=button value=最小化 onclick=min.Click()>  
+<input type=button value=最大化 onclick=max.Click()>  
+<input type=button value=关闭 onclick=close.Click()> 
+
+<script>
+//光标停在文字最后 
+function cc() { 
+	var e = event.srcElement; 
+	var r =e.createTextRange(); 
+	r.moveStart('character',e.value.length); 
+	r.collapse(true); 
+	r.select(); 
+} 
+</script>
+<input type=text name=text1 value="123" onfocus="cc()">
+
+<!-- //页面进入和退出的特效  -->
+<meta http-equiv="Page-Enter" content="revealTrans(duration=x, transition=y)"> 
+<meta http-equiv="Page-Exit" content="revealTrans(duration=x, transition=y)"> 
+<!-- 这个是页面被载入和调出时的一些特效。duration表示特效的持续时间，以秒为单位。transition表示使 
+用哪种特效，取值为1-23: 
+　　0 矩形缩小 
+　　1 矩形扩大 
+　　2 圆形缩小 
+　　3 圆形扩大 
+　　4 下到上刷新 
+　　5 上到下刷新 
+　　6 左到右刷新 
+　　7 右到左刷新 
+　　8 竖百叶窗 
+　　9 横百叶窗 
+　　10 错位横百叶窗 
+　　11 错位竖百叶窗 
+　　12 点扩散 
+　　13 左右到中间刷新 
+　　14 中间到左右刷新 
+　　15 中间到上下 
+　　16 上下到中间 
+　　17 右下到左上 
+　　18 右上到左下 
+　　19 左上到右下 
+　　20 左下到右上 
+　　21 横条 
+　　22 竖条 -->
+<!-- //网页是否被检索 --> 
+<meta name="ROBOTS" content="属性值"> 
+<!-- 其中属性值有以下一些: 
+　　属性值为"all": 文件将被检索，且页上链接可被查询； 
+　　属性值为"none": 文件不被检索，而且不查询页上的链接； 
+　　属性值为"index": 文件将被检索； 
+　　属性值为"follow": 查询页上的链接； 
+　　属性值为"noindex": 文件不检索，但可被查询链接； 
+　　属性值为"nofollow":  -->
+
+<!-- //打印分页 --> 
+<p  style="page-break-after:always">page1</p>   
+<p  style="page-break-after:always">page2</p>   
+
+<!-- //设置打印 -->
+<object id="factory" style="display:none" viewastext 
+  classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814" 
+  codebase="http ://www.meadroid.com/scriptx/ScriptX.cab#Version=5,60,0,360"></object> 
+<input type=button value=页面设置 onclick="factory.printing.PageSetup()"> 
+<input type=button value=打印预览 onclick="factory.printing.Preview()"> 
+<script>
+	function window.onload() { 
+		// -- advanced features 
+		factory.printing.SetMarginMeasure(2); // measure margins in inches 
+		factory.printing.SetPageRange(false, 1, 3); // need pages from 1 to 3 
+		factory.printing.printer = "HP DeskJet 870C" ;
+		factory.printing.copies = 2 ;
+		factory.printing.collate = true ;
+		factory.printing.paperSize = "A4" ;
+		factory.printing.paperSource = "Manual feed" ;
+		// -- basic features 
+		factory.printing.header = "居左显示&b居中显示&b居右显示页码，第&p页/共&P页" ;
+		factory.printing.footer = "（自定义页脚）" ;
+		factory.printing.portrait = false ;
+		factory.printing.leftMargin = 0.75 ;
+		factory.printing.topMargin = 1.5 ;
+		factory.printing.rightMargin = 0.75 ;
+		factory.printing.bottomMargin = 1.5 ;
+	} 
+	function Print(frame) { 
+		factory.printing.Print(true, frame) // print with prompt 
+	} 
+</script>
+<input type=button value="打印本页" onclick="factory.printing.Print(false)"> 
+<input type=button value="页面设置" onclick="factory.printing.PageSetup()"> 
+<input type=button value="打印预览" onclick="factory.printing.Preview()"><br> 
+<a href="http ://www.meadroid.com/scriptx/docs/printdoc.htm?static" target="_blank">具体使用手册，更多信息，点这里</a> 
+
+<script>
+//自带的打印预览 
+WebBrowser.ExecWB(1,1) 
+打开  Web.ExecWB(2,1) 
+关闭现在所有的IE窗口，并打开一个新窗口  Web.ExecWB(4,1) 
+保存网页  Web.ExecWB(6,1) 
+打印  Web.ExecWB(7,1) 
+打印预览  Web.ExecWB(8,1) 
+打印页面设置  Web.ExecWB(10,1) 
+查看页面属性  Web.ExecWB(15,1) 
+好像是撤销，有待确认  Web.ExecWB(17,1) 
+全选  Web.ExecWB(22,1) 
+刷新  Web.ExecWB(45,1) 
+</script>
+
+<!-- //关闭窗体无提示 -->  
+<style media=print>  
+	.Noprint{display:none;}<!--用本样式在打印时隐藏非打印项目-->  
+	.PageNext{page-break-after: always;}<!--控制分页-->  
+</style>  
+<object  id="WebBrowser"  width=0  height=0  classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></object>       
+<center class="Noprint" > 
+<input type=button value=打印 onclick=document.all.WebBrowser.ExecWB(6,1)>  
+<input type=button value=直接打印 onclick=document.all.WebBrowser.ExecWB(6,6)>  
+<input type=button value=页面设置 onclick=document.all.WebBrowser.ExecWB(8,1)>  </p>  <p> 
+<input type=button value=打印预览 onclick=document.all.WebBrowser.ExecWB(7,1)>  </center>
+
+<script>
+//去掉打印时的页眉页脚
+var HKEY_Root,HKEY_Path,HKEY_Key; 
+HKEY_Root="HKEY_CURRENT_USER"; 
+HKEY_Path="\\Software\\Microsoft\\Internet"> Explorer\\PageSetup\\"; 
+//设置网页打印的页眉页脚为空 
+function PageSetup_Null() { 
+	try  { 
+		var Wsh=new ActiveXObject("WScript.Shell"); 
+		HKEY_Key="header"; 
+		Wsh.RegWrite(HKEY_Root+HKEY_Path+HKEY_Key,""); 
+		HKEY_Key="footer"; 
+		Wsh.RegWrite(HKEY_Root+HKEY_Path+HKEY_Key,""); 
+	} catch(e){} 
+} 
+//设置网页打印的页眉页脚为默认值 
+function  PageSetup_Default() {   
+	try { 
+		var Wsh=new ActiveXObject("WScript.Shell"); 
+		HKEY_Key="header"; 
+		Wsh.RegWrite(HKEY_Root+HKEY_Path+HKEY_Key,"&w&b页码,&p/&P"); 
+		HKEY_Key="footer"; 
+		Wsh.RegWrite(HKEY_Root+HKEY_Path+HKEY_Key,"&u&b&d"); 
+	} catch(e){} 
+} 
+</script>
+<input type="button" value="清空页码" onclick=PageSetup_Null()> 
+<input type="button" value="恢复页码" onclick=PageSetup_Default()> 
+
+<script>
+//浏览器验证 
+function checkBrowser() {
+	this.ver=navigator.appVersion;
+	this.dom=document.getElementById?1:0;
+	this.ie6=(this.ver.indexOf("MSIE 6")>-1 && this.dom)?1:0;
+	this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0;
+	this.ie4=(document.all && !this.dom)?1:0;
+	this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0;
+	this.ns4=(document.layers && !this.dom)?1:0;
+	this.mac=(this.ver.indexOf('Mac') > -1) ?1:0;
+	this.ope=(navigator.userAgent.indexOf('Opera')>-1);
+	this.ie=(this.ie6 || this.ie5 || this.ie4);
+	this.ns=(this.ns4 || this.ns5);
+	this.bw=(this.ie6 || this.ie5 || this.ie4 || this.ns5 || this.ns4 || this.mac || this.ope);
+	this.nbw=(!this.bw);
+	return this; 
+} 
+</script>
+
+<script>
+//计算内容宽和高
+function  test(obj) {   
+	var  range  =  obj.createTextRange();   
+	alert("内容区宽度:  "  +  range.boundingWidth  +  "px\r\n内容区高度:  "  +  range.boundingHeight  +  "px");   
+} 
+</script>
+<BODY>   
+<Textarea id="txt" height="150">sdf</textarea><INPUT  type="button"  value="计算内容宽度"  onClick="test(txt)">   
+</BODY> 
+
+<script>
+//无模式的提示框 
+function modelessAlert(Msg) { 
+window.showModelessDialog("javascript:alert(\""+escape(Msg)+"\");window.close();","","status:no;resizable:no;help:no;dialogHeight:height:30px;dialogHeight:40px;"); } 
+</script>
+
+<!-- //屏蔽按键 --> 
+<html> 
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+  <noscript><meta http-equiv="refresh" content="0;url=about:noscript"></noscript> 
+  <title>屏蔽鼠标右键、Ctrl+N、Shift+F10、Alt+F4、F11、F5刷新、退格键</title> 
+</head> 
+<body> 
+<script>
+//屏蔽鼠标右键、Ctrl+N、Shift+F10、F11、F5刷新、退格键 
+//Author: meizz(梅花雨) 2002-6-18 
+function document.oncontextmenu(){event.returnValue=false;}//屏蔽鼠标右键 
+function window.onhelp(){return false} //屏蔽F1帮助 
+function document.onkeydown() { 
+	if ((window.event.altKey) && ((window.event.keyCode==37) || (window.event.keyCode==39))) {  //屏蔽 Alt+ 方向键 ← → 
+		alert("不准你使用ALT+方向键前进或后退网页！"); 
+		event.returnValue=false; 
+	} 
+	/* 注：这还不是真正地屏蔽 Alt+ 方向键， 
+	因为 Alt+ 方向键弹出警告框时，按住 Alt 键不放， 
+	用鼠标点掉警告框，这种屏蔽方法就失效了。以后若 
+	有哪位高手有真正屏蔽 Alt 键的方法，请告知。*/ 
+	//Ctrl + R ,屏蔽 F5 刷新键, 屏蔽退格删除键
+	if ((event.keyCode==8) || (event.keyCode==116) || (event.ctrlKey && event.keyCode==82)){ 
+		event.keyCode=0; 
+		event.returnValue=false; 
+	} 
+	if (event.keyCode==122){event.keyCode=0;event.returnValue=false;}  //屏蔽F11 
+	if (event.ctrlKey && event.keyCode==78) event.returnValue=false;   //屏蔽 Ctrl+n 
+	if (event.shiftKey && event.keyCode==121)event.returnValue=false;  //屏蔽 shift+F10 
+	if (window.event.srcElement.tagName == "A" && window.event.shiftKey)  
+		window.event.returnValue = false;             //屏蔽 shift 加鼠标左键新开一网页 
+	if ((window.event.altKey)&&(window.event.keyCode==115)) {          //屏蔽Alt+F4 
+		window.showModelessDialog("about:blank","","dialogWidth:1px;dialogheight:1px"); 
+		return false; 
+	} 
+} 
+//屏蔽鼠标右键、Ctrl+N、Shift+F10、Alt+F4、F11、F5刷新、退格键 
+</script>
+</body> 
+</html>
+
+<!-- //屏蔽打印 --> 
+<style> 
+@media print{ 
+* {display:none} 
+} 
+</style> 
+
+<!-- //移动的图层，拖动  -->
+<!-- // 1. -->
+<span style='position:absolute;width:200;height:200;background:red' onmousedown=MouseDown(this) onmousemove=MouseMove() onmouseup=MouseUp()>meizz</span> 
+<script language=javascript> 
+var Obj; 
+function MouseDown(obj) { 
+	Obj=obj; 
+	Obj.setCapture(); 
+	Obj.l=event.x-Obj.style.pixelLeft; 
+	Obj.t=event.y-Obj.style.pixelTop; 
+} 
+function MouseMove() { 
+	if(Obj!=null)   { 
+		Obj.style.left = event.x-Obj.l; 
+		Obj.style.top = event.y-Obj.t; 
+	} 
+} 
+function MouseUp() { 
+	if(Obj!=null)   { 
+		Obj.releaseCapture(); 
+		Obj=null; 
+	} 
+} 
+</script>
+<!-- // 2. -->
+<div id="myDiv" src="logo.gif" ondrag="doDrag();" onmouseover="this.style.cursor='hand'" style="position:absolute;left=100;top=100;" onmousedown="doMouseDown();"> 
+<a href="#" onclick="return false"><h1>wlecome</h1></a> 
+</div> 
+<script>
+var orgMouseX; 
+var orgMouseY; 
+var orgObjX; 
+var orgObjY; 
+function doDrag() { 
+	var myObject=document.all.myDiv; 
+	var x=event.clientX; 
+	var y=event.clientY; 
+	myObject.style.left=x-(orgMouseX-orgObjX); 
+	myObject.style.top=y-(orgMouseY-orgObjY); 
+} 
+function doMouseDown() { 
+	orgMouseX=event.clientX; 
+	orgMouseY=event.clientY; 
+	orgObjX=parseInt(document.all.myDiv.style.left); 
+	orgObjY=parseInt(document.all.myDiv.style.top); 
+} 
+</script>
+
+<!-- //文档状态改变 --> 
+<iframe src="a.html" id="f" name="f" scrolling="no" frameborder=0 marginwidth=0 marginheight=0></iframe> 
+<script>
+var doc=window.frames["f"].document; 
+function s(){ 
+	if (doc.readyState=="complete"){ 
+		document.all.f.style.height=doc.body.scrollHeight; 
+		document.all.f.style.width=doc.body.scrollWidth; 
+	} 
+} 
+doc.onreadystatechange=s; 
+</script>
+
+<!-- //刷新后不变的文本框 -->
+<HTML> 
+<HEAD> 
+<META NAME="save" CONTENT="history"> 
+<STYLE> 
+   .sHistory {behavior:url(#default#savehistory);} 
+</STYLE> 
+</HEAD> 
+<BODY> 
+<INPUT class=sHistory type=text id=oPersistInput> 
+</BODY> 
+</HTML> 
+
+<script>
+//访问剪贴板 
+//(1)拖拽访问 
+event.dataTransfer.setData("URL", oImage.src); sImageURL = event.dataTransfer.getData("URL");
+//(2)普通访问
+ window.clipboardData.setData("Text",oSource.innerText); window.clipboardData.getData("Text"); 
+//操作COOKIE 
+function SetCookie(sName, sValue) {
+	document.cookie = sName + "=" + escape(sValue) + "; "; 
+}
+function GetCookie(sName) {
+	var aCookie = document.cookie.split("; ");
+	for (var i=0; i < aCookie.length; i++)  {
+		var aCrumb = aCookie[i].split("=");
+		if (sName == aCrumb[0])
+		return unescape(aCrumb[1]);
+	}
+}
+function DelCookie(sName) {
+	document.cookie = sName + "=" + escape(sValue) + "; expires=Fri, 31 Dec 1999 23:59:59 GMT;"; 
+} 
+
+//setTimeout增加参数 
+var _st = window.setTimeout; 
+window.setTimeout = function(fRef, mDelay) { 
+	if(typeof fRef == 'function'){ 
+		var argu = Array.prototype.slice.call(arguments,2); 
+		var f = (function(){ fRef.apply(null, argu); }); 
+		return _st(f, mDelay); 
+	} 
+	return _st(fRef,mDelay); 
+} 
+function test(x){ 
+	alert(x); 
+} 
+window.setTimeout(test,1000,'fason'); 
+
+//自定义的apply,call 
+Function.prototype.apply = function (obj, argu) {
+		if (obj) obj.constructor.prototype._caller = this;
+		var argus = new Array();
+		for (var i=0;i<argu.length;i++)
+			argus[i] = "argu[" + i + "]";
+		var r;
+		eval("r = " + (obj ? ("obj._caller(" + argus.join(",") + ");") : ("this(" + argus.join(",") + ");")));
+		return r;
+	};
+Function.prototype.call = function (obj) {
+		var argu = new Array();
+		for (var i=1;i<arguments.length;i++)
+			argu[i-1] = arguments[i];
+		return this.apply(obj, argu);
+	};        
+
+//下载文件 
+function DownURL(strRemoteURL,strLocalURL) {
+	try  {
+		var xmlHTTP=new ActiveXObject("Microsoft.XMLHTTP");
+		xmlHTTP.open("Get",strRemoteURL,false);
+		xmlHTTP.send();
+		var adodbStream=new ActiveXObject("ADODB.Stream");
+		adodbStream.Type=1;
+		1=adTypeBinary;
+		adodbStream.Open();
+		adodbStream.write(xmlHTTP.responseBody);
+		adodbStream.SaveToFile(strLocalURL,2);
+		adodbStream.Close();
+		adodbStream=null;
+		xmlHTTP=null;
+	} catch(e) {
+		window.confirm("下载URL出错!");
+	}  //window.confirm("下载完成."); } 
+
+//检验连接是否有效 
+function getXML(URL)  {
+	var xmlhttp = new ActiveXObject("microsoft.xmlhttp");
+	xmlhttp.Open("GET",URL, false);
+	try  {
+		xmlhttp.Send();
+	} catch(e){
+	} finally {
+		var result = xmlhttp.responseText;
+		if(result) {
+			if(xmlhttp.Status==200) {
+				return(true);
+			} else {
+				return(false);
+			}
+		} else {
+			return(false);
+		}
+	}
+} 
+
+//POST代替FORM 
+function URLEncoding(vstrIn) {
+    var strReturn = "" 
+    For i = 1 To Len(vstrIn) 
+        ThisChr = Mid(vStrIn,i,1) 
+        If Abs(Asc(ThisChr)) < &HFF Then 
+            strReturn = strReturn & ThisChr 
+        Else 
+            innerCode = Asc(ThisChr) 
+            If innerCode < 0 Then 
+                innerCode = innerCode + &H10000 
+            End If 
+            Hight8 = (innerCode  And &HFF00)\ &HFF 
+            Low8 = innerCode And &HFF 
+            strReturn = strReturn & "%" & Hex(Hight8) &  "%" & Hex(Low8) 
+        End If 
+    Next 
+    URLEncoding = strReturn 
+}
+function bytes2BSTR(vIn) {
+    strReturn = "" 
+    For i = 1 To LenB(vIn) 
+        ThisCharCode = AscB(MidB(vIn,i,1)) 
+        If ThisCharCode < &H80 Then 
+            strReturn = strReturn & Chr(ThisCharCode) 
+        Else 
+            NextCharCode = AscB(MidB(vIn,i+1,1)) 
+            strReturn = strReturn & Chr(CLng(ThisCharCode) * &H100 + CInt(NextCharCode)) 
+            i = i + 1 
+        End If 
+    Next 
+    bytes2BSTR = strReturn 
+} 
+dim strA,oReq 
+strA = URLEncoding("submit1=Submit&text1=中文") 
+set oReq = CreateObject("MSXML2.XMLHTTP") 
+oReq.open "POST","http ://ServerName/VDir/TstResult.asp",false"> 
+oReq.setRequestHeader "Content-Length",Len(strA) 
+oReq.setRequestHeader "CONTENT-TYPE","application/x-www-form-urlencoded" 
+oReq.send strA 
+msgbox bytes2BSTR(oReq.responseBody) 
+
+//readyState是xmlhttp返回数据的进度，0=载入中,1=未初始化,2=已载入,3=运行中,4=完成
+//组件是否安装 
+isComponentInstalled("{6B053A4B-A7EC-4D3D-4567-B8FF8A1A5739}", "componentID")) 
+
+//检查网页是否存在 
+function CheckURL(URL) {
+	var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	xmlhttp.Open("GET",URL, false);
+	try {
+		xmlhttp.Send();
+		var result = xmlhttp.status;
+	} catch(e) {
+		return(false);
+	}
+	if(result==200) {
+		return true;
+	}
+	xmlhttp = null;
+	return false;
+} 
+
+//连接数据库 
+//用 JavaScript 写服务器端连接数据库的代码示例 
+  var conn = new ActiveXObject("ADODB.Connection"); 
+  conn.Open("Provider=SQLOLEDB.1; Data Source=localhost; User ID=sa; " 
+    +"Password=; Initial Catalog=pubs"); 
+  var rs = new ActiveXObject("ADODB.Recordset"); 
+  var sql="select * from authors"; 
+  rs.open(sql, conn); 
+ shtml = "<table width='100%' border=1>"; 
+ shtml +="<tr bgcolor='#f4f4f4'><td>au_id</td><td>au_lname</td><td>au_fname</td><td>phone</td><td>address</td><td> city</td><td>state</td><td>zip</td></tr>"; 
+  while(!rs.EOF) 
+  { 
+ shtml += "<tr><td>" + rs("au_id") + "</td><td>" + rs("au_lname") + "</td><td>" + rs("au_fname") + "</td><td>" + rs("phone") + "</td><td>" + rs("address") + "</td><td>" + rs("city") + "</td><td>" + rs("state") + "</td><td>" + rs("zip") + "</td></tr>"; 
+ rs.moveNext; 
+  } 
+  shtml += "</table>"; 
+  document.write(shtml); 
+  rs.close();  
+  rs = null;  
+  conn.close();  
+  conn = null; 
+</script>
+<!-- //使用数据库 --> 
+<html> 
+<body> 
+srno：<input type=text datasrc=#xmldate DataFLD=srno size="76"><BR> 
+times：<input type=text datasrc=#xmldate DataFLD=times size="76"><BR> 
+<input id="first" TYPE=button value="<<　第一条记录" onclick="xmldate.recordset.moveFirst()"> 
+<input id="prev" TYPE=button value="<上一条记录" onclick="xmldate.recordset.movePrevious()">   
+<input id="next" TYPE=button value="下一条记录>" onclick="xmldate.recordset.moveNext()">   
+<input id="last" TYPE=button value="最后一条记录>>" onclick="xmldate.recordset.moveLast()">    
+<input id="Add" TYPE=button value="添加新记录" onclick="xmldate.recordset.addNew()">   
+<XML ID="xmldate"> 
+<infolist> 
+<info ><srno>20041025-01</srno><times>null</times></info> 
+<info ><srno>20041101-09</srno><times>2004年10月1日2点22分0秒</times></info> 
+</infolist> 
+</XML> 
+</body> 
+</html>
+
+<!-- //获得参数 --> 
+<body> 
+<a href="javascript:location.href=location.href + '?a=1&b=2'">search</a> 
+<script language="JavaScript"> 
+<!-- 
+var a = location.search.substr(1); 
+if(a.length>0) { 
+	var re = /([^&]*?)\=([^&]*)/g 
+	var s = a.match(re); 
+	for(var i= 0;i<s.length;i++)  { 
+		alert(s[i]); 
+		alert(s[i].split("=")[1]); 
+	} 
+} 
+//-->
+</script>
+</body> 
+
+<!-- //可编辑SELECT --> 
+<input type=text name=re_name style="width:100px;height:21px;font-size:10pt;"><span style="width:18px;border:0px solid red;">
+<select name="r00" style="margin-left:-100px;width:118px; background-color:#FFEEEE;" onChange="document.all.re_name.value=this.value;"> 
+	<option value="1">111111</option> 
+	<option value="2">222222</option> 
+	<option value="3">333333</option> 
+</select> 
+</span> 
+
+<script>
+//操作EXECL 
+	function jStartExcel() { 
+		var xls = new ActiveXObject ( "Excel.Application" ); 
+		xls.visible = true; 
+		var newBook = xls.Workbooks.Add; 
+		newBook.Worksheets.Add; 
+		newBook.Worksheets(1).Activate; 
+		xls.ActiveWorkBook.ActiveSheet.PageSetup.Orientation = 2; 
+		xls.ActiveWorkBook.ActiveSheet.PageSetup.PaperSize = 5; 
+		newBook.Worksheets(1).Columns("A").columnwidth=50; 
+		newBook.Worksheets(1).Columns("A").WrapText = true; 
+		newBook.Worksheets(1).Columns("B").columnwidth=50; 
+		newBook.Worksheets(1).Columns("B").WrapText = true; 
+		newBook.Worksheets(1).Range("A1:B1000").NumberFormat = "0"; 
+		newBook.Worksheets(1).Range("A1:B1000").HorizontalAlignment = -4131; 
+		newBook.Worksheets(1).Cells(1,1).Interior.ColorIndex="15"; 
+		newBook.Worksheets(1).Cells(1,1).value="First Column, First Cell"; 
+		newBook.Worksheets(1).Cells(2,1).value="First Column, Second Cell"; 
+		newBook.Worksheets(1).Cells(1,2).value="Second Column, First Cell"; 
+		newBook.Worksheets(1).Cells(2,2).value="Second Column, Second Cell"; 
+		newBook.Worksheets(1).Name="My First WorkSheet"; 
+	} 
+</script>
+
+<!-- //自定义提示条 -->
+	<a href="#" title="这是提示">tip</a> 
+	<script>
+	//***********默认设置定义.********************* 
+	tPopWait=50;//停留tWait豪秒后显示提示。 
+	tPopShow=5000;//显示tShow豪秒后关闭提示 
+	showPopStep=20; 
+	popOpacity=99; 
+	//***************内部变量定义***************** 
+	sPop=null; 
+	curShow=null; 
+	tFadeOut=null; 
+	tFadeIn=null; 
+	tFadeWaiting=null; 
+	document.write("<style type='text/css'id='defaultPopStyle'>"); 
+	document.write(".cPopText {  background-color: #F8F8F5;color:#000000; border: 1px #000000 solid;font-color: font-size: 12px; padding-right: 4px; padding-left: 4px; height: 20px; padding-top: 2px; padding-bottom: 2px; filter: Alpha(Opacity=0)}"); 
+	document.write("</style>"); 
+	document.write("<div id='dypopLayer' style='position:absolute;z-index:1000;' class='cPopText'></div>"); 
+	function showPopupText(){ 
+		var o=event.srcElement; 
+		MouseX=event.x; 
+		MouseY=event.y; 
+		if(o.alt!=null && o.alt!=""){o.dypop=o.alt;o.alt=""}; 
+		if(o.title!=null && o.title!=""){o.dypop=o.title;o.title=""}; 
+		if(o.dypop!=sPop) { 
+			sPop=o.dypop; 
+			clearTimeout(curShow); 
+			clearTimeout(tFadeOut); 
+			clearTimeout(tFadeIn); 
+			clearTimeout(tFadeWaiting); 
+			if(sPop==null || sPop=="") { 
+				dypopLayer.innerHTML=""; 
+				dypopLayer.style.filter="Alpha()"; 
+				dypopLayer.filters.Alpha.opacity=0; 
+			} else { 
+				if(o.dyclass!=null) popStyle=o.dyclass  
+				else popStyle="cPopText"; 
+				curShow=setTimeout("showIt()",tPopWait); 
+			} 
+		} 
+	} 
+	function showIt(){ 
+		dypopLayer.className=popStyle; 
+		dypopLayer.innerHTML=sPop; 
+		popWidth=dypopLayer.clientWidth; 
+		popHeight=dypopLayer.clientHeight; 
+		if(MouseX+12+popWidth>document.body.clientWidth) popLeftAdjust=-popWidth-24 
+		else popLeftAdjust=0; 
+		if(MouseY+12+popHeight>document.body.clientHeight) popTopAdjust=-popHeight-24 
+		else popTopAdjust=0; 
+		dypopLayer.style.left=MouseX+12+document.body.scrollLeft+popLeftAdjust; 
+		dypopLayer.style.top=MouseY+12+document.body.scrollTop+popTopAdjust; 
+		dypopLayer.style.filter="Alpha(Opacity=0)"; 
+		fadeOut(); 
+	} 
+	function fadeOut(){ 
+		if(dypopLayer.filters.Alpha.opacity<popOpacity) { 
+			dypopLayer.filters.Alpha.opacity+=showPopStep; 
+			tFadeOut=setTimeout("fadeOut()",1); 
+		} else { 
+			dypopLayer.filters.Alpha.opacity=popOpacity; 
+			tFadeWaiting=setTimeout("fadeIn()",tPopShow); 
+		} 
+	} 
+	function fadeIn(){ 
+		if(dypopLayer.filters.Alpha.opacity>0) { 
+			dypopLayer.filters.Alpha.opacity-=1; 
+			tFadeIn=setTimeout("fadeIn()",1); 
+		} 
+	} 
+	document.onmouseover=showPopupText; 
+
+//插入文字 
+document.onclick =function(){
+		var oSource = window.event.srcElement;
+		if(oSource.tagName!="DIV")  return false;
+		var sel = document.selection; 
+		if (sel!=null) {
+			var rng = sel.createRange();
+			if (rng!=null)  rng.pasteHTML("<font color=red>插入文字</font>");
+		}
+	}  //netscapte下操作xml doc = new ActiveXObject("Msxml2.DOMDocument"); doc = new ActiveXObject("Microsoft.XMLDOM") ->> doc = (new DOMParser()).parseFromString(sXML,'text/xml') 
+</script>
+
+<!-- //判断键值 --> 
+<html> 
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+<head> 
+<script>
+	var ie  =navigator.appName=="Microsoft Internet Explorer"?true:false; 
+	function keyDown(e) { 
+		if(!ie) { 
+			var nkey=e.which; 
+			var iekey='现在是ns浏览器'; 
+			var realkey=String.fromCharCode(e.which); 
+		} 
+		if(ie) { 
+			var iekey=event.keyCode; 
+			var nkey='现在是ie浏览器'; 
+			var realkey=String.fromCharCode(event.keyCode); 
+			if(event.keyCode==32){realkey='\' 空格\'';} 
+			if(event.keyCode==13){realkey='\' 回车\'';} 
+			if(event.keyCode==27){realkey='\' Esc\'';} 
+			if(event.keyCode==16){realkey='\' Shift\'';} 
+			if(event.keyCode==17){realkey='\' Ctrl\'';} 
+			if(event.keyCode==18){realkey='\' Alt\'';} 
+		} 
+		alert('ns浏览器中键值:'+nkey+'\n'+'ie浏览器中键值:'+iekey+'\n'+'实际键为'+realkey); 
+	} 
+	document.onkeydown = keyDown; 
+</script>
+</head> 
+<body> 
+	<hr> 
+	<center> 
+		<h3>请按任意一个键。。。。</h3> 
+	</center> 
+</body> 
+</html> 
+
+<!-- //禁止FSO --> 
+//1.注销组件 
+regsvr32 /u scrrun.dll 
+//2.修改PROGID 
+HKEY_CLASSES_ROOT\Scripting.FileSystemObject 
+Scripting.FileSystemObject 
+//3.对于使用object的用户，修改HKEY_CLASSES_ROOT\Scripting. 
+
+<!-- //省略号 --> 
+<DIV STYLE="width: 120px; height: 50px; border: 1px solid blue; overflow: hidden; text-overflow:ellipsis"> 
+	<NOBR>就是比如有一行文字，很长，表格内一行显示不下.</NOBR> 
+</DIV> 
+
+<!-- //检测media play版本 --> 
+<IE:clientCaps ID="oClientCaps" style="{behavior:url(#default#clientcaps)}" /> 
+<script>
+	var flash=""; 
+	WMPVersion= oClientCaps.getComponentVersion("{22D6F312-B0F6-11D0-94AB-0080C74C7E95}","ComponentID");  
+	if (WMPVersion != "") { 
+		flash = ""; 
+		var version = WMPVersion.split(","); 
+		var i; 
+		for (i = 0; i < version.length; i++) { 
+			if (i != 0) 
+				flash += "."; 
+			flash += version[i]; 
+		} 
+		document.write("您的Windows Media Player 版本是:"+flash+"<p>"); 
+	} 
+
+//图象按比例 
+//图片按比例缩放 
+	var flag=false; 
+	function DrawImage(ImgD){ 
+		var image=new Image(); 
+		var iwidth = 80;  //定义允许图片宽度 
+		var iheight = 80;  //定义允许图片高度 
+		image.src=ImgD.src; 
+		if(image.width>0 && image.height>0){ 
+			flag=true; 
+			if(image.width/image.height>= iwidth/iheight){ 
+				if(image.width>iwidth){   
+					ImgD.width=iwidth; 
+					ImgD.height=(image.height*iwidth)/image.width; 
+				}else{ 
+					ImgD.width=image.width;   
+					ImgD.height=image.height; 
+				} 
+				ImgD.alt=image.width+"×"+image.height; 
+			}else{ 
+				if(image.height>iheight){   
+					ImgD.height=iheight; 
+					ImgD.width=(image.width*iheight)/image.height;   
+				}else{ 
+					ImgD.width=image.width;   
+					ImgD.height=image.height; 
+				} 
+				ImgD.alt=image.width+"×"+image.height; 
+			} 
+		} 
+	}  
+</script>
+<img src=".." onload = "DrawImage(this)"> 
+
+<!-- //细线SELECT -->
+<span style="border:1px solid #000000; position:absolute; overflow:hidden;" > 
+	<select style="margin:-2px;"> 
+		<option>1111</option> 
+		<option>11111111111111</option> 
+		<option>111111111</option> 
+	</select>
+</span> 
+<span style="border:1px solid #000000; position:absolute; overflow:hidden;" > 
+	<select style="margin:-2px;"> 
+		<option>1111</option> 
+		<option>11111111111111</option> 
+		<option>111111111</option> 
+	</select>
+</span> 
+
+<script>
+	//Import 
+	function Import() {
+		for( var i=0; i<arguments.length; i++ ) {
+			var file = arguments[i];
+			if ( file.match(/\.js$/i))
+				document.write('<script type=\"text/javascript\" src=\"' + file + '\"></sc' + 'ript>');
+			else
+				document.write('<style type=\"text/css\">@import \"' + file + '\" ;</style>');
+		}
+	}; 
+
+	//js枚举 
+	function getComputerName() {
+		var objWMIService = GetObject("Winmgmts:root\cimv2");
+		for(e = new Enumerator(objWMIService) ; !e.atEnd() ; e.moveNext()) {
+			var getComputer = e.item();
+			return getComputer.Name;
+		}
+	} 
+	//条件编译 
+	/* @cc_on"> @*/ 
+	/* @if"> (@_win32 && @_jscript_version>5) @end @*/ 
+	function window.confirm(str) { 
+		execScript("n = msgbox('"+ str +"', 257)", "vbscript"); 
+		return(n == 1); 
+	} 
+</script>
+
+<script>
+	//取得innerText
+	var xmlDoc = new ActiveXObject("Msxml2.DOMDocument.4.0"); 
+	var currNode; 
+	xmlDoc.async = false; 
+	xmlDoc.async = false; 
+	xmlDoc.loadXML("<TABLENAME>      你好你阿三    大法     司法等四              </TABLENAME>"); 
+	currNode = xmlDoc.documentElement; 
+	var s = currNode.xml; 
+	var r = /\<([^\>\s]*?)[^\>]*?\>([^\<]*?)\<\/\1\>/ 
+	var b = s.replace(r,"$2"); 
+	alert(b); 
+</script>
+ 
+<script>
+	//mergeAttributes 复制所有读/写标签属性到指定元素。 
+	function fnMerge(){ 
+		oSource.children[1].mergeAttributes(oSource.children[0]); 
+	} 
+</script> 
+<SPAN ID=oSource> 
+	<DIV ID="oDiv" ATTRIBUTE1="true" ATTRIBUTE2="true" onclick="alert('click');"
+		onmouseover="this.style.color='#0000FF';" onmouseout="this.style.color='#000000';" > 
+	This is a sample <B>DIV</B> element. 
+	</DIV> 
+	<DIV ID="oDiv2"> 
+	This is another sample <B>DIV</B> element. 
+	</DIV> 
+</SPAN> 
+<INPUT TYPE="button" VALUE="Merge Attributes" onclick="fnMerge()" > 
+
+<!-- //检查链接是否有效 -->
+<a href="http ://www.pconline.com.cn/welcome.asp" onclick="mm(this, 'http ://www.pconline.com.cn/')">test</a>
+<script language="javascript">
+	function getURL(url){
+		var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		xmlhttp.open("GET",url,false);
+		xmlhttp.send();
+		if (xmlhttp.readyState==4) return xmlhttp.Status==200;
+			return false;
+	}
+	function mm(e, url){
+		if(!getURL(e.href)) e.href = url;
+	}
+</script>
+
+<!-- //判断是否输入值再激活按钮 -->
+<script>
+	function check(){
+		s.disabled = (t1.value == '' || t2.value == '' || t3.value == '');
+	}
+</script>
+<input name="t1" onpropertychange="check();">
+<input name="t2" onpropertychange="check();">
+<input name="t3" onpropertychange="check();">
+<input type="submit" name="s" disabled>
+
+<!-- //自定义热键（请按a） -->
+<SCRIPT language="JavaScript">
+	var hotkey=97
+	var destination="http ://www.wyev.com">"
+	if (document.layers)
+		document.captureEvents(Event.KEYPRESS)
+	function backhome(e){
+		if (document.layers){
+			if (e.which==hotkey)
+			window.location=destination
+		} else if (document.all){
+			if (event.keyCode==hotkey)
+				window.location=destination
+		}
+	}
+	document.onkeypress=backhome
+
+
+//取得字符串实际长度（汉字算两个字节，英文字母算一个字节）：
+	var s='中文，English';
+	alert("["+s+"]的长度:"+s.replace(/[^\x00-\xff]/gi,'xx').length);
+</script>
+
+<!-- //最好的简繁转换 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http ://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">">
+<html xmlns="http ://www.w3.org/1999/xhtml">">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>无标题文档</title>
+</head>
+<body>
+<a id="StranLink">繁体</a>
+网页代码检测 中国DotNet俱乐部——首页点乃特学习.z6ionestabw3cn蓝色ideaMSDN 雷神竞技场中文站论坛 z987论坛 VeryCD游戏专区 Google 
+<script type="text/javascript">
+	//模仿語言包式的簡繁轉換功能插件！
+	//Edited by Stardy --2005-04-16 , Web :http ://www.stardy.com , QQ:2885465
+	//Re-Edited by Stud --2005-10-10 , Web :http ://www.metro.com.tw
+	var Default_isFT = 0  //默認是否繁體，0-簡體，1-繁體
+	var StranIt_Delay = 30 //翻譯延時毫秒（設這個的目的是讓網頁先流暢的顯現出來）
+
+	//－－－－－－－代碼開始，以下別改－－－－－－－
+	//轉換文本
+	function StranText(txt,toFT,chgTxt) {
+		if(txt==""||txt==null) return "";
+		toFT=toFT==null?BodyIsFt:toFT;
+		if(chgTxt)txt=txt.replace((toFT?"簡":"繁"),(toFT?"繁":"簡"))
+		if(toFT) {return Simplized(txt);}
+		else {return Traditionalized(txt;)}
+	}
+	//轉換對象，使用遞歸，逐層剝到文本
+	function StranBody(fobj) {
+		if(typeof(fobj)=="object"){
+			var obj=fobj.childNodes;
+		}else{
+			var tmptxt=StranLink_Obj.innerHTML.toString();
+			if(tmptxt.indexOf("簡")<0) {
+				BodyIsFt=0;
+				StranLink_Obj.innerHTML=StranText(tmptxt,0,1);
+			}
+		}
+	}
+</script>
+</body>

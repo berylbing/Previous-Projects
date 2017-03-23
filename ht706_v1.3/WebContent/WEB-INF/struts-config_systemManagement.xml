@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <data-sources>
+  </data-sources>
+  <form-beans>
+    <form-bean name="BasicInfoForm" type="com.ht706.componentLibrary.systemManagement.actionForm.BasicInfoForm">
+    	
+    </form-bean>
+    <form-bean name="LoginForm" type="com.ht706.componentLibrary.login.actionForm.LoginForm"/>
+    <form-bean name="ActorForm" type="com.ht706.componentLibrary.systemManagement.actionForm.ActorForm"/>
+    <form-bean name="AuthorizationForm" type="com.ht706.componentLibrary.systemManagement.actionForm.AuthorizationForm"/>
+    <form-bean name="ActorToElementForm" type="com.ht706.componentLibrary.systemManagement.actionForm.ActorToElementForm" />
+  	<form-bean name="DepartmentForm" type="com.ht706.componentLibrary.systemManagement.actionForm.DepartmentForm"/>
+    <form-bean name="OrganizationForm" type="com.ht706.componentLibrary.systemManagement.actionForm.OrganizationForm" />
+   <form-bean name="OrganizationTaskForm" type="com.ht706.componentLibrary.systemManagement.actionForm.OrganizationTaskForm" /> 
+  	
+  </form-beans>
+  <global-exceptions>
+<!--   <exception key="exception" handler ="com.ht706.componentLibrary.systemManagement.action.GlobeException"  type="java.lang.Exception" path="/messagebox.jsp"></exception> -->
+  </global-exceptions>
+  <global-forwards>
+  <forward name="errormessagebox" path="/messagebox.jsp"></forward>
+  </global-forwards>
+  <action-mappings>
+<!--    <action path="/loginAction" type="com.ht706.componentLibrary.login.action.LoginAction" parameter="method"-->
+<!--    		name="LoginForm" attribute="LoginForm" input="/index.jsp" > -->
+<!--      <forward name="admin" path="/index2.html"/> -->
+<!--      <forward name="user" path="/index3.htm"/>-->
+<!--    </action> -->
+<action path="/xitongguanli/excepition" type="com.ht706.componentLibrary.systemManagement.action.GlobeException"></action>
+    <action path="/xitongguanli/basicInfoAction" type="com.ht706.componentLibrary.systemManagement.action.BasicInfoAction" parameter="method"
+    		name="BasicInfoForm" attribute="basicInfoForm" input="/xitongguanli/basicInfoEdit.jsp" > 
+      <forward name="basicInfo" path="/xitongguanli/basicInfo.jsp"/> 
+      <forward name="editor" path="/xitongguanli/basicInfoEdit.jsp"/> 
+      <forward name="user" path="/index3.jsp"/>
+    </action>    
+
+     <action scope="request" path="/xitongguanli/actorAction" type="com.ht706.componentLibrary.systemManagement.action.ActorAction" parameter="method"
+			validate="false" 	name="ActorForm" attribute="actorForm" input="/xitongguanli/actorList.jsp" > 
+      <forward name="actorList" path="/xitongguanli/actorList.jsp"/> 
+      <forward name="modifyActor" path="/xitongguanli/modifyActor.jsp"/> 
+    </action>
+    
+    <action scope="request" path="/xitongguanli/departmentAction" type="com.ht706.componentLibrary.systemManagement.action.DepartmentAction" parameter="method"
+    	validate="false"  name="DepartmentForm" attribute="departmentForm"	 input="/xitongguanli/deptTree.jsp" > 
+      <forward name="deptTree" path="/xitongguanli/deptTree.jsp"/> 
+      <forward name="deptInfo" path="/xitongguanli/deptInfo.jsp"/>
+      <forward name="editorDeptInfo" path="/xitongguanli/editorDeptInfo.jsp"/>
+      <forward name="createDepartment" path="/xitongguanli/createDept.jsp"/> 
+      <forward name="parentDepartment" path="/xitongguanli/parentDepartment.jsp"/> 
+   
+    </action>
+       <action scope="request"  path="/xitongguanli/organizationAction" type="com.ht706.componentLibrary.systemManagement.action.OrganizationAction" parameter="method"
+    	validate="false"  name="OrganizationForm" attribute="organizationForm"	 input="/xitongguanli/deptTree2.jsp" > 
+      <forward name="deptTree" path="/xitongguanli/deptTree2.jsp"/> 
+      <forward name="organizationList" path="/xitongguanli/organizationList.jsp"/>
+      <forward name="createOrganization" path="/xitongguanli/createOrganization.jsp"/>
+      <forward name="modifyOrganization" path="/xitongguanli/modifyOrganization.jsp"/> 
+ 	  <forward name="parentDepartment" path="/xitongguanli/parentDepartment2.jsp"/>
+ 	   <forward name="getOrganization" path="/xitongguanli/getOrganization.jsp"/>  
+ 	   <forward name="organizationListYBY" path="/specification/organizationListYBY.jsp"/>
+   
+    </action>
+    
+    <action scope="request" path="/xitongguanli/authorizationAction" type="com.ht706.componentLibrary.systemManagement.action.AuthorizationAction" parameter="method"
+    	validate="false" 	name="AuthorizationForm" attribute="authorizationForm" input="/xitongguanli/accessControl.jsp" > 
+      <forward name="authorizationList" path="/xitongguanli/accessControl.jsp"/> 
+      <forward name="modifyAuthorization" path="/xitongguanli/modifyAuthorization.jsp"/> 
+    </action>
+    
+    <action scope="request"  path="/xitongguanli/safeControlAction" type="com.ht706.componentLibrary.systemManagement.action.SafeControlAction" parameter="method"
+    	validate="false" 	name="ActorToElementForm" attribute="actorToElementForm" input="/xitongguanli/actorAuthorized.jsp" > 
+      <forward name="actorToauthorizationList" path="/xitongguanli/actorAuthorized.jsp"/>
+      <forward name="actorToModuleAuthorizationList" path="/xitongguanli/actorAuthorizedModule.jsp"/> 
+      <forward name="organizationToactorList" path="/xitongguanli/organizationActor.jsp"/>
+      <forward name="selectOrganization" path="/xitongguanli/deptTreeFrame3.jsp"/>
+      <forward name="personAuthorizedBrowsing" path="/xitongguanli/personAuthorizedBrowsing.jsp"/>  
+      <forward name="actorList" path="/xitongguanli/actorAuthorizedBrowsing.jsp"/>  
+      <forward name="authorizationList" path="/xitongguanli/authorizationAssigned.jsp"/>
+      <forward name="URLAssign" path="/xitongguanli/URLAssign.jsp"/> 
+ 
+    </action>
+     <action path="/xitongguanli/jbpmTest" type="com.ht706.componentLibrary.systemManagement.action.JbomTest" parameter="method"
+    	validate="false" 	name="AuthorizationForm" attribute="authorizationForm" input="/xitongguanli/accessControl.jsp" >
+   	    <forward name="showJbpm" path="/pendingAudit.jsp"></forward>
+   	    <forward name="view" path="/xitongguanli/view.jsp"></forward>
+   	    <forward name="list" path="/xitongguanli/jbpmList.jsp"></forward>   
+<!--		<forward name="showJbpm" path="/xitongguanli/showJbpm.jsp"></forward>-->
+    </action>
+    
+     <action scope="request" path="/xitongguanli/workflowAction" type="com.ht706.componentLibrary.systemManagement.action.WorkflowAction" parameter="method"
+    	validate="false" name="OrganizationTaskForm" attribute="organizationTaskForm">
+    	<forward name="taskMap" path="/xitongguanli/showTask.jsp"></forward>
+    	<forward name="listOrganizationTask" path="/xitongguanli/taskOrganizationBrowsing.jsp"></forward> 
+    </action>
+    
+  </action-mappings>
+  <controller processorClass="org.springframework.web.struts.DelegatingRequestProcessor"/>
+  <message-resources parameter="com.ht706.ApplicationResources"/>
+</struts-config>

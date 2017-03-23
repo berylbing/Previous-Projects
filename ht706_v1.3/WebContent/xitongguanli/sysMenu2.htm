@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<link href="../css/menuHTC.css" rel="stylesheet" type="text/css">
+<script>	
+	function ToggleNav() {
+		if(divCollapsedNav.style.display == "none")	{
+			divCollapsedNav.style.display = "";
+			menuContainer.style.display = "none";
+			parent.frmstOuter.cols = "18,*"
+			parent.document.all ('leftFrame').noResize = true;
+			parent.document.all ('leftFrame').framespacing= 0;
+		} else {
+			menuContainer.style.display = "";
+			divCollapsedNav.style.display = "none";
+			parent.frmstOuter.cols = "200,*"
+			parent.document.all ('leftFrame').noResize = false;
+		}
+	}
+	var firstId=null;
+</script>
+
+</head>
+<body ondblclick="ToggleNav();"> 
+	<div id=menuContainer> 
+		<dl>
+			<dt> 
+				<div>系统设置</div>
+				<span ></span>
+			</dt>
+			<dd> 
+				<ul>
+					<li><a href="basicInfoAction.do?method=getBasicInfo" target="rightFrame">库属性配置</a></li>
+					<li><a href="libInterConnection.htm" target="rightFrame">库互联结构</a></li>
+					<!--    <li><a href="null.htm" target="rightFrame">类别管理</a></li>      -->
+					<li><a href="deptTreeFrame.htm" target="rightFrame">部门管理</a></li>
+					<li><a href="deptTreeFrame2.htm" target="rightFrame">人员管理</a></li>
+					<li><a href="actorAction.do?method=listActor"  target="rightFrame">角色定义</a></li>
+					<li><a href="authorizationAction.do?method=listAuthorization" target="rightFrame">权限定义</a></li>									
+					<li><a href="workflowAction.do?method=listTask" target="rightFrame">工作流配置</a></li>					
+					<li><a href="jbpmTest.do?method=ShowWorkFlow"  target="rightFrame">查看流程状态</a></li>
+					<li><a href="backupRecovery.htm" target="rightFrame">备份与恢复</a></li>						
+				</ul>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt> 
+				<div>安全控制</div>
+				<span></span>
+			</dt>
+			<dd> 
+				<ul>
+					<li><a href="safeControlAction.do?method=searchAuthorizationByActor" target="rightFrame">角色授权</a></li>
+					<li><a href="safeControlAction.do?method=searchActorByOrganization" target="rightFrame">人员授权</a></li>
+					<!--<li><a href="safeControlAction.do?method=searchURLByAuthorization" target="rightFrame">URL分配</a></li>
+					<li><a href="null.htm" target="rightFrame">安全设置</a></li>-->
+					<li><a href="safeControlAction.do?method=searchAllByActor" target="rightFrame">角色授权查询</a></li>
+					<li><a href="safeControlAction.do?method=searchAllByOrganization" target="rightFrame">人员授权查询</a></li>
+					<li><a href="safeControlAction.do?method=searchAllByAuthorization" target="rightFrame">权限分配查询</a></li>										
+				</ul>
+			</dd>
+		</dl>
+
+	</div>
+<div id="divCollapsedNav" class="navTocColor" style="display:none;width:100%;height:100%;"> 
+<a href="javascript:ToggleNav();" title="展开导航框架" id="linkNavClosed"><img src="images/toc2.gif" alt="展开导航框架" border="0"></a> 
+</div>
+</body>
+</html>

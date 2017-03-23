@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN2.0//EN" "http://www.springframeword.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	
+	
+	
+	<!--DAO层配置-->
+	
+	<bean id="specificationDAO"								
+		class="com.ht706.componentLibrary.componentSpecification.dao.impl.SpecificationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="facetDAO"								
+		class="com.ht706.componentLibrary.componentSpecification.dao.impl.FacetDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	
+	<bean id="specificationmodifyDAO"								
+		class="com.ht706.componentLibrary.componentSpecification.dao.impl.SpecificationmodifyDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="synonymDAO"								
+		class="com.ht706.componentLibrary.componentSpecification.dao.impl.SynonymDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="relationtypeDAO"								
+		class="com.ht706.componentLibrary.componentSpecification.dao.impl.RelationtypeDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	<!--SERVICE层配置-->												<!--事务工厂代理类-->
+<bean id="specificationService" class="com.ht706.componentLibrary.componentSpecification.bo.impl.SpecificationServiceImpl">
+		<property name= "specificationDAO" ref="specificationDAO"></property>
+		<property name= "specificationmodifyDAO" ref="specificationmodifyDAO"></property>
+</bean>						
+<bean id="facetService"								
+		class="com.ht706.componentLibrary.componentSpecification.bo.impl.FacetServiceImpl">
+		<property name="facetDAO" ref="facetDAO" />
+</bean>
+<bean id="specificationmodifyService" class="com.ht706.componentLibrary.componentSpecification.bo.impl.SpecificationmodifyServiceImpl">
+		<property name= "specificationmodifyDAO" ref="specificationmodifyDAO">
+		</property>
+</bean>	
+<bean id="synonymService" class="com.ht706.componentLibrary.componentSpecification.bo.impl.SynonymServiceImpl">
+		<property name= "synonymDAO" ref="synonymDAO">
+		</property>
+</bean>	
+<bean id="relationtypeService" class="com.ht706.componentLibrary.componentSpecification.bo.impl.RelationtypeServiceImpl">
+		<property name= "relationtypeDAO" ref="relationtypeDAO">
+		</property>
+</bean>	
+<bean id="componentrelationService" class="com.ht706.componentLibrary.componentSpecification.bo.impl.ComponentrelationServiceImpl">
+		<property name= "componentrelationDAO" ref="ComponentrelationDAOImpl">
+		</property>
+</bean>	
+	<!--                 proxy 配置          -->
+	<bean id="specificationServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="specificationService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="create*">PROPAGATION_REQUIRED</prop>
+			  <prop key="modify*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="find*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	 
+	 <bean id="facetServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="facetService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="create*">PROPAGATION_REQUIRED</prop>
+			  <prop key="modify*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="find*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	 
+	 <bean id="specificationmodifyServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="specificationmodifyService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="create*">PROPAGATION_REQUIRED</prop>
+			  <prop key="modify*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="find*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	 
+	 <bean id="synonymServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="synonymService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="create*">PROPAGATION_REQUIRED</prop>
+			  <prop key="modify*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="find*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	
+	 <bean id="relationtypeServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="relationtypeService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="create*">PROPAGATION_REQUIRED</prop>
+			  <prop key="modify*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="find*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	 <bean id="componentrelationServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="componentrelationService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="find*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	
+	
+	<!--代理方式整合STRUTS-->
+	<bean name="/specification/SpecificationAction" class="com.ht706.componentLibrary.componentSpecification.action.SpecificationAction"  >
+		<property name="processEngine" ref="processEngine"/> 
+		<property name="specificationService" ref="specificationServiceProxy"></property>
+		<property name="facetServices" ref="facetServiceProxy" />
+		<property name="relationtypeService" ref="relationtypeServiceProxy"></property>
+		<property name="synonymService" ref="synonymServiceProxy"></property>
+		<property name="libraryService" ref="libraryServiceProxy"></property>
+	</bean>
+	<bean name="/specification/FacetAction" class="com.ht706.componentLibrary.componentSpecification.action.FacetAction">
+		<property name="facetServices" ref="facetServiceProxy" />
+		<property name="specificationService" ref="specificationServiceProxy"></property>
+		<property name="synonymService" ref="synonymServiceProxy"></property>
+		<property name="libraryService" ref="libraryServiceProxy"></property>
+	</bean>
+	<bean name="/specification/SpecificationmodifyAction" class="com.ht706.componentLibrary.componentSpecification.action.SpecificationmodifyAction"  >
+		<property name="specificationmodifyService" ref="specificationmodifyServiceProxy"></property>
+		<property name="specificationService" ref="specificationServiceProxy"></property>
+		<property name="organizationService" ref="organizationServiceProxy"></property>
+		<property name="myfavoriteService" ref="MyFavoriteServiceProxy" />
+		<property name="processEngine" ref="processEngine"/> 
+	</bean>
+	<bean name="/specification/SynonymAction" class="com.ht706.componentLibrary.componentSpecification.action.SynonymAction"  >
+		<property name="synonymService" ref="synonymServiceProxy"></property>
+		<property name="specificationService" ref="specificationServiceProxy"></property>
+		<property name="facetServices" ref="facetServiceProxy" />
+	</bean>
+	<bean name="/specification/RelationtypeAction" class="com.ht706.componentLibrary.componentSpecification.action.RelationtypeAction"  >
+		<property name="relationtypeService" ref="relationtypeServiceProxy"></property>
+		<property name="specificationService" ref="specificationServiceProxy"></property>
+		<property name="componentrelationService" ref="componentrelationServiceProxy"></property>
+	</bean>
+
+</beans>

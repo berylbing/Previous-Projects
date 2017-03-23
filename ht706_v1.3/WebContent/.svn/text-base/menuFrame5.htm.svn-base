@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<link href="css/common.css" rel="stylesheet" type="text/css">
+
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class=mainbody>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class=title>
+		<tr>          
+			<td><b>待办工作</b></td>
+		</tr>
+	</table>
+	<iframe src=frameSet1.htm class="iframeStyle"></iframe>
+</body>
+</html>

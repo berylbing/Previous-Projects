@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="LYCMS" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.0.236\sqlExpress;Initial Catalog=LYCMS;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LYCMSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Staff" Member="Staff">
+    <Type Name="Staff">
+      <Column Name="staff_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="staff_name" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="login_account" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="arrive_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="leave_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="staff_type" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Staff_Client" Member="Client" ThisKey="staff_id" OtherKey="staff_id" Type="Client" />
+      <Association Name="Staff_Message" Member="Message" ThisKey="staff_id" OtherKey="staff_id" Type="Message" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client" Member="Client">
+    <Type Name="Client">
+      <Column Name="client_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="client_name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="client_tel" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="client_manager_name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="client_address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="client_note" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="staff_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="client_products" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="client_fax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Client_Order_Form" Member="Order_Form" ThisKey="client_id" OtherKey="client_id" Type="Order_Form" />
+      <Association Name="Staff_Client" Member="Staff" ThisKey="staff_id" OtherKey="staff_id" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product_Import" Member="Product_Import">
+    <Type Name="Product_Import">
+      <Column Name="import_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="import_series" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="import_package_num" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="import_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="package_per_num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="import_note" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Product_Product_Import" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product_Type_1" Member="Product_Type_1">
+    <Type Name="Product_Type_1">
+      <Column Name="product_type_1_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_type_1_name" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Product_Type_1_Product_Type_2" Member="Product_Type_2" ThisKey="product_type_1_id" OtherKey="product_type_id" Type="Product_Type_2" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product_Type_2" Member="Product_Type_2">
+    <Type Name="Product_Type_2">
+      <Column Name="product_type_2_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_type_2_name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="product_type_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Product_Type_2_Product_Type_3" Member="Product_Type_3" ThisKey="product_type_2_id" OtherKey="product_type_id" Type="Product_Type_3" />
+      <Association Name="Product_Type_1_Product_Type_2" Member="Product_Type_1" ThisKey="product_type_id" OtherKey="product_type_1_id" Type="Product_Type_1" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product_Type_3" Member="Product_Type_3">
+    <Type Name="Product_Type_3">
+      <Column Name="product_type_3_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_type_3_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="product_type_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Product_Type_3_Product" Member="Product" ThisKey="product_type_3_id" OtherKey="product_type_id" Type="Product" />
+      <Association Name="Product_Type_2_Product_Type_3" Member="Product_Type_2" ThisKey="product_type_id" OtherKey="product_type_2_id" Type="Product_Type_2" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.State" Member="State">
+    <Type Name="State">
+      <Column Name="state_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="state_name" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="state_desc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="State_State_Order_Form" Member="State_Order_Form" ThisKey="state_id" OtherKey="state_id" Type="State_Order_Form" />
+      <Association Name="State_Order_Form" Member="Order_Form" ThisKey="state_id" OtherKey="current_state_id" Type="Order_Form" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Product">
+    <Type Name="Product">
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="product_standars" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="real_storage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="product_serial_num" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="up_limit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="product_detail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="down_limit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="product_unit" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="product_name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Product_Product_Import" Member="Product_Import" ThisKey="product_id" OtherKey="product_id" Type="Product_Import" />
+      <Association Name="Product_Order_Form_Product" Member="Order_Form_Product" ThisKey="product_id" OtherKey="product_id" Type="Order_Form_Product" />
+      <Association Name="Product_Type_3_Product" Member="Product_Type_3" ThisKey="product_type_id" OtherKey="product_type_3_id" Type="Product_Type_3" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.State_Order_Form" Member="State_Order_Form">
+    <Type Name="State_Order_Form">
+      <Column Name="state_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="orderform_id" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="modify_person" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="modify_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="stateorderform_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="State_State_Order_Form" Member="State" ThisKey="state_id" OtherKey="state_id" Type="State" IsForeignKey="true" />
+      <Association Name="Order_Form_State_Order_Form" Member="Order_Form" ThisKey="orderform_id" OtherKey="orderform_id" Type="Order_Form" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Order_Form" Member="Order_Form">
+    <Type Name="Order_Form">
+      <Column Name="orderform_id" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="order_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="client_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="current_state_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Order_Form_State_Order_Form" Member="State_Order_Form" ThisKey="orderform_id" OtherKey="orderform_id" Type="State_Order_Form" />
+      <Association Name="Order_Form_Order_Form_Product" Member="Order_Form_Product" ThisKey="orderform_id" OtherKey="orderform_id" Type="Order_Form_Product" />
+      <Association Name="Client_Order_Form" Member="Client" ThisKey="client_id" OtherKey="client_id" Type="Client" IsForeignKey="true" />
+      <Association Name="State_Order_Form" Member="State" ThisKey="current_state_id" OtherKey="state_id" Type="State" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Message" Member="Message">
+    <Type Name="Message">
+      <Column Name="staff_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="mes_back_num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mes_sure_num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mes_export_num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mes_wait_num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Staff_Message" Member="Staff" ThisKey="staff_id" OtherKey="staff_id" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Order_Form_Product" Member="Order_Form_Product">
+    <Type Name="Order_Form_Product">
+      <Column Name="orderform_id" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="order_num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="send_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="finish_rate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="orderformproduct_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="rest_num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Order_Form_Product_Product_Export" Member="Product_Export" ThisKey="orderformproduct_id" OtherKey="orderformproduct_id" Type="Product_Export" />
+      <Association Name="Order_Form_Order_Form_Product" Member="Order_Form" ThisKey="orderform_id" OtherKey="orderform_id" Type="Order_Form" IsForeignKey="true" />
+      <Association Name="Product_Order_Form_Product" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product_Export" Member="Product_Export">
+    <Type Name="Product_Export">
+      <Column Name="export_num" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="export_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="export_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="export_series" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="export_property" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="export_level" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="export_note" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="export_partnum" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="orderformproduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Order_Form_Product_Product_Export" Member="Order_Form_Product" ThisKey="orderformproduct_id" OtherKey="orderformproduct_id" Type="Order_Form_Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

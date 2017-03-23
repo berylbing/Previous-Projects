@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<process description="规约发布流程" name="CreateSpecification" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="182,26,48,48" name="start1">
+      <transition g="-47,-17" name="to 起草" to="起草"/>
+   </start>
+   <end g="186,574,48,48" name="end1"/>
+   <task assignee="#{owner}" g="161,123,92,52" name="起草">
+      <transition g="-47,-17" name="提交" to="审核"/>
+   </task>
+   <task assignee="CreatSpecifiction_审核" g="221,221,92,52" name="审核">
+      <transition g="-36,-6" name="批准" to="exclusive1"/>
+      <transition g="45,245;45,146:-47,-17" name="驳回" to="起草"/>
+   </task>
+   <decision expr="#{flag > 1 ? 'end1':'标准审核委员会' }" g="182,331,48,48" name="exclusive1">
+      <transition g="-107,-17" name="标准审核委员会" to="标准审核委员会"/>
+      <transition g="-35,-17" name="end1" to="批准"/>
+   </decision>
+   <task assignee="CreatSpecifiction_标准审核委员会" g="363,330,119,52" name="标准审核委员会">
+      <transition g="422,148:-47,-17" name="驳回" to="起草"/>
+      <transition g="420,507:-47,-17" name="批准" to="批准"/>
+   </task>
+   <task assignee="CreatSpecifiction_批准" g="162,482,92,52" name="批准">
+      <transition g="-47,-17" name="完成" to="end1"/>
+   </task>
+   
+</process>

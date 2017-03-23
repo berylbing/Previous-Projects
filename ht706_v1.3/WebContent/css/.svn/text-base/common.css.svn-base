@@ -1,0 +1,120 @@
+/* 此样式表文件主要用系统主要操作区,用以规范主操作区各界面元素样式 */
+
+body {
+	scrollbar-base-color:		#C6D6FD;
+	scrollbar-highlight-color:	#ffffff;
+	scrollbar-3dlight-color:	#c3d6ee;
+	scrollbar-darkshadow-color:	#c3d6ee;
+	scrollbar-shadow-color:		#ffffff;
+	scrollbar-face-color:		#d1e5fc;
+	scrollbar-track-color:		#ECEFF7;
+	scrollbar-arrow-color:		black;
+	margin-left:8;
+	text-align: center;
+	border:1px solid #aed2f7;
+	
+}
+
+td,th,input,select,textarea,li{font:12px verdana}
+a{color:0066CC;text-decoration: none;}
+a:hover{text-decoration: underline;}
+input{border:1px solid #6C8FB1;
+border:expression((type == "checkbox" || type == "radio")?"":"1px solid #6C8FB1");
+height:22px}
+.input_button{
+background:#fff;
+background-image: url(../images/button_bg.gif);
+height:22px;
+}
+textarea{border:1px solid #6C8FB1;}
+/*main page,.mainbody用于系统主要操作区的body中<body class=mainbody>，如果主要操作区单独引用此样式文件，则不用写此条*/
+.mainbody{border:1px solid #aed2f7;
+	/*background-image: url(../images/bg.jpg);
+	background-repeat: no-repeat;
+	background-position: right bottom;*/}
+/*location 用于控制当前位置的样式,写在表格的table标签中，<table class=location>*/
+	
+.location{width:100%;border-collapse:collapse}
+.location td{
+	height:30px;
+	padding-left:20px;
+	background-image: url(../images/hasub.gif);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: left center;
+	color:#a1a1a1;
+	
+}
+/*页面中如果有title的,用此样式<table class=title>,此块为可选项*/
+.title{
+	background:url(../images/title_bg1.gif) no-repeat;
+	margin-bottom: 6px;
+}
+.title td{
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 16px;
+	COLOR: #2979ce;
+	height:38px;
+	border-bottom:1px dotted #AED2F7;
+	padding-left:20px;
+/*	font-family: "楷体_GB2312";*/
+	
+	 
+}
+/*toolbar  主要用来显示页面功能性按钮，这类按钮的特征是：全局的，通用的，比如新建，保存，删除等*/
+
+.toolbar {height:40px;width:100%;border-collapse:collapse;}
+
+/*list 用来样式化数据列表，通常和分页合用。数据列表的常规用法规则是：如果数据量大于1.5-2屏,则采用分页+列表的组合，如果数据量在1.5-2屏，最好采用上下均有操作（toolbar）*/
+
+.list{align:center; margin-bottom: 6px;} 
+ 
+.list table{
+		width:100%;
+		background-color:White;
+		border:1px solid #c3d6ee;
+		border-collapse:collapse;
+		}
+
+.list th,.dataHead{
+		height:25;
+		border-color:#eeeeee;
+		background:#f3f3f3;
+		filter:progid:DXImageTransform.Microsoft.Gradient(gradienttype=0, startcolorstr=#DBEAFB, endcolorstr=#C2DEFC);
+		/**/color:#003974;
+		border-bottom:1px solid #eee;
+		border-right:1px solid #eee;
+		padding-left:4px;
+		font-size:12px;
+		font-weight:bold
+		}
+.list td {
+		line-height:150%;
+		height: 28px;
+		border-bottom:1px solid #eeeeee;
+		border-right:0px solid #eeeeee;
+		padding-left:4px;
+		
+}
+.listrow1{background:#E9F4FE}
+/*editblock 编辑区域样式，用于输入型表单页面*/
+.editblock{text-align:center;padding-top:4px;padding-bottom:25px;}
+.editblock table{border:1px solid #CFE5F8;margin-bottom:12;border-bottom:0px solid #CFE5F8;width:100%}
+.editblock th{background:#E9F4FE;border-bottom:1px solid #CFE5F8;border-right:1px solid #CFE5F8;font:bold 12px;;padding:6px;}
+.editblock td{background:#E9F4FE;border-bottom:1px solid #CFE5F8;padding:3px;font:12px}
+.editblock input {height:22px;border:1 solid #6C8FB1}
+/*info 作为信息提醒样式，用于比如操作提醒，页面数据输入有误的校验信息反馈，错误信息反馈建议采用页面浮出层的方式，这样可减少页面交互*/
+.info{border:1px solid #FEB841;background:#FDEAC3;margin-top:8px;display:none}
+.info td{padding:4;color:#ff0000}
+/*弹出页面样式*/
+
+
+.pophead{height:35px;color:#003974;font:bold 14px ;padding-left:20px;background:#dae4ef ;border-bottom:1px solid #c2d0de}
+.popfoot{height:35px;background:#dae4ef ;border-top:1px solid #c2d0de;text-align:right;padding-right:12px}
+.popbody{background:#000;margin:0}
+
+.iframeStyle{height: expression(document.body.clientHeight-90);
+	width:100%;
+	
+}
+.contentBlock{height: expression(document.body.clientHeight-90); width:100%;border:1px solid #aed2f7;text-align:left;padding:8px}

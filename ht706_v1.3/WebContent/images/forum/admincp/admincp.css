@@ -1,0 +1,46 @@
+/*(C) 2001-2008 Comsenz Inc.*/
+
+*{ word-wrap:break-word; outline:none; }
+body{ background:#FFF; text-align:center; }
+body, td, input, textarea, select, button{ color:#555; font:12px "Lucida Grande", Verdana, Lucida, Helvetica, Arial, "宋体", sans-serif; }
+body, ul, dl, dd, p, h1, h2, h3, h4, h5, h6, form, fieldset { margin:0; padding:0; }
+a{ color:#2366A8; text-decoration:none; }
+	a:hover { text-decoration:underline; }
+	a img{ border:none; }
+em, cite, th{ font-style:normal; font-weight:normal; }
+table{ border-collapse:collapse; }
+
+.container{ padding:9px 20px 20px; text-align:left; }
+
+/* table */
+.tb{ clear:both; width:100%; border-top:4px solid #DEEFFA; border-bottom:5px solid #DEEFFA; }
+	.tb th, .tb td{ padding:5px; }
+
+/* tb2主要用在数据列表 */
+.tb2{}
+	.tb2 tr:hover .tips2{ color:#333; }
+	.tb2 th, .tb2 td{ padding:5px 5px 5px 0; background:url(bg_repx.gif) repeat-x 0 bottom; }
+	.tb2 th{ line-height:21px; }
+	.tb2 .txt, .tb2 .txtnobd{ width:100px; margin-right:10px; }
+	.td25{ width:50px; }
+		.td25 .txt{ width:40px; }
+	.tb2 { padding:10px 0 3px; font-weight:700; }
+		.tb2 .partition{ background:url(bg_repx_hc.gif) repeat-x 0 -40px; board:1px}
+
+
+	/* faqlist & boardlist */
+	.node, .board{ padding-left:55px; background:url(bg_repno.gif) no-repeat -240px -550px; }
+		.node .txt, .lastnode .txt, .newnode .txt{ width:250px; }
+		.parentnode .txt{ width:150px; font-weight:700; }
+		.parentboard .txt{ font-weight:700; }
+	.lastnode, .lastboard{ padding-left:55px; background:url(bg_repno.gif) no-repeat -240px -600px; }
+	.childboard{ padding-left:110px; background:url(bg_repno.gif) no-repeat -185px -550px; }
+	.lastchildboard{ padding-left:110px; background:url(bg_repno.gif) no-repeat -185px -600px; }
+	.boardattr{ position:absolute; left:340px; margin-top:-20px !important; margin-top:-19px; color:#999; }
+
+
+/* link */
+.addtr{ padding-left:17px; line-height:25px; background:url(bg_repno.gif) no-repeat 0 1px; *background:url(bg_repno.gif) no-repeat 0 0; color:#F60; }
+.addchildboard{ padding-left:17px; line-height:25px; background:url(bg_repno.gif) no-repeat 0 -599px; *background:url(bg_repno.gif) no-repeat 0 -600px; color:#FFF; }
+	.addchildboard:hover{ text-decoration:none; color:#F60; }
+

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN2.0//EN" "http://www.springframeword.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- Struts配置 -->
+	<bean name="/forum/index" class="com.ht706.componentLibrary.forum.action.IndexAction">
+		<property name="forumBulletinService" ref="ForumBulletinServiceProxy"></property>
+		<property name="forumForumService" ref="ForumForumServiceProxy"></property>
+
+	</bean>
+	<bean name="/forum/bulletin" class="com.ht706.componentLibrary.forum.action.BulletinAction">
+		<property name="forumBulletinService" ref="ForumBulletinServiceProxy"></property>
+
+	</bean>
+	<bean name="/forum/forum" class="com.ht706.componentLibrary.forum.action.ForumAction">
+		<property name="forumForumService" ref="ForumForumServiceProxy"></property>
+		<property name="forumTopicService" ref="ForumTopicServiceProxy"></property>
+	</bean>
+	<bean name="/forum/topic" class="com.ht706.componentLibrary.forum.action.TopicAction">
+		<property name="forumTopicService" ref="ForumTopicServiceProxy"></property>
+		<property name="forumForumService" ref="ForumForumServiceProxy"></property>
+		<property name="forumThreadService" ref="ForumThreadServiceProxy"></property>
+	</bean>
+	<bean name="/forum/publishThread" class="com.ht706.componentLibrary.forum.action.PublishThreadAction">
+		<property name="forumForumService" ref="ForumForumServiceProxy"></property>
+		<property name="forumTopicService" ref="ForumTopicServiceProxy"></property>
+		<property name="forumThreadService" ref="ForumThreadServiceProxy"></property>
+	</bean>
+	<bean name="/forum/publishTopic" class="com.ht706.componentLibrary.forum.action.PublishTopicAction">
+		<property name="forumForumService" ref="ForumForumServiceProxy"></property>
+		<property name="forumTopicService" ref="ForumTopicServiceProxy"></property>
+		<property name="forumThreadService" ref="ForumThreadServiceProxy"></property>
+	</bean>
+	<bean name="/forum/editTopic" class="com.ht706.componentLibrary.forum.action.EditTopicAction">
+		<property name="forumForumService" ref="ForumForumServiceProxy"></property>
+		<property name="forumTopicService" ref="ForumTopicServiceProxy"></property>
+		<property name="forumThreadService" ref="ForumThreadServiceProxy"></property>
+	</bean>
+	<bean name="/forum/editThread" class="com.ht706.componentLibrary.forum.action.EditThreadAction">
+		<property name="forumForumService" ref="ForumForumServiceProxy"></property>
+		<property name="forumTopicService" ref="ForumTopicServiceProxy"></property>
+		<property name="forumThreadService" ref="ForumThreadServiceProxy"></property>
+	</bean>
+
+	
+	<!--                 proxy           -->
+	<bean id="ForumBulletinServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  	<ref bean="transactionManager" /> 
+		 </property>
+		<property name="target">
+			  <ref bean="ForumBulletinService" /> 
+		</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="view*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="creat*">PROPAGATION_REQUIRED</prop>
+			  <prop key="edit*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="search*">PROPAGATION_REQUIRED</prop>
+			  <prop key="submit*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	 
+	 <bean id="ForumForumServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="ForumForumService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="modify*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="view*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="creat*">PROPAGATION_REQUIRED</prop>
+			  <prop key="edit*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="search*">PROPAGATION_REQUIRED</prop>
+			  <prop key="submit*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	  <bean id="ForumTopicServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="ForumTopicService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="modify*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="save*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="view*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="creat*">PROPAGATION_REQUIRED</prop>
+			  <prop key="edit*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="search*">PROPAGATION_REQUIRED</prop>
+			  <prop key="submit*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	   <bean id="ForumThreadServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="ForumThreadService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="save*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="view*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="creat*">PROPAGATION_REQUIRED</prop>
+			  <prop key="edit*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="search*">PROPAGATION_REQUIRED</prop>
+			  <prop key="submit*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	<!-- Service配置 -->
+	<bean id="ForumBulletinService"								
+		class="com.ht706.componentLibrary.forum.bo.impl.ForumBulletinService">
+		<property name="forumBulletinDAO" ref="ForumBulletinDAOImpl" />
+	</bean>
+
+	<bean id="ForumForumService"								
+		class="com.ht706.componentLibrary.forum.bo.impl.ForumForumService">
+		<property name="forumForumDAO" ref="ForumForumDAOImpl" />
+	</bean>	
+	<bean id="ForumTopicService"								
+		class="com.ht706.componentLibrary.forum.bo.impl.ForumTopicService">
+		<property name="forumTopicDAO" ref="ForumTopicDAOImpl" />
+		<property name="forumForumDAO" ref="ForumForumDAOImpl" />
+		<property name="forumThreadDAO" ref="ForumThreadDAOImpl" />
+	</bean>	
+	<bean id="ForumThreadService"								
+		class="com.ht706.componentLibrary.forum.bo.impl.ForumThreadService">
+		<property name="forumThreadDAO" ref="ForumThreadDAOImpl" />
+		<property name="forumForumDAO" ref="ForumForumDAOImpl" />
+		<property name="forumTopicDAO" ref="ForumTopicDAOImpl" />
+	</bean>
+	
+	<!-- DAO配置 -->
+	<bean id="ForumBulletinDAOImpl"								
+		class="com.ht706.componentLibrary.forum.dao.impl.ForumBulletinDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+
+	<bean id="ForumForumDAOImpl"								
+		class="com.ht706.componentLibrary.forum.dao.impl.ForumForumDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="ForumTopicDAOImpl"								
+		class="com.ht706.componentLibrary.forum.dao.impl.ForumTopicDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="ForumThreadDAOImpl"								
+		class="com.ht706.componentLibrary.forum.dao.impl.ForumThreadDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+</beans>

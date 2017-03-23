@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>构件查询</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<link href="../css/common.css" rel="stylesheet" type="text/css">
+<script src="../js/check.js" type="text/javascript"></script>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class=mainbody>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0"	class=title>
+		<tr>          
+			<td><b>构件查询</b></td>
+			<td align="right"><input type="button" value="高级检索" onclick="w_open('/componentSearch/searchFilter.jsp')"></td>
+		</tr>
+	</table>
+	 <iframe src="frameSetC0.htm" class="iframeStyle"></iframe>
+</body>
+</html>
+<script>
+	function w_open(v){
+			path=location.pathname;
+		for(var index=1;index<path.length;index++)
+		{
+			if(path.charAt(index)=='/') break;
+		}
+		tmp=path.substring(0,index);
+		//alert(tmp+v);
+		open_window(tmp+v,900,500);		
+	}
+</script>

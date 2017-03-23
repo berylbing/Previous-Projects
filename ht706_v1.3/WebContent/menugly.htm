@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+
+<script>
+
+	function delm(v) {
+		setTimeout(del,400);
+		function del(){
+			var s = v.all.tags("div")[0];
+			if (s != null)
+				s.removeNode(true);
+		}
+	}
+
+	
+</script>
+<style>
+	div {  filter:alpha(opacity=100); }
+	td,th,input,select,textarea,li{font:14px verdana}
+	a { color:#FFFFFF;text-decoration: none; }
+	.iframeStyle{height: expression(document.body.clientHeight-18); width:100%}
+</style>
+<link href="css/menu.css" rel="stylesheet" type="text/css">
+</head>
+<body scroll="no" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr><td background="images/menu_bg.gif">
+  <table border="0" cellspacing="0" cellpadding="0" class="menu">
+	<tr height="25">
+		<td width="200">&nbsp;构件库管理员，欢迎您！</td>
+
+		<td onmouseleave="delm(this)">&nbsp;<a href="menuFrame5.htm" target="mmFrame">待办工作</a>&nbsp;</td>		
+		<td><img src="images/line02.gif" width="2" height="23"></td>		
+		<td onmouseleave="delm(this)">&nbsp;<a href="XiTongGuanLi.htm" target="mmFrame">系统管理</a>&nbsp;</td>
+		<td><img src="images/line02.gif" width="2" height="23"></td>
+		<td onmouseleave="delm(this)">&nbsp;<a href="specification/menuFrame0.jsp" target="mmFrame">构件规约</a>&nbsp;</td>
+		<td><img src="images/line02.gif" width="2" height="23"></td>
+		<td onmouseleave="delm(this)">&nbsp;<a href="menuFrame3.jsp" target="mmFrame">反馈与交流</a>&nbsp;</td>
+		<td><img src="images/line02.gif" width="2" height="23"></td>
+		<td onmouseleave="delm(this)">&nbsp;<a href="componentStaticsReport/menuFrame6.htm" target="mmFrame">报表管理</a>&nbsp;</td>
+		<td><img src="images/line02.gif" width="2" height="23"></td>		
+		<td onmouseleave="delm(this)">&nbsp;<a>交易管理</a>&nbsp;</td>		
+		<!--		
+		<td><img src="images/line02.gif" width="2" height="23"></td>
+		<td onmouseleave="delm(this)">&nbsp;<a href="javascript:;" target="mmFrame">变更管理</a>&nbsp;</td>		
+
+		<td><img src="images/line02.gif" width="2" height="23"></td>
+		<td onmouseleave="delm(this)">&nbsp;<a href="javascript:;" target="mmFrame">资产验证管理</a>&nbsp;</td>
+	        -->
+	</tr>
+</table>
+       <iframe style="zIndex:2;" src="welcome.htm" frameborder=0 id="mmframe" name="mmFrame" class="iframeStyle"></iframe>
+        
+        <!-- 此隐藏值用于各页面之间的参数传递   -->
+        <input type="hidden" id="hid" value="">
+</body>
+
+</html>

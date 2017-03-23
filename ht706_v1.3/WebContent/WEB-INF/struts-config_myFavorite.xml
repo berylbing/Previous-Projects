@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <data-sources>
+  </data-sources>
+  <form-beans>
+    <form-bean name="CheckItemForm" type="com.ht706.componentLibrary.myFavorite.actionForm.CheckItemForm"></form-bean>
+    <form-bean name="MyFavouriteTreeForm" type="com.ht706.componentLibrary.myFavorite.actionForm.MyFavoriteForm"></form-bean>
+    <form-bean name="MyFavoriteForm" type="com.ht706.componentLibrary.myFavorite.actionForm.MyFavoriteForm"></form-bean>
+  </form-beans>
+  <global-exceptions>
+  </global-exceptions>
+  <global-forwards>
+  </global-forwards>
+  <action-mappings>
+    <action path="/myFavorite/CheckItem" type="com.ht706.componentLibrary.myFavorite.action.CheckItemAction" parameter="method" 
+    		name="CheckItemForm" attribute="CheckItemForm" >
+    		<forward name="list" path="/myFavorite/checkItemC2.jsp"></forward>
+    </action>
+    <action path="/myFavorite/PageChange" type="com.ht706.componentLibrary.myFavorite.action.PageChangeAction" parameter="method"
+    		name="ComponentListForm" attribute="ComponentListForm" > 
+    		<forward name="list" path="/myFavorite/checkItemC2.jsp"></forward>
+    </action>
+    <action path="/myFavorite/ShowMyFavouriteTree" type="com.ht706.componentLibrary.myFavorite.action.ShowMyFavouriteTreeAction" parameter="method"
+    	name="MyFavouriteTreeForm" attribute="MyFavouriteTreeForm">
+    	<forward name="tree" path="/myFavorite/myFavorite.jsp"></forward>
+    	<forward name="alltree" path="/myFavorite/AllMyFavorite.jsp"></forward>
+    </action>
+    <action path="/myFavorite/FeedbackByMe" type="com.ht706.componentLibrary.myFavorite.action.FeedbackByMe" parameter="method"
+        name="FeedbackForm" attribute="FeedbackForm">
+        <forward name="feedbacklist" path="/myFavorite/FeedBackByMe.jsp"></forward>
+    </action>
+    <action path="/myFavorite/ProblemByMe" type="com.ht706.componentLibrary.myFavorite.action.ProblemByMe" parameter="method"
+        name="ProblemReportForm" attribute="ProblemReportForm" >
+        <forward name="problembyme" path="/myFavorite/problemByMe.jsp"></forward>
+    </action>
+    <action path="/myFavorite/OperateOfMyFavoriteAction" type="com.ht706.componentLibrary.myFavorite.action.OperateOfMyFavoriteAction" parameter="method"
+        name="MyFavoriteForm" attribute="MyFavoriteForm"  scope="request">
+        <forward name="addMyFavorite" path="/myFavorite/add_M.jsp"></forward>
+        <forward name="creatMyFavorite" path="/myFavorite/frameSetC0_3.htm"></forward>
+        <forward name="editMyFavorite" path="/myFavorite/modify_M.jsp"></forward>
+        <forward name="operate" path="/myFavorite/operateOfMyFavorite.jsp"></forward>
+    </action>
+    <action path="/myFavorite/SpecificationmodifyByMe" type="com.ht706.componentLibrary.myFavorite.action.SpecificationmodifyByMe" parameter="method"
+        name="SpecificationmodifyForm" attribute="SpecificationmodifyForm">
+        <forward name="Specificationmodify" path="/myFavorite/mySpecificationmodify.jsp"></forward>
+    </action>
+    <action path="/myFavorite/CheckoutByMe" type="com.ht706.componentLibrary.myFavorite.action.CheckoutByMe" parameter="method"
+        name="CheckoutForm" attribute="CheckoutForm">
+        <forward name="checkoutlist" path="/myFavorite/myCheckout.jsp"></forward>
+    </action>
+  </action-mappings>
+</struts-config>  

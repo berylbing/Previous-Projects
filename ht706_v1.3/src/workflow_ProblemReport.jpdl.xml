@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<process description="问题报告单跟踪流程" name="ProblemReport" xmlns="http://jbpm.org/4.4/jpdl">
+   <start g="396,25,48,48" name="start1">
+      <transition g="-74,-12" name="修改问题报告单" to="报告单草稿"/>
+   </start>
+   <end g="403,517,48,48" name="end1"/>
+   <task assignee="ProblemReport_审核" g="375,221,92,52" name="审核">
+      <transition g="271,248;269,149:-37,-6" name="驳回" to="报告单草稿"/>
+      <transition g="-55,-5" name="交由管理员" to="问题记录"/>
+      <transition g="-2,-10" name="交由审核委员会" to="问题分析"/>
+   </task>
+   <task assignee="#{owner}" g="375,122,92,52" name="报告单草稿">
+      <transition g="-46,-9" name="提交" to="审核"/>
+   </task>
+   <task assignee="ProblemReport_问题记录" g="298,377,92,52" name="问题记录">
+      <transition g="-47,-17" name="完成" to="end1"/>
+   </task>
+   <task assignee="ProblemReport_问题分析" g="454,378,92,52" name="问题分析">
+      <transition g="17,-12" name="完成" to="end1"/>
+   </task>
+</process>

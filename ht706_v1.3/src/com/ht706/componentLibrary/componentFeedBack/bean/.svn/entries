@@ -1,0 +1,34 @@
+9
+
+dir
+765
+svn://192.168.0.127/ht706_v1.3/src/com/ht706/componentLibrary/componentFeedBack/bean
+svn://192.168.0.127
+
+
+
+2010-10-27T08:04:50.266125Z
+765
+jialesong
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+8b1c22db-b271-4e48-b238-5f5459be2727
+
+hbm
+dir
+
+abstractBean
+dir
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <data-sources>
+  </data-sources>
+  <form-beans>
+<!--    <form-bean name="LoginForm" type="com.ht706.componentLibrary.login.actionForm.LoginForm"/>-->
+  </form-beans>
+<global-exceptions>
+  
+</global-exceptions>
+
+  
+  <global-forwards>
+  <forward name="errormessagebox" path="/messagebox.jsp"></forward>
+
+  </global-forwards>
+  <action-mappings>
+  <action path="/excepition" type="com.ht706.componentLibrary.systemManagement.action.GlobeException"></action>
+    <action path="/refresh" type="com.ht706.componentLibrary.util.security.action.SecurityRefresh" parameter="method"/> 
+	<action path="/default" type="com.ht706.componentLibrary.login.action.DefaultAction">
+		<forward name="default" path="/default.jsp"></forward>
+		  <forward name="errormessagebox" path="/messagebox.jsp"></forward>
+	</action>
+	<action path="/personalInfo" type="com.ht706.componentLibrary.login.action.personalInfo" parameter="method"
+	 name="OrganizationForm" attribute="organizationForm">
+		 <forward name="deptTree" path="/xitongguanli/deptTree2.jsp"/> 
+      <forward name="organizationList" path="/xitongguanli/organizationList.jsp"/>
+      <forward name="createOrganization" path="/xitongguanli/createOrganization.jsp"/>
+      <forward name="modifyOrganization" path="/modifyOrganization.jsp"/> 
+ 	  <forward name="parentDepartment" path="/xitongguanli/parentDepartment2.jsp"/>
+ 	   <forward name="getOrganization" path="/getOrganization.jsp"/>  
+	</action>
+<!--   -->
+ </action-mappings>
+  <controller processorClass="org.springframework.web.struts.DelegatingRequestProcessor"/>
+  <message-resources parameter="com.ht706.ApplicationResources"/>
+</struts-config>
+

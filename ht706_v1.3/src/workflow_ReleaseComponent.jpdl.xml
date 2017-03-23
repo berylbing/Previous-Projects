@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process description="构件发布(入库)流程" name="ReleaseComponent" xmlns="http://jbpm.org/4.4/jpdl">
+   <start g="274,50,48,48" name="start1">
+      <transition g="-53,-17" name="开始" to="构件草稿"/>
+   </start>
+   <task assignee="#{owner}" g="251,125,92,52" name="构件草稿">
+      <transition g="-47,-17" name="提交" to="审核"/>
+   </task>
+   <task assignee="ReleaseComonent_审核" g="251,309,92,52" name="审核">
+      <transition g="-36,-11" name="批准" to="入库"/>
+      <transition g="120,336;120,288;117,151:-40,-53" name="驳回" to="构件草稿"/>
+   </task>
+
+   <task assignee="ReleaseComonent_入库" g="251,391,92,52" name="入库">
+   
+      <on event="start">
+   		<event-listener class = "com.ht706.componentLibrary.systemManagement.action.ProcessEventListener"/>
+   		</on>
+      <transition g="-46,-5" name="完成" to="end1"/>
+   </task>
+   <end g="276,472,48,48" name="end1"/>
+</process>

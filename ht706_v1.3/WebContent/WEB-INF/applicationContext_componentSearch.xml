@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN2.0//EN" "http://www.springframeword.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- Struts配置 -->
+	<bean name="/componentSearch/FacetAction" class="com.ht706.componentLibrary.componentSearch.action.FacetAction">
+		<property name="facetService" ref="FacetServiceProxy" />
+		<property name="specificationService" ref="specificationServiceProxy"/>
+	</bean>
+	<bean name="/componentSearch/PageChange" class="com.ht706.componentLibrary.componentSearch.action.PageChangeAction">
+		<property name="facetService" ref="FacetServiceProxy" />
+	</bean>
+	<bean name="/componentSearch/SearchByRelationAction" class="com.ht706.componentLibrary.componentSearch.action.SearchByRelationAction">
+		<property name="facetService" ref="FacetServiceProxy" />
+		<property name="specificationService" ref="specificationServiceProxy"/>
+	</bean>
+	<bean name="/componentSearch/SearchFilter" class="com.ht706.componentLibrary.componentSearch.action.SearchFilterAction">
+		<property name="facetService" ref="FacetServiceProxy" />
+		<property name="specificationService" ref="specificationServiceProxy"/>
+	</bean>
+	<bean name="/componentSearch/Checkout" class="com.ht706.componentLibrary.componentSearch.action.CheckoutAction">
+		<property name="service" ref="ComponentServiceProxy"></property>
+		<property name="elementService" ref="ComponentElementServiceProxy"></property>
+		<property name="checkoutService" ref="CheckoutServiceProxy"></property>
+		<property name="processEngine" ref="processEngine"/>
+	</bean>
+	<bean name="/componentSearch/CreatMyfavoriteAction" class="com.ht706.componentLibrary.componentSearch.action.CreatMyfavoriteAction">
+		<property name="myfavoriteService" ref="MyFavoriteServiceProxy"></property>
+	</bean>
+		<!--                 proxy           -->
+	<bean id="FacetServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="FacetService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="view*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="creat*">PROPAGATION_REQUIRED</prop>
+			  <prop key="edit*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="search*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+		 </bean>
+			<bean id="CheckoutServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+			<property name="transactionManager">
+			  <ref bean="transactionManager" /> 
+			  </property>
+			<property name="target">
+				  <ref bean="CheckoutService" /> 
+				</property>
+			<property name="transactionAttributes">
+				<props>
+				  <prop key="view*">PROPAGATION_REQUIRED</prop> 
+				  <prop key="creat*">PROPAGATION_REQUIRED</prop>
+				  <prop key="edit*">PROPAGATION_REQUIRED</prop>
+				  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+				  <prop key="search*">PROPAGATION_REQUIRED</prop>
+				  <prop key="checkout**">PROPAGATION_REQUIRED</prop>
+				 </props>
+			</property>
+		 </bean>
+	
+	
+	<!-- Service配置 -->
+
+	<bean id="FacetService"								
+		class="com.ht706.componentLibrary.componentSearch.bo.impl.FacetServiceImpl">
+		<property name="facetDAO" ref="FacetDAO" />
+		<property name="classificationindexDAO" ref="ClassificationindexDAO" />
+		<property name="assetDAO" ref="AssetDAOImpl" />
+		<property name="specificationDAO" ref="specificationDAO" />
+		<property name="componentrelationDAO" ref="ComponentrelationDAOImpl" />
+<!--		<property name="transactionTemplate">-->
+<!--			<bean class="org.springframework.transaction.support.TransactionTemplate">-->
+<!--				<property name="transactionManager" ref="transactionManager" />-->
+<!--			</bean>-->
+<!--		</property>-->
+	</bean>
+	<bean id="CheckoutService"								
+		class="com.ht706.componentLibrary.componentSearch.bo.impl.CheckoutService">
+		<property name="checkoutrecordDAO" ref="CheckoutDAO" />
+		<property name="activitystatisticDAO" ref="ActivitystatisticDAO" />
+	</bean>
+	
+	
+	
+	
+	<!-- DAO配置 -->
+
+	<bean id="FacetDAO"								
+		class="com.ht706.componentLibrary.componentSpecification.dao.impl.FacetDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="ClassificationindexDAO"								
+		class="com.ht706.componentLibrary.componentSpecification.dao.impl.ClassificationindexDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="CheckoutDAO"								
+		class="com.ht706.componentLibrary.componentStaticsReport.dao.impl.CheckoutrecordDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="ActivitystatisticDAO"								
+		class="com.ht706.componentLibrary.componentStaticsReport.dao.impl.ActivitystatisticDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	
+</beans>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN2.0//EN" "http://www.springframeword.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- Struts配置 -->
+	<bean name="/myFavorite/CheckItem" class="com.ht706.componentLibrary.myFavorite.action.CheckItemAction">
+		<property name="service" ref="CheckItemServiceProxy" />
+	</bean>
+	<bean name="/myFavorite/ShowMyFavouriteTree" class="com.ht706.componentLibrary.myFavorite.action.ShowMyFavouriteTreeAction">
+		<property name="service" ref="MyFavoriteServiceProxy" />
+	</bean>
+	<bean name="/myFavorite/PageChange" class="com.ht706.componentLibrary.myFavorite.action.PageChangeAction">
+	<property name="service" ref="CheckItemServiceProxy" />
+	</bean>
+	<bean name="/myFavorite/FeedbackByMe" class="com.ht706.componentLibrary.myFavorite.action.FeedbackByMe">
+	<property name="service" ref="CheckItemServiceProxy" />
+	</bean>
+	<bean name="/myFavorite/ProblemByMe" class="com.ht706.componentLibrary.myFavorite.action.ProblemByMe">
+	<property name="service" ref="CheckItemServiceProxy" />
+	</bean>
+	<bean name="/myFavorite/OperateOfMyFavoriteAction" class="com.ht706.componentLibrary.myFavorite.action.OperateOfMyFavoriteAction">
+	<property name="service" ref="MyFavoriteServiceProxy" />
+	</bean>
+	<bean name="/myFavorite/SpecificationmodifyByMe" class="com.ht706.componentLibrary.myFavorite.action.SpecificationmodifyByMe">
+	<property name="service" ref="CheckItemServiceProxy" />
+	</bean>
+	<bean name="/myFavorite/CheckoutByMe" class="com.ht706.componentLibrary.myFavorite.action.CheckoutByMe">
+	<property name="service" ref="CheckItemServiceProxy"/>
+	</bean>
+
+	
+	<!--                 proxy           -->
+	<bean id="CheckItemServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="CheckItemService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="view*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="creat*">PROPAGATION_REQUIRED</prop>
+			  <prop key="edit*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="search*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	 
+	 <bean id="MyFavoriteServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="MyFavoriteService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="view*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="creat*">PROPAGATION_REQUIRED</prop>
+			  <prop key="edit*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="search*">PROPAGATION_REQUIRED</prop>
+			  <prop key="update*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	
+	
+	
+	<!-- Service配置 -->
+
+	<bean id="CheckItemService"								
+		class="com.ht706.componentLibrary.myFavorite.bo.impl.CheckItemServiceImpl">
+		<property name="myFavoriteDAO" ref="MyFavoriteDAO" />
+		<property name="classificationindexDAO" ref="ClassificationindexDAO" />
+		<property name="assetDAO" ref="AssetDAOImpl" />
+		<property name="feedbackDAO" ref="FeedbackDAO"/>
+		<property name="problemreportDAO" ref="ProblemReportDAO"/>
+		<property name="specificationmodifyDAO" ref="SpecificationmodifyDAO"/>
+		<property name="checkoutrecordDAO" ref="CheckoutrecordDAO"/>
+
+	</bean>
+	<bean id="MyFavoriteService"								
+		class="com.ht706.componentLibrary.myFavorite.bo.impl.MyfavoriteServiceImpl">
+		<property name="myFavoriteDAO" ref="MyFavoriteDAO" />
+
+	</bean>
+	
+	
+	
+	
+	<!-- DAO配置 -->
+
+	<bean id="MyFavoriteDAO"								
+		class="com.ht706.componentLibrary.myFavorite.dao.impl.MyfavoriteDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="ClassificationindexDAO"								
+		class="com.ht706.componentLibrary.componentSpecification.dao.impl.ClassificationindexDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="FeedbackDAO"
+	    class="com.ht706.componentLibrary.componentFeedBack.dao.impl.FeedbackDAOImpl">
+	    <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="ProblemReportDAO"
+		class="com.ht706.componentLibrary.componentFeedBack.dao.impl.ProblemReportDAOImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="SpecificationmodifyDAO"
+		class="com.ht706.componentLibrary.componentSpecification.dao.impl.SpecificationmodifyDAOImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="CheckoutrecordDAO"
+	    class="com.ht706.componentLibrary.componentStaticsReport.dao.impl.CheckoutrecordDAOImpl">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+
+	
+	
+</beans>

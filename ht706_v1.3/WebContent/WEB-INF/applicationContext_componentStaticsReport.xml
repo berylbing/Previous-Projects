@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN2.0//EN" "http://www.springframeword.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	
+	
+	
+	<!--DAO层配置-->	
+	<bean id="checkoutDAO" class="com.ht706.componentLibrary.componentStaticsReport.dao.impl.CheckoutrecordDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="activitystaticDAO" class="com.ht706.componentLibrary.componentStaticsReport.dao.impl.ActivitystatisticDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>	
+	
+	<!--SERVICE层配置-->												<!--事务工厂代理类-->
+	<bean id="ReportService" class="com.ht706.componentLibrary.componentStaticsReport.bo.impl.ReportServiceImpl">
+			<property name= "organizationDAO" ref="organizationDAO"/>
+			<property name= "assetDAO" ref="AssetDAOImpl"/>	
+			<property name= "problemReportDAO" ref="problemReportDAO"/>	
+			<property name= "feedbackDAO" ref="feedbackDAO"/>
+			<property name= "facetDAO" ref="facetDAO"/>
+			<property name= "relationtypeDAO" ref="relationtypeDAO"/>
+			<property name= "checkoutDAO" ref="checkoutDAO"/>
+			<property name= "activitystaticDAO" ref="activitystaticDAO"/>
+	</bean>	
+	
+	<!--                 proxy 配置          -->
+	<bean id="staticsReportServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="ReportService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="list*">PROPAGATION_REQUIRED</prop> 			
+			 </props>
+		</property>
+	 </bean>
+		 
+	
+	<!--代理方式整合STRUTS-->
+	<bean name="/componentStaticsReport/ReportAction" class="com.ht706.componentLibrary.componentStaticsReport.action.ReportAction"  >
+		<property name="reportService" ref="staticsReportServiceProxy"></property>	
+		<property name="specificationmodifyService" ref="specificationmodifyServiceProxy"></property>
+		<property name="facetService" ref="facetServiceProxy"></property>
+		<property name="departmentService" ref="departmentServiceProxy"></property>		
+		<property name="libraryService" ref="libraryServiceProxy"></property>	
+		<property name="actorService" ref="actorServiceProxy"></property>	
+			
+	</bean>
+
+</beans>

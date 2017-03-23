@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<process description="规约变更流程" name="UpdateSpecification" xmlns="http://jbpm.org/4.4/jpdl">
+   <start g="266,20,48,48" name="start1">
+      <transition g="-31,-13" name="开始" to="规约变更申请单草稿"/>
+   </start>
+   <task assignee="#{owner}" g="224,98,132,52" name="规约变更申请单草稿">
+      <transition g="-34,-8" name="提交" to="审核"/>
+   </task>
+   <task assignee="UpdateSpecification_审核" g="247,214,92,52" name="审核">
+      <transition g="419,239;419,124:-20,-5" name="驳回" to="规约变更申请单草稿"/>
+      <transition g="-29,-17" name="批准" to="管理员审核"/>
+   </task>
+   <task assignee="UpdateSpecification_批准申请" g="246,324,92,52" name="管理员审核">
+      <transition g="150,350;147,127:-43,-17" name="驳回" to="规约变更申请单草稿"/>
+      <transition g="-29,-17" name="批准" to="已批准"/>
+   </task>
+   <end g="266,506,48,48" name="end1"/>
+   <task assignee="#{owner}" g="245,417,92,52" name="已批准">
+      <transition g="-34,-10" name="结束" to="end1"/>
+   </task>
+</process>

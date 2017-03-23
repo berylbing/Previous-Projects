@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ht706.componentLibrary.componentFeedBack.bean.hbm.Feedback" table="feedback" >
+        <id name="recordId" type="java.lang.String">
+            <column name="RecordID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="asset" class="com.ht706.componentLibrary.componentRelease.bean.hbm.Asset" fetch="select" cascade="save-update" lazy="false">
+            <column name="UniqueID" length="50" not-null="true" />
+        </many-to-one>
+        <property name="registryId" type="java.lang.String">
+            <column name="RegistryID" length="50" not-null="true" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="Description" length="100" />
+        </property>
+        <property name="dateOfInformation" type="java.util.Date">
+            <column name="DateOfInformation" length="10" />
+        </property>
+        <property name="sfId" type="java.lang.Integer">
+            <column name="SfID" />
+        </property>
+        <property name="provider" type="java.lang.String">
+            <column name="Provider" length="50" />
+        </property>
+        <property name="file" type="java.lang.String">
+            <column name="File" length="50">
+  
+            </column>
+        </property>
+        <property name="background" type="java.lang.String">
+            <column name="Background" length="50" />
+        </property>
+        <property name="enviroment" type="java.lang.String">
+            <column name="Enviroment" length="50" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="Status">
+
+            </column>
+        </property>
+        <set name="feedbackitems" inverse="true" fetch="select" cascade="all" lazy="false">
+            <key>
+                <column name="RecordID" 	not-null="true"/>
+            </key>
+            <one-to-many class="com.ht706.componentLibrary.componentFeedBack.bean.hbm.FeedbackItem" />
+        </set>
+    </class>
+</hibernate-mapping>

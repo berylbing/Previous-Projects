@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN2.0//EN" "http://www.springframeword.org/dtd/spring-beans-2.0.dtd">
+<beans>
+<!--数据库配置-->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+			destroy-method="close">
+		<property name="url" 
+		value="jdbc:mysql://192.168.0.127:3306/clmsdb13?characterEncoding=gbk"
+		/>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="username" value="root" />
+		<property name="password" value="ht706" />
+	</bean>
+	
+
+	<!--hibernate映射文件配置-->
+	<bean id="sessionFactory"
+			class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+			destroy-method="destroy" >
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>
+				/com/ht706/componentLibrary/systemManagement/bean/hbm/Actor.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/systemManagement/bean/hbm/Actortoauthorization.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/systemManagement/bean/hbm/Authorization.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/systemManagement/bean/hbm/Contactis.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/systemManagement/bean/hbm/Department.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/systemManagement/bean/hbm/Library.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/systemManagement/bean/hbm/Organization.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/systemManagement/bean/hbm/OrganizationTask.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/systemManagement/bean/hbm/Usertoactor.hbm.xml
+				</value>
+				<!-- jbpm hbm -->
+				<value>jbpm.repository.hbm.xml</value>
+            	<value>jbpm.execution.hbm.xml</value>
+           	 	<value>jbpm.history.hbm.xml</value>
+           	 	<value>jbpm.task.hbm.xml</value>
+            	<value>jbpm.identity.hbm.xml</value> 
+				<!-- componentRelease模块hbm -->
+				<value>
+				/com/ht706/componentLibrary/componentRelease/bean/hbm/Asset.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentRelease/bean/hbm/Element.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentRelease/bean/hbm/Elimentfiles.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentRelease/bean/hbm/Islocatedin.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentRelease/bean/hbm/Ismadeof.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentRelease/bean/hbm/Wascreatedby.hbm.xml
+				</value>
+				
+				<value>
+				/com/ht706/componentLibrary/componentRelease/bean/hbm/Assetmodifyapplication.hbm.xml
+				</value>
+				
+				<value>
+				/com/ht706/componentLibrary/componentRelease/bean/hbm/Componentrelation.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentRelease/bean/hbm/Costeffect.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentRelease/bean/hbm/Recommendation.hbm.xml
+				</value>
+				
+				
+				<!-- Feedback模块hbm -->
+				<value>
+				/com/ht706/componentLibrary/componentFeedBack/bean/hbm/Feedback.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentFeedBack/bean/hbm/Feedbackitem.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentFeedBack/bean/hbm/Standardfeedback.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentFeedBack/bean/hbm/Standardfeedbackitem.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentFeedBack/bean/hbm/Itemfunction.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentFeedBack/bean/hbm/Problemreport.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentFeedBack/bean/hbm/Problemtrace.hbm.xml
+				</value>
+			
+
+				<!-- componentSpecification模块hbm -->
+				<value>	
+				/com/ht706/componentLibrary/componentSpecification/bean/hbm/Classificationindex.hbm.xml
+				</value>
+				<value>	
+				/com/ht706/componentLibrary/componentSpecification/bean/hbm/Facet.hbm.xml
+				</value>
+				<value>	
+				/com/ht706/componentLibrary/componentSpecification/bean/hbm/Relationtype.hbm.xml
+				</value>
+				<value>	
+				/com/ht706/componentLibrary/componentSpecification/bean/hbm/Specification.hbm.xml
+				</value>
+				<value>	
+				/com/ht706/componentLibrary/componentSpecification/bean/hbm/Specificationmodify.hbm.xml
+				</value>
+				<value>	
+				/com/ht706/componentLibrary/componentSpecification/bean/hbm/Structiondiagram.hbm.xml
+				</value>
+				<value>	
+				/com/ht706/componentLibrary/componentSpecification/bean/hbm/Synchlog.hbm.xml
+				</value>
+				<value>	
+				/com/ht706/componentLibrary/componentSpecification/bean/hbm/Synonym.hbm.xml
+				</value>
+				<value>	
+				/com/ht706/componentLibrary/myFavorite/bean/hbm/Myfavorite.hbm.xml
+				</value>			
+
+				<!-- componentStatics模块hbm -->
+				<value>
+				/com/ht706/componentLibrary/componentStaticsReport/bean/hbm/Activitystatistic.hbm.xml
+				</value>
+				<value>
+				/com/ht706/componentLibrary/componentStaticsReport/bean/hbm/Checkoutrecord.hbm.xml
+				</value>
+				<!-- Sec -->
+<!--				<value>	-->
+<!--				/com/ht706/componentLibrary/util/security/bean/hbm/Authorizationtourl.hbm.xml-->
+<!--				</value>-->
+<!--				<value>	-->
+<!--				/com/ht706/componentLibrary/util/security/bean/hbm/SecUrl.hbm.xml-->
+<!--				</value>-->
+				<value>	
+				/com/ht706/componentLibrary/util/security/bean/hbm/Actorandurl.hbm.xml
+				</value>
+				<!-- forum模块hbm -->
+				<value>	
+				com/ht706/componentLibrary/forum/bean/hbm/ForumBulletin.hbm.xml
+				</value>
+				<value>	
+				com/ht706/componentLibrary/forum/bean/hbm/ForumForum.hbm.xml
+				</value>
+				<value>	
+				com/ht706/componentLibrary/forum/bean/hbm/ForumTopic.hbm.xml
+				</value>
+				<value>	
+				com/ht706/componentLibrary/forum/bean/hbm/ForumThread.hbm.xml
+				</value>				
+			</list>
+		</property>
+		<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.show_sql">true</prop>
+			<prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect </prop>
+			<prop key="hibernate.format_sql">false</prop>
+			<prop key="hibernate.hdm2ddl.auto">update</prop>
+			<prop key="hibernate.cache.provider_class">
+				org.hibernate.cache.EhCacheProvider
+			</prop>
+			<prop key="hibernate.cache.use_query_cache">true</prop>
+		</props>
+		</property>
+	</bean>
+	<!--SERVICE层配置-->												<!--事务工厂代理类-->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!--JBPM配置-->
+	<bean id="springHelper" class="org.jbpm.pvm.internal.processengine.SpringHelper" >
+	<property name="jbpmCfg" value="jbpm.cfg.xml" />  
+	</bean>
+
+	<bean id="processEngine" factory-bean="springHelper" factory-method="createProcessEngine" /> 
+	<bean id="SpringContextUtil" class="com.ht706.componentLibrary.util.SpringContextUtil" scope="singleton"/>
+
+	
+	
+</beans>

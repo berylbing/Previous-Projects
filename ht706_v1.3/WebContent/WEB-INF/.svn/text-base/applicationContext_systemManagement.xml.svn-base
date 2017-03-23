@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN2.0//EN" "http://www.springframeword.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	
+	
+	
+	<!--DAO层配置-->
+	
+	<bean id="organizationDAO"								
+		class="com.ht706.componentLibrary.systemManagement.dao.impl.OrganizationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="organizationTaskDAO"								
+		class="com.ht706.componentLibrary.systemManagement.dao.impl.OrganizationTaskDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="libraryDAO"								
+		class="com.ht706.componentLibrary.systemManagement.dao.impl.LibraryDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="actorDAO"								
+		class="com.ht706.componentLibrary.systemManagement.dao.impl.ActorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="authorizationDAO"								
+		class="com.ht706.componentLibrary.systemManagement.dao.impl.AuthorizationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="actorToAuthorizationDAO"								
+		class="com.ht706.componentLibrary.systemManagement.dao.impl.ActorToAuthorizationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="departmentDAO"								
+		class="com.ht706.componentLibrary.systemManagement.dao.impl.DepartmentDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	<bean id="usertoactorDAO"								
+		class="com.ht706.componentLibrary.systemManagement.dao.impl.UsertoactorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>
+	
+	
+<!--SERVICEPROXY层配置-->												
+<bean id="libraryServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+ <property name="transactionManager">
+  <ref bean="transactionManager" /> 
+  </property>
+  <property name="target">
+  <ref bean="libraryService" /> 
+  </property>
+  <property name="transactionAttributes">
+  <props>
+  <prop key="del*">PROPAGATION_REQUIRED</prop> 
+  <prop key="create*">PROPAGATION_REQUIRED</prop> 
+  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+  <prop key="modify*">PROPAGATION_REQUIRED</prop> 
+  </props>
+  </property>
+
+</bean>		
+<bean id="actorServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+ <property name="transactionManager">
+  <ref bean="transactionManager" /> 
+  </property>
+  <property name="target">
+  <ref bean="actorService" /> 
+  </property>
+  <property name="transactionAttributes">
+  <props>
+  <prop key="del*">PROPAGATION_REQUIRED</prop> 
+  <prop key="create*">PROPAGATION_REQUIRED</prop> 
+  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+  <prop key="modify*">PROPAGATION_REQUIRED</prop> 
+  </props>
+  </property>
+</bean>		
+<bean id="authorizationServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+ <property name="transactionManager">
+  <ref bean="transactionManager" /> 
+  </property>
+  <property name="target">
+  <ref bean="authorizationService" /> 
+  </property>
+  <property name="transactionAttributes">
+  <props>
+  <prop key="del*">PROPAGATION_REQUIRED</prop> 
+  <prop key="create*">PROPAGATION_REQUIRED</prop> 
+  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+  <prop key="modify*">PROPAGATION_REQUIRED</prop> 
+  </props>
+  </property>
+		</bean>	
+<bean id="departmentServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+ <property name="transactionManager">
+  <ref bean="transactionManager" /> 
+  </property>
+  <property name="target">
+  <ref bean="departmentService" /> 
+  </property>
+  <property name="transactionAttributes">
+  <props>
+  <prop key="del*">PROPAGATION_REQUIRED</prop> 
+  <prop key="create*">PROPAGATION_REQUIRED</prop> 
+  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+  <prop key="modify*">PROPAGATION_REQUIRED</prop> 
+  </props>
+  </property>
+</bean>	
+<bean id="organizationServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+ <property name="transactionManager">
+  <ref bean="transactionManager" /> 
+  </property>
+  <property name="target">
+  <ref bean="organizationService" /> 
+  </property>
+  <property name="transactionAttributes">
+  <props>
+  <prop key="del*">PROPAGATION_REQUIRED</prop> 
+  <prop key="create*">PROPAGATION_REQUIRED</prop> 
+  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+  <prop key="modify*">PROPAGATION_REQUIRED</prop> 
+  <prop key="search*">PROPAGATION_REQUIRED</prop> 
+  <prop key="find*">PROPAGATION_REQUIRED</prop> 
+  </props>
+  </property>
+</bean>		
+<bean id="safeControlServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+ <property name="transactionManager">
+  <ref bean="transactionManager" /> 
+  </property>
+  <property name="target">
+  <ref bean="safeControlService" /> 
+  </property>
+   <property name="transactionAttributes">
+  <props>
+  <prop key="del*">PROPAGATION_REQUIRED</prop> 
+  <prop key="create*">PROPAGATION_REQUIRED</prop> 
+  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+  <prop key="modify*">PROPAGATION_REQUIRED</prop> 
+  <prop key="search*">PROPAGATION_REQUIRED</prop> 
+  <prop key="find*">PROPAGATION_REQUIRED</prop> 
+  </props>
+  </property>
+</bean>	
+<bean id="workflowServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+ <property name="transactionManager">
+  <ref bean="transactionManager" /> 
+  </property>
+  <property name="target">
+  <ref bean="workflowService" /> 
+  </property>
+  <property name="transactionAttributes">
+  <props>
+  <prop key="del*">PROPAGATION_REQUIRED</prop> 
+  <prop key="create*">PROPAGATION_REQUIRED</prop> 
+  <prop key="list*">PROPAGATION_REQUIRED</prop> 
+  <prop key="modify*">PROPAGATION_REQUIRED</prop> 
+  <prop key="search*">PROPAGATION_REQUIRED</prop> 
+  <prop key="find*">PROPAGATION_REQUIRED</prop> 
+  </props>
+  </property>
+</bean>		
+	
+	
+	
+	<!--SERVICE层配置-->												<!--事务工厂代理类-->
+<bean id="libraryService" class="com.ht706.componentLibrary.systemManagement.bo.impl.LibraryServiceImpl">
+		<property name= "libraryDAO" ref="libraryDAO">
+		</property>
+</bean>		
+<bean id="actorService" class="com.ht706.componentLibrary.systemManagement.bo.impl.ActorServiceImpl">
+		<property name= "actorDAO" ref="actorDAO"></property>
+		<property name= "userToActorDao" ref="usertoactorDAO"/>
+</bean>		
+<bean id="authorizationService" class="com.ht706.componentLibrary.systemManagement.bo.impl.AuthorizationServiceImpl">
+		<property name= "authorizationDAO" ref="authorizationDAO">
+		</property>
+	
+		</bean>	
+<bean id="departmentService" class="com.ht706.componentLibrary.systemManagement.bo.impl.DepartmentServiceImpl">
+		<property name= "departmentDAO" ref="departmentDAO">
+		</property>
+	
+</bean>	
+<bean id="organizationService" class="com.ht706.componentLibrary.systemManagement.bo.impl.OrganizationServiceImpl">
+		<property name= "departmentDAO" ref="departmentDAO"></property>
+		<property name= "organizationDAO" ref="organizationDAO">
+		</property>
+	
+</bean>	
+<bean id="workflowService" class="com.ht706.componentLibrary.systemManagement.bo.impl.WorkflowServiceImpl">
+		<property name= "organizationTaskDAO" ref="organizationTaskDAO"></property>
+		<property name= "organizationDAO" ref="organizationDAO"></property>
+		<property name= "departmentDAO" ref="departmentDAO"></property>
+
+</bean>		
+<bean id="safeControlService" class="com.ht706.componentLibrary.systemManagement.bo.impl.SafeControlServiceImpl">
+		<property name= "actorToAuthorizationDAO" ref="actorToAuthorizationDAO"></property>
+		<property name= "userToActorDAO" ref="usertoactorDAO"></property>
+		<property name= "authorizationDAO" ref="authorizationDAO"></property>
+		<property name= "organizationDAO" ref="organizationDAO"></property>
+		<property name= "departmentDAO" ref="departmentDAO"></property>
+		<property name= "actorDAO" ref="actorDAO">
+		</property>
+		<property name= "filterSecurityInterceptorByDB" ref="filterSecurityInterceptorByDB"/>
+</bean>								
+	
+	
+	
+	
+	
+	
+	
+	<!--代理方式整合STRUTS-->
+<!--	<bean name="/loginAction" class="com.ht706.componentLibrary.login.action.LoginAction">-->
+<!--		<property name="organizationDAO" ref="organizationDAO"></property>-->
+<!--	</bean>-->
+	<bean name="/xitongguanli/jbpmTest" class="com.ht706.componentLibrary.systemManagement.action.JbomTest">
+		 <property name="sessionFactory" ref="sessionFactory"/>
+		 <property name="processEngine" ref="processEngine"/> 
+		 <property name="workflowService" ref="workflowServiceProxy"/>
+		 <property name="organizationService" ref="organizationServiceProxy"></property>
+	</bean>
+	
+	<bean name="/xitongguanli/basicInfoAction" class="com.ht706.componentLibrary.systemManagement.action.BasicInfoAction"  >
+		<property name="libraryService" ref="libraryServiceProxy"></property>
+	</bean>
+	<bean name="/xitongguanli/actorAction" class="com.ht706.componentLibrary.systemManagement.action.ActorAction"  >
+		<property name="actorService" ref="actorService"></property>
+	</bean>
+	<bean name="/xitongguanli/authorizationAction" class="com.ht706.componentLibrary.systemManagement.action.AuthorizationAction"  >
+		<property name="authorizationService" ref="authorizationServiceProxy"></property>
+	</bean>
+	<bean name="/xitongguanli/safeControlAction" class="com.ht706.componentLibrary.systemManagement.action.SafeControlAction"  >
+		<property name="safeControlService" ref="safeControlServiceProxy"></property>
+	</bean>
+	<bean name="/xitongguanli/departmentAction" class="com.ht706.componentLibrary.systemManagement.action.DepartmentAction"  >
+		<property name="departmentService" ref="departmentServiceProxy"></property>
+	</bean>
+	<bean name="/xitongguanli/organizationAction" class="com.ht706.componentLibrary.systemManagement.action.OrganizationAction"  >
+		<property name="organizationService" ref="organizationServiceProxy"></property>
+	</bean>
+	<bean name="/xitongguanli/workflowAction" class="com.ht706.componentLibrary.systemManagement.action.WorkflowAction"  >
+		<property name="workflowService" ref="workflowServiceProxy"></property>
+		<property name="organizationService" ref="organizationServiceProxy"></property>
+	</bean>
+
+</beans>

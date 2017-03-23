@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN2.0//EN" "http://www.springframeword.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+	<!-- 构件发布模块JAVABEAN -->
+	<!-- Struts配置 -->
+	<bean name="/componentRelease/ComponentList" class="com.ht706.componentLibrary.componentRelease.action.ComponentManagementAction">
+		<property name="service" ref="ComponentServiceProxy"></property>
+		<property name="elementService" ref="ComponentElementServiceProxy"></property>
+		<property name="facetService" ref="FacetServiceProxy"></property>
+		<property name="specificationService" ref="specificationServiceProxy"/>
+		<property name="processEngine" ref="processEngine"/> 
+	</bean>
+	<bean name="/componentRelease/FacetTreeAction" class="com.ht706.componentLibrary.componentRelease.action.FacetAction">
+		<property name="facetService" ref="FacetServiceProxy" />
+	</bean>
+	<bean name="/componentRelease/CreatComponent" class="com.ht706.componentLibrary.componentRelease.action.ComponentManagementAction">
+		<property name="service" ref="ComponentServiceProxy"></property>
+		<property name="elementService" ref="ComponentElementServiceProxy"></property>
+		<property name="processEngine" ref="processEngine"/> 
+	</bean>
+	<bean name="/componentRelease/CreatComponentElement" class="com.ht706.componentLibrary.componentRelease.action.ComponentElementManagementAction">
+		<property name="elementService" ref="ComponentElementServiceProxy"></property>
+	</bean>
+	<bean name="/componentRelease/PreFacetTree" class="com.ht706.componentLibrary.componentRelease.action.ComponentManagementAction">
+		<property name="service" ref="ComponentServiceProxy"></property>
+		<property name="elementService" ref="ComponentElementServiceProxy"></property>
+		<property name="facetService" ref="FacetServiceProxy"></property>
+		<property name="specificationService" ref="specificationServiceProxy"/>
+		<property name="processEngine" ref="processEngine"/> 
+	</bean>
+	
+	<!--                 proxy           -->
+	<bean id="ComponentServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="ComponentService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="view*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="creat*">PROPAGATION_REQUIRED</prop>
+			  <prop key="edit*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			  <prop key="search*">PROPAGATION_REQUIRED</prop>
+			  <prop key="submit*">PROPAGATION_REQUIRED</prop>
+			   <prop key="find*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	 
+	 <bean id="ComponentElementServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" >
+		<property name="transactionManager">
+		  <ref bean="transactionManager" /> 
+		  </property>
+		<property name="target">
+			  <ref bean="ComponentElementService" /> 
+			</property>
+		<property name="transactionAttributes">
+			<props>
+			  <prop key="view*">PROPAGATION_REQUIRED</prop> 
+			  <prop key="creat*">PROPAGATION_REQUIRED</prop>
+			  <prop key="edit*">PROPAGATION_REQUIRED</prop>
+			  <prop key="delete*">PROPAGATION_REQUIRED</prop>
+			   <prop key="search*">PROPAGATION_REQUIRED</prop>
+			 </props>
+		</property>
+	 </bean>
+	<!-- Service配置 -->
+	<bean id="ComponentService"								
+		class="com.ht706.componentLibrary.componentRelease.bo.impl.ComponentSeverice">
+		<property name="assetDAO" ref="AssetDAOImpl" />
+		<property name="componentrelationDAO" ref="ComponentrelationDAOImpl" />
+		<property name="costeffectDAO" ref="CosteffectDAOImpl" />
+		<property name="recommendationDAO" ref="RecommendationDAOImpl" />
+		<property name="wascreatedbyDAO" ref="WascreatedbyDAOImpl" />
+		<property name="libraryDAO" ref="libraryDAO" />
+		<property name="organizationDAO" ref="organizationDAO"/>
+		<property name="classificationindexDAO" ref="ClassificationindexDAO" />
+<!--		<property name="transactionTemplate">-->
+<!--			<bean class="org.springframework.transaction.support.TransactionTemplate">-->
+<!--				<property name="transactionManager" ref="transactionManager" />-->
+<!--			</bean>-->
+<!--		</property>-->
+	</bean>
+		<bean id="ComponentElementService"								
+		class="com.ht706.componentLibrary.componentRelease.bo.impl.ComponentElementService">
+		<property name="elementDAO" ref="ElementDAOImpl" />
+		<property name="assetDAO" ref="AssetDAOImpl" />
+		<property name="ismadeofDAO" ref="IsmadeofDAOImpl" />
+<!--		<property name="transactionTemplate">-->
+<!--			<bean class="org.springframework.transaction.support.TransactionTemplate">-->
+<!--				<property name="transactionManager" ref="transactionManager" />-->
+<!--			</bean>-->
+<!--		</property>	-->
+	</bean>
+	
+	
+	<!-- DAO配置 -->
+	<bean id="AssetDAOImpl"								
+		class="com.ht706.componentLibrary.componentRelease.dao.impl.AssetDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="ElementDAOImpl"								
+		class="com.ht706.componentLibrary.componentRelease.dao.impl.ElementDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="ComponentrelationDAOImpl"								
+		class="com.ht706.componentLibrary.componentRelease.dao.impl.ComponentrelationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="IsmadeofDAOImpl"								
+		class="com.ht706.componentLibrary.componentRelease.dao.impl.IsmadeofDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="CosteffectDAOImpl"								
+		class="com.ht706.componentLibrary.componentRelease.dao.impl.CosteffectDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="RecommendationDAOImpl"								
+		class="com.ht706.componentLibrary.componentRelease.dao.impl.RecommendationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="WascreatedbyDAOImpl"								
+		class="com.ht706.componentLibrary.componentRelease.dao.impl.WascreatedbyDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="jbpm_Creat_Asset" class="com.ht706.componentLibrary.systemManagement.action.ProcessEventListener">
+		<property name="service" ref="ComponentServiceProxy"></property>
+	</bean>
+
+	
+	
+</beans>

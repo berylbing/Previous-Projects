@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<process name="StandardFeedback" xmlns="http://jbpm.org/4.4/jpdl" description="质量评价及反馈流程">
+   <start name="start1" g="382,49,48,48">
+      <transition name="开始" to="质量评价草稿" g="-53,-17"/>
+   </start>
+   <task name="质量评价草稿" g="360,130,92,52" assignee="#{owner}">
+      <transition name="提交" to="审核" g="-37,-6"/>
+   </task>
+   <task name="审核" g="363,243,92,52" assignee="StandardFeedback_审核">
+      <transition name="驳回" to="质量评价草稿" g="260,270;255,156:-37,0"/>
+      <transition name="批准" to="已批准" g="-71,-17"/>
+   </task>
+   <task name="已批准" g="362,339,92,52" assignee="StandardFeedback_已批准">
+      <transition name="完成" to="end1" g="-37,1"/>
+   </task>
+   <end name="end1" g="389,425,48,48"/>
+</process>

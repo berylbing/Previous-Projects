@@ -1,0 +1,12 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+	<head>
+		<title>人员选择</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+	</head>
+	<frameset cols="220,*" id="frmstOuter" border="0" style="margin-left: 10px;">
+		<!-- select==4 用于人员的多选 -->
+		<frame src="organizationAction.do?method=getDepartmentTree&select=4" name="leftFrame" scrolling="NO" frameborder="1" bordercolor="#4faad8">
+		<frame src="organizationAction.do?method=searchOrganization&select=4" name="userFrame">
+	</frameset>	
+</html>

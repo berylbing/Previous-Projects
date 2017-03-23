@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+	<head>
+		<title>软件构件库管理系统</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+	</head>
+	<frameset border="0">
+		<frameset cols="220,*" id="frmstOuter">
+			<frame src="organizationAction.do?method=getDepartmentTree&select=1" name="leftFrame" scrolling="NO" frameborder="1" bordercolor="#4faad8">
+			<frame src="organizationAction.do?method=searchOrganization&select=1" name="userFrame">
+		</frameset>
+	</frameset>
+	<noframes>
+		<body>
+		</body>
+	</noframes>
+</html>

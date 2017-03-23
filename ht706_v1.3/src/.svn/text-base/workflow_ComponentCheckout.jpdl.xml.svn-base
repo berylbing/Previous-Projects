@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="ComponentCheckout" xmlns="http://jbpm.org/4.4/jpdl" description="构件出库流程">
+   <start name="start1" g="303,97,48,48">
+      <transition name="开始" to="出库报告单" g="-33,-16"/>
+   </start>
+   <end name="end1" g="292,507,48,48"/>
+   <task name="出库报告单" g="278,207,92,52" assignee="#{owner}">
+      <transition name="提交" to="审核" g="-47,-17"/>
+   </task>
+   <task name="审核" g="275,321,92,52" assignee="ComonentCheckout_审核">
+      <transition name="批准" to="出库" g="-47,-17"/>
+      <transition name="驳回" to="出库报告单" g="188,346;190,236:-30,-12"/>
+   </task>
+   <task name="出库" g="273,413,92,52" assignee="ComonentCheckout_批准">
+      <transition name="完成" to="end1" g="-47,-17"/>
+   </task>
+</process>

@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>构件库管理系统</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+		<link href="../css/common.css" rel="stylesheet" type="text/css">
+		<style>
+input {
+	font-size: 12px;
+	color: #000000;
+	background-color: #F1F4F5;
+	border: 1px solid #49789C;
+	padding: 2px 0px 0px 5px;
+}
+</style>
+		<script>
+	function bc(){
+             location.href = "userList.htm";
+	}
+</script>
+	</head>
+	<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class=title>
+			<tr>
+				<td>
+					人员详细信息
+				</td>
+			</tr>
+		</table>
+		<div class=editblock>
+			<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+				<tr height="35">
+					<th align="right" width="25%">
+						登录名：
+					</th>
+					<td width="75%">
+						<input type="text" name="cname" value="" size="50">
+					</td>
+				</tr>
+				<tr height="35">
+					<th align="right" width="25%">
+						姓名：
+					</th>
+					<td width="75%">
+						<input type="text" name="cname" value="" size="50">
+					</td>
+				</tr>
+				<tr height="35">
+					<th align="right" width="25%">
+						密码：
+					</th>
+					<td width="75%">
+						<input type="text" name="cname" value="" size="50">
+					</td>
+				</tr>
+				<tr height="35">
+					<th align="right" width="25%">
+						确认密码：
+					</th>
+					<td width="75%">
+						<input type="text" name="cname" value="" size="50">
+					</td>
+				</tr>
+				<tr height="35">
+					<th align="right">
+						所属部门：
+					</th>
+					<td>
+						<select name="sx" onchange="change(this.value)">
+							<option value="1">
+								706所
+							</option>
+							<option value="2">
+								706所/一室
+							</option>
+							<option value="3">
+								二部
+							</option>
+							<option value="4">
+								二部/一室
+							</option>
+						</select>
+					</td>
+				</tr>
+				<tr height="35">
+					<th align="right">
+						性别：
+					</th>
+					<td>
+						<input type="radio" name="cname">
+						男 &nbsp;&nbsp;
+						<input type="radio" name="cname">
+						女 &nbsp;&nbsp;
+					</td>
+				</tr>
+				<tr height="35">
+					<th align="right" width="25%">
+						出生日期：
+					</th>
+					<td width="75%">
+						<input type="text" name="cname" value="" size="50">
+					</td>
+				</tr>
+				<tr height="35">
+					<th align="right" width="25%">
+						身份证：
+					</th>
+					<td width="75%">
+						<input type="text" name="cname" value="" size="50">
+					</td>
+				</tr>
+				<tr height="35">
+					<th align="right" width="25%">
+						联系地址：
+					</th>
+					<td width="75%">
+						<input type="text" name="cname" value="" size="50">
+					</td>
+				</tr>
+				<tr height="35">
+					<th align="right" width="25%">
+						电话：
+					</th>
+					<td width="75%">
+						<input type="text" name="cname" value="" size="50">
+					</td>
+				</tr>
+				<tr height="35">
+					<th align="right" width="25%">
+						邮箱：
+					</th>
+					<td width="75%">
+						<input type="text" name="cname" value="" size="50">
+					</td>
+				</tr>
+				<tr height="35">
+					<th align="right">
+						密级：
+					</th>
+					<td>
+						<input type="radio" name="cname">
+						公开 &nbsp;&nbsp;
+						<input type="radio" name="cname">
+						内部 &nbsp;&nbsp;
+						<input type="radio" name="cname">
+						秘密 &nbsp;&nbsp;
+						<input type="radio" name="cname">
+						机密 &nbsp;&nbsp;
+						<input type="radio" name="cname">
+						绝密 &nbsp;&nbsp;
+					</td>
+				</tr>
+				<tr height="35">
+					<th align="right">
+						说明：
+					</th>
+					<td>
+						<input type="text" name="cname" size="50">
+					</td>
+				</tr>
+			</table>
+			<div id=bc align=right>
+				<!--
+  	<input onclick='bc()' type=button value=' 新 建 ' class='input_button'>
+  	<input onclick='bc()' type=button value=' 删 除 ' class='input_button'>
+    -->
+				<input onclick='bc()' type=button value=' 保 存 ' class='input_button'>
+			</div>
+			<br>
+		</div>
+	</body>
+</html>
